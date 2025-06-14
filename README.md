@@ -86,7 +86,7 @@ WildDumpPrevention/
 - Upload d’image par utilisateur
 - Annotation manuelle de l’état (pleine/vide)
 - Extraction automatique de caractéristiques visuelles :
-  - Taille du fichier, dimensions, couleur moyenne, histogrammes, contraste, contours
+- Taille du fichier, dimensions, couleur moyenne, histogrammes, contraste, contours
 - Classification automatique par règles conditionnelles (sans ML)
 - Tableau de bord interactif avec indicateurs et filtres
 - Export des données et visualisation des zones à risque
