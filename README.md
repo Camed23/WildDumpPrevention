@@ -109,6 +109,6 @@ WildDumpPrevention/
 ### 1. Cloner le dépôt
 ```bash
 git clone https://github.com/<ton-compte>/wild-dump-prevention.git
-cd wild-dump-prevention
+cd WildDumpPrevention
 ```
 
