@@ -65,22 +65,6 @@ WildDumpPrevention/
 ├── requirements.txt
 └── run.sh                          # (optionnel) script shell pour lancer tout d’un coup
 ```
-
----
-
-
-## 👥 Équipe projet & responsabilités
-
-| Nom           | Rôle                   | Missions                                   |
-| ------------- | ---------------------- | ------------------------------------------ |
-| **Farid**     | Backend & Coordination | API Flask, base de données, intégration    |
-| **Alexandre** | Feature Engineering    | Extraction d’images, moteur de règles      |
-| **Lisa**      | Frontend & UX/UI       | Interfaces web, responsive design          |
-| **Loéiz**     | Base de données        | Schéma SQL, ORM, intégration Flask         |
-| **Duval**     | QA & Documentation     | Tests, manuel utilisateur, support         |
-| **Athalie**   | Dashboard & Green IT   | Visualisation, indicateurs, éco-conception |
-
-
 ---
 
 ## 💡 Fonctionnalités principales
@@ -95,6 +79,19 @@ WildDumpPrevention/
 
 ---
 
+## 👥 Équipe projet & responsabilités
+
+| Nom           | Rôle                   | Missions                                   |
+| ------------- | ---------------------- | ------------------------------------------ |
+| **Farid**     | Backend & Coordination | API Flask, base de données, intégration    |
+| **Alexandre** | Feature Engineering    | Extraction d’images, moteur de règles      |
+| **Lisa**      | Frontend & UX/UI       | Interfaces web, responsive design          |
+| **Loéiz**     | Base de données        | Schéma SQL, ORM, intégration Flask         |
+| **Duval**     | QA & Documentation     | Tests, manuel utilisateur, support         |
+| **Athalie**   | Dashboard & Green IT   | Visualisation, indicateurs, éco-conception |
+
+---
+
 ## ⚙️ Technologies utilisées
 | Côté               | Technologies                            |
 | ------------------ | --------------------------------------- |
@@ -104,7 +101,6 @@ WildDumpPrevention/
 | **Visualisation**  | Matplotlib (serveur), Chart.js (client) |
 | **Collaboration**  | GitHub, Git, Discord                    |
 | **Éco-conception** | Green IT Framework (ADEME)              |
-
 
 ---
 
