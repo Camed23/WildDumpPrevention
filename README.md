@@ -1,5 +1,14 @@
-## WildDumpPrevention
-Plateforme web intelligente de suivi des poubelles à partir d’images – Mastercamp Efrei 2025
+## 🗑️ Wild Dump Prevention – Mastercamp Efrei 2025
+
+**Plateforme web intelligente de suivi des poubelles à partir d’images – Projet Data / AI for Good**
+
+---
+
+## 🚀 Objectif du projet
+
+Développer une plateforme web capable de détecter automatiquement l’état des poubelles (pleines ou vides) à partir d’images uploadées par des citoyens ou des agents municipaux, pour prévenir les dépôts sauvages et améliorer la gestion urbaine des déchets.
+
+---
 
 ### 🔧 Architecture du Projet
 
