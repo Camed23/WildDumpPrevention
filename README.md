@@ -115,7 +115,7 @@ WildDumpPrevention/
 
 ```bash
 # 1. Cloner le projet
-git clone https://github.com/farid-dev/wild-dump-prevention.git
+git clone https://github.com/Camed23/WildDumpPrevention.git
 cd WildDumpPrevention
 
 # 2. Créer un environnement virtuel
