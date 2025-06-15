@@ -67,7 +67,7 @@ WildDumpPrevention/
 ```
 ---
 
-## 💡 Fonctionnalités principales
+### 💡 Fonctionnalités principales
 
 - Upload d’image par utilisateur
 - Annotation manuelle de l’état (pleine/vide)
@@ -79,7 +79,7 @@ WildDumpPrevention/
 
 ---
 
-## 👥 Équipe projet & responsabilités
+### 👥 Équipe projet & responsabilités
 
 | Nom           | Rôle                   | Missions                                   |
 | ------------- | ---------------------- | ------------------------------------------ |
@@ -92,7 +92,7 @@ WildDumpPrevention/
 
 ---
 
-## ⚙️ Technologies utilisées
+### ⚙️ Technologies utilisées
 | Côté               | Technologies                            |
 | ------------------ | --------------------------------------- |
 | **Backend**        | Python 3, Flask, OpenCV, Pillow         |
@@ -104,11 +104,37 @@ WildDumpPrevention/
 
 ---
 
-## 🧪 Lancer le projet localement
+### 🚀 Lancer le projet en local
 
-### 1. Cloner le dépôt
+#### 🔧 Pré-requis
+- Python 3.9+
+- `pip`, `virtualenv`
+- Git installé
+
+### ▶️ Installation
+
 ```bash
-git clone https://github.com/<ton-compte>/wild-dump-prevention.git
+# 1. Cloner le projet
+git clone https://github.com/farid-dev/wild-dump-prevention.git
 cd WildDumpPrevention
+
+# 2. Créer un environnement virtuel
+python -m venv venv
+source venv/bin/activate  # ou venv\Scripts\activate sous Windows
+
+# 3. Installer les dépendances
+pip install -r requirements.txt
+
+# 4. Lancer le serveur Flask
+cd backend
+python app.py
+
 ```
+
+### 🤝 Contribuer
+
+- Cloner le projet
+- Créer une branche : feature/ma-fonctionnalite
+- Faire un pull request avec une bonne description !
+
 
