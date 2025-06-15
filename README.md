@@ -119,10 +119,6 @@ git clone https://github.com/farid-dev/wild-dump-prevention.git
 cd WildDumpPrevention
 
 # 2. Créer un environnement virtuel
-# Aller dans le dossier backend
-cd backend
-
-# 3. Créer un environnement virtuel dans backend/
 python -m venv venv
 
 # 4. Activer l’environnement
@@ -133,6 +129,7 @@ venv\Scripts\activate     # sous Windows
 pip install -r requirements.txt
 
 # 6. Lancer le serveur Flask
+cd backend
 python app.py
 ```
 
