@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Image uploadée</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <h2>Image uploadée avec succès</h2>
+    <img src="{{ url_for('uploaded_file', filename=filename) }}" width="300" alt="Image nouvellement uploadé">
+
+    <p><a href="/upload">Uploader une autre image</a> | <a href="/gallery">Voir la galerie</a></p>
+</body>
+</html>
