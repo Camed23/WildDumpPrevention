@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Galerie des images dans la base de données</title>
+</head>
+<body>
+<h2>Galerie Supabase</h2>
+<ul>
+  {% for image in images %}
+    <li>{{ image.filename }} - {{ image.annotation }}</li>
+    <img src="{{ url_for('uploaded_file', filename=image.filename) }}" width="200" alt="Image de poubelle">
+  {% endfor %}
+</ul>
+
+</body>
+</html>

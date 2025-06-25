@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, flash, request, redirect, send_from_directory, url_for
+from supabase import create_client
 
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -7,9 +8,10 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = "dev_une_clé_pas_sécurisée"
 
-@app.route("/")
-def home():
-    return render_template("hello.html")
+url = "https://bqkxmcrmolfjlglmmqlj.supabase.co"
+key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxa3htY3Jtb2xmamxnbG1tcWxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA3NzI1ODgsImV4cCI6MjA2NjM0ODU4OH0.QrcFfKD2aHZP-PwVoWWq1hnNZ5cOCckL4YvmPHsSmt0"
+supabase = create_client(url, key)
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -37,6 +39,22 @@ def generate_unique_filename(extension):
                     pass
     return f"image{max_index + 1}.{extension}"
 
+def insert_image_metadata(filename, annotation="inconnue"):
+    response = supabase.rpc("creation_image", {
+        "p_user_id": 4,  # ou l’ID réel de l’utilisateur uploader
+        "p_file_path": f"/uploads/{filename}",
+        "p_name_image": filename,
+        "p_size": os.path.getsize(os.path.join(app.config['UPLOAD_FOLDER'], filename)) / 1024,
+        "p_width": 0,
+        "p_height": 0,
+        "p_avg_red": 0,
+        "p_avg_green": 0,
+        "p_avg_blue": 0,
+        "p_contrast": 0,
+        "p_edges_detected": 0
+    }).execute()
+    return response
+
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
@@ -55,6 +73,7 @@ def upload_file():
             extension = file.filename.rsplit('.', 1)[1].lower()
             filename = generate_unique_filename(extension)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            insert_image_metadata(filename)
             flash(f"Fichier {filename} uploadé avec succès !")
             return redirect(url_for('show_image', filename=filename))
 
@@ -63,6 +82,10 @@ def upload_file():
 
     return render_template("image_form.html")
 
+
+@app.route("/")
+def home():
+    return render_template("hello.html")
 
 @app.route('/image/<filename>')
 def show_image(filename):
@@ -82,14 +105,11 @@ def gallery():
     ]
     return render_template("gallery.html", images=files)
 
-
-from supabase import create_client, Client
-from datetime import datetime
-
-url = "https://bqkxmcrmolfjlglmmqlj.supabase.co"
-key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxa3htY3Jtb2xmamxnbG1tcWxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA3NzI1ODgsImV4cCI6MjA2NjM0ODU4OH0.QrcFfKD2aHZP-PwVoWWq1hnNZ5cOCckL4YvmPHsSmt0"
-
-supabase: Client = create_client(url, key)
+@app.route("/supabase-gallery")
+def supabase_gallery():
+    result = supabase.table("image").select("*").execute()
+    images = result.data
+    return render_template("supabase_gallery.html", images=images)
 
 
 if __name__ == "__main__":
