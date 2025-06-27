@@ -222,61 +222,66 @@ for image_id in range(61, 68):
     print(f"Suppression image {image_id} -> {response.data}")
 """
 
-#%% test de récupératio des données gps : 
-from PIL import Image
-from PIL.ExifTags import TAGS, GPSTAGS
+#%% Récupération des image no_label et ajout dans la table
+"""
+print("Répertoire courant :", os.getcwd())
 
+user_id = 4
 
-def get_exif_data(image_path):
-    image = Image.open(image_path)
-    exif_data = image._getexif()
-    if not exif_data:
-        return None
+def calculate_image_properties(image_path):
+    img = Image.open(image_path).convert('RGB')
+    stat = ImageStat.Stat(img)
 
-    exif = {}
-    for tag, value in exif_data.items():
-        decoded = TAGS.get(tag, tag)
-        exif[decoded] = value
-    return exif
+    avg_red, avg_green, avg_blue = stat.mean
+    width, height = img.size
 
-def get_gps_info(exif_data):
-    if 'GPSInfo' not in exif_data:
-        return None
+    # Taille fichier en kilo-octets (ou octets)
+    size = os.path.getsize(image_path) / 1024  # en ko
 
-    gps_info = {}
-    for key in exif_data['GPSInfo'].keys():
-        decode = GPSTAGS.get(key, key)
-        gps_info[decode] = exif_data['GPSInfo'][key]
+    # Calcul du contraste (écart-type des pixels)
+    contrast = np.std(np.array(img))
 
-    # Convert GPS coordinates to decimal
-    def convert_to_degrees(value):
-        d = value[0][0] / value[0][1]
-        m = value[1][0] / value[1][1]
-        s = value[2][0] / value[2][1]
-        return d + (m / 60.0) + (s / 3600.0)
+    # Détection des bords : on applique un filtre de contours puis on calcule la moyenne
+    edges = img.filter(ImageFilter.FIND_EDGES)
+    edges_stat = ImageStat.Stat(edges)
+    edges_mean = np.mean(edges_stat.mean)
+    edges_detected = edges_mean > 10  # seuil arbitraire à ajuster
 
-    lat = convert_to_degrees(gps_info['GPSLatitude'])
-    if gps_info['GPSLatitudeRef'] != 'N':
-        lat = -lat
+    return size, width, height, avg_red, avg_green, avg_blue, contrast, edges_detected
 
-    lon = convert_to_degrees(gps_info['GPSLongitude'])
-    if gps_info['GPSLongitudeRef'] != 'E':
-        lon = -lon
+# Chemin du dossier images (relatif au script)
+folder_path = "Data/train/no_label"
 
-    return lat, lon
+for filename in os.listdir(folder_path):
+    if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
+        full_path = os.path.join(folder_path, filename)
+        file_path_for_db = f"{folder_path}/{filename}"  # chemin selon ta table
 
-# Exemple d'utilisation
-exif_data = get_exif_data("Data/train/with_label/clean/0e02598e-acbb-423e-912e-cf2b922b5bd7.jpeg")
-if exif_data:
-    gps_coords = get_gps_info(exif_data)
-    if gps_coords:
-        print("Latitude:", gps_coords[0])
-        print("Longitude:", gps_coords[1])
-    else:
-        print("Aucune info GPS trouvée.")
-else:
-    print("Aucune métadonnée EXIF trouvée.")
+        props = calculate_image_properties(full_path)
+        size, width, height, avg_red, avg_green, avg_blue, contrast, edges_detected = props
+        localisation = random.choice(villes_possibles) # A enlever si ajout via le site avec la localsisation fourni
 
+        # Appel de la fonction stockée creation_image
+        response = supabase.rpc("creation_image", {
+            "p_user_id": user_id,
+            "p_file_path": file_path_for_db,
+            "p_name_image": filename,
+            "p_size": size,
+            "p_width": width,
+            "p_height": height,
+            "p_avg_red": avg_red,
+            "p_avg_green": avg_green,
+            "p_avg_blue": avg_blue,
+            "p_contrast": contrast,
+            "p_edges_detected": int(edges_detected),
+            "p_localisation": localisation  # Ville aléatoire pour les images su train
+        }).execute()
+
+        if response.data is None:
+            print("[ERREUR]", filename)
+        else:
+            print("[OK]", filename)
+"""
 #%% Teste de récupération de l'image et de l'annotation lié
 
 for image_id in [130, 169]:
