@@ -3,7 +3,14 @@ import os
 from PIL import Image, ImageStat, ImageFilter
 from supabase import create_client
 import numpy as np
+import random
 
+# Liste de villes possibles
+villes_possibles = [
+    "Paris", "Lyon", "Marseille", "Toulouse", "Nice",
+    "Lille", "Nantes", "Strasbourg", "Bordeaux", "Montpellier",
+    "Rennes", "Reims", "Le Havre"
+]
 # Remplace avec tes infos Supabase
 url = "https://bqkxmcrmolfjlglmmqlj.supabase.co"
 key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxa3htY3Jtb2xmamxnbG1tcWxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA3NzI1ODgsImV4cCI6MjA2NjM0ODU4OH0.QrcFfKD2aHZP-PwVoWWq1hnNZ5cOCckL4YvmPHsSmt0"
@@ -32,10 +39,7 @@ for user in response.data:
 print("Répertoire courant :", os.getcwd())
 
 user_id = 4
-# 📁 Répertoire contenant les images
-local_path = "Data/train/with_label/clean"
-storage_path_prefix = "/Data/train/with_label/clean"
-
+# 📁 Répertoire contenant les images                                                                           
 
 def calculate_image_properties(image_path):
     img = Image.open(image_path).convert('RGB')
@@ -64,10 +68,11 @@ folder_path = "Data/train/with_label/clean"
 for filename in os.listdir(folder_path):
     if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
         full_path = os.path.join(folder_path, filename)
-        file_path_for_db = f"/Data/{folder_path}/{filename}"  # chemin selon ta table
+        file_path_for_db = f"{folder_path}/{filename}"  # chemin selon ta table
 
         props = calculate_image_properties(full_path)
         size, width, height, avg_red, avg_green, avg_blue, contrast, edges_detected = props
+        localisation = random.choice(villes_possibles) # A enlever si ajout via le site avec la localsisation fourni
 
         # Appel de la fonction stockée creation_image
         response = supabase.rpc("creation_image", {
@@ -81,7 +86,8 @@ for filename in os.listdir(folder_path):
             "p_avg_green": avg_green,
             "p_avg_blue": avg_blue,
             "p_contrast": contrast,
-            "p_edges_detected": int(edges_detected)
+            "p_edges_detected": int(edges_detected),
+            "p_localisation": localisation  # Ville aléatoire pour les images su train
         }).execute()
 
         if response.data is None:
@@ -91,7 +97,7 @@ for filename in os.listdir(folder_path):
 """
 #suppression des images de teste
 """
-for image_id in range(4, 28):  # 28 exclu => jusqu'à 27
+for image_id in range(88, 108):  # 28 exclu => jusqu'à 27
     response = supabase.rpc("supp_image", {"p_image_id": image_id}).execute()
     print(f"Suppression image {image_id} -> {response.data}")
 """
@@ -110,7 +116,7 @@ for image in response.data:
 """
 # Ajoute de l'anottation manuel a vide pour les image récupérer dans clean
 """
-for image_id in range(68, 88):  # 48 exclu, donc de 28 à 47
+for image_id in range(130, 150):  # 48 exclu, donc de 28 à 47
     response = supabase.rpc("creation_annotation", {
         "p_image_id": image_id,
         "p_label": "vide",
@@ -157,10 +163,11 @@ folder_path = "Data/train/with_label/dirty"
 for filename in os.listdir(folder_path):
     if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
         full_path = os.path.join(folder_path, filename)
-        file_path_for_db = f"/Data/{folder_path}/{filename}"  # chemin selon ta table
+        file_path_for_db = f"{folder_path}/{filename}"  # chemin selon ta table
 
         props = calculate_image_properties(full_path)
         size, width, height, avg_red, avg_green, avg_blue, contrast, edges_detected = props
+        localisation = random.choice(villes_possibles) # A enlever si ajout via le site avec la localsisation fourni
 
         # Appel de la fonction stockée creation_image
         response = supabase.rpc("creation_image", {
@@ -174,7 +181,8 @@ for filename in os.listdir(folder_path):
             "p_avg_green": avg_green,
             "p_avg_blue": avg_blue,
             "p_contrast": contrast,
-            "p_edges_detected": int(edges_detected)
+            "p_edges_detected": int(edges_detected),
+            "p_localisation": localisation  # Ville aléatoire pour les images su train
         }).execute()
 
         if response.data is None:
@@ -199,7 +207,7 @@ for image in response.data:
 """
 # Ajoute de l'anottation manuel a plein pour les image récupérer dans dirty
 """
-for image_id in range(88, 108):  # 68 exclu, donc de 48 à 68
+for image_id in range(150, 170):  # 68 exclu, donc de 48 à 68
     response = supabase.rpc("creation_annotation", {
         "p_image_id": image_id,
         "p_label": "plein",
@@ -270,12 +278,23 @@ else:
     print("Aucune métadonnée EXIF trouvée.")
 
 #%% Teste de récupération de l'image et de l'annotation lié
-"""
-for image_id in [87, 88]:
+
+for image_id in [130, 169]:
     image_data = supabase.table("image").select("*").eq("image_id", image_id).single().execute()
     annotation_data = supabase.table("annotation").select("*").eq("image_id", image_id).single().execute()
 
-    print(f"\nImage ID {image_id} :")
-    print("Image :", image_data.data)
-    print("Annotation :", annotation_data.data)
-"""
+    print(f"\n{'='*40}")
+    print(f"🖼️  Image ID : {image_id}")
+    print(f"{'-'*40}")
+    print("📷 Image :")
+    for key, value in image_data.data.items():
+        print(f"   - {key}: {value}")
+
+    print(f"\n📝 Annotation :")
+    if annotation_data.data:
+        for key, value in annotation_data.data.items():
+            print(f"   - {key}: {value}")
+    else:
+        print("   - Aucune annotation trouvée.")
+
+    print(f"{'='*40}\n")
