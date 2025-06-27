@@ -16,7 +16,7 @@
     {% endwith %}
 
     <h2>Image uploadée avec succès</h2>
-    <img src="{{ url_for('uploaded_file', filename=filename) }}" width="300" alt="Image nouvellement uploadé">
+    <img src="{{ url_for('upload.uploaded_file', filename=filename) }}" width="300" alt="Image nouvellement uploadé">
 
     <p><a href="/upload">Uploader une autre image</a> | <a href="/gallery">Voir la galerie</a></p>
 </body>

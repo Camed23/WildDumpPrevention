@@ -1,12 +1,12 @@
-CREATE DATABASE wdp;
-
--- ENUM simulés avec des types personnalisés
+-- Types ENUM
 CREATE TYPE user_role AS ENUM ('Admin', 'Citoyen', 'Agent');
 CREATE TYPE annotation_label_v AS ENUM ('plein', 'vide');
 CREATE TYPE annotation_source AS ENUM ('manuel', 'auto');
+
+-- Extension nécessaire pour crypter les mots de passe
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
--- Tables
+-- Table User
 CREATE TABLE "User" (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
@@ -15,6 +15,7 @@ CREATE TABLE "User" (
     role user_role NOT NULL
 );
 
+-- Table Image
 CREATE TABLE Image (
     image_id SERIAL PRIMARY KEY,
     file_path VARCHAR(255) NOT NULL,
@@ -31,6 +32,7 @@ CREATE TABLE Image (
     edges_detected BOOLEAN
 );
 
+-- Table Annotation
 CREATE TABLE Annotation (
     annotation_id SERIAL PRIMARY KEY,
     label annotation_label_v NOT NULL,
@@ -39,10 +41,7 @@ CREATE TABLE Annotation (
     image_id INT REFERENCES Image(image_id) ON DELETE CASCADE
 );
 
--- Fonctions à la place des procédures
-
--- Création utilisateur
--- Fonction sécurisée
+-- Fonction de création d'utilisateur
 CREATE OR REPLACE FUNCTION creation_user(
     p_username VARCHAR,
     p_email VARCHAR,
@@ -60,8 +59,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-
--- Modification utilisateur
+-- Fonction de modification d'utilisateur
 CREATE OR REPLACE FUNCTION modif_user(
     p_user_id INT,
     p_username VARCHAR,
@@ -79,14 +77,14 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Suppression utilisateur
+-- Fonction de suppression d'utilisateur
 CREATE OR REPLACE FUNCTION supp_user(p_user_id INT) RETURNS VOID AS $$
 BEGIN
     DELETE FROM "User" WHERE user_id = p_user_id;
 END;
 $$ LANGUAGE plpgsql;
 
--- Création image
+-- Fonction de création d'image
 CREATE OR REPLACE FUNCTION creation_image(
     p_user_id INT,
     p_file_path VARCHAR,
@@ -111,7 +109,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Modification image
+-- Fonction de modification d'image
 CREATE OR REPLACE FUNCTION modif_image(
     p_image_id INT,
     p_user_id INT,
@@ -143,16 +141,14 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Suppression image
+-- Fonction de suppression d'image
 CREATE OR REPLACE FUNCTION supp_image(p_image_id INT) RETURNS VOID AS $$
 BEGIN
     DELETE FROM Image WHERE image_id = p_image_id;
 END;
 $$ LANGUAGE plpgsql;
 
--- Création annotation
-DROP FUNCTION creation_annotation(p_image_id INT, p_label annotation_label, p_source annotation_source);
-
+-- Fonction de création d'annotation
 CREATE OR REPLACE FUNCTION creation_annotation(
     p_image_id INT,
     p_label annotation_label_v,
@@ -164,7 +160,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Modification annotation
+-- Fonction de modification d'annotation
 CREATE OR REPLACE FUNCTION modif_annotation(
     p_annotation_id INT,
     p_image_id INT,
@@ -180,7 +176,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Suppression annotation
+-- Fonction de suppression d'annotation
 CREATE OR REPLACE FUNCTION supp_annotation(p_annotation_id INT) RETURNS VOID AS $$
 BEGIN
     DELETE FROM Annotation WHERE annotation_id = p_annotation_id;

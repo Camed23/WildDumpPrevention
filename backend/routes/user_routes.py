@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template
-from services.supabase_client import supabase
+from backend.config import supabase
 
-bp = Blueprint('user', __name__)
+user_bp = Blueprint("user", __name__)
 
-@bp.route('/users')
+@user_bp.route('/users')
 def users():
     try:
         result = supabase.table("User").select("*").execute()

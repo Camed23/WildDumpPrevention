@@ -63,7 +63,7 @@ WildDumpPrevention/
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
-└── run.sh                          # (optionnel) script shell pour lancer tout d’un coup
+└── start.py                          # (optionnel) script shell pour lancer tout d’un coup
 ```
 ---
 
@@ -129,8 +129,7 @@ venv\Scripts\activate     # sous Windows
 pip install -r requirements.txt
 
 # 6. Lancer le serveur Flask
-cd backend
-python app.py
+python start.py
 ```
 
 ### 🤝 Contribuer

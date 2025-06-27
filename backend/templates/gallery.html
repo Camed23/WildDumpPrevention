@@ -19,7 +19,7 @@
 
     {% for image in images %}
         <div style="margin-bottom: 20px;">
-            <img src="{{ url_for('uploaded_file', filename=image) }}" width="200" alt="image uploadée">
+            <img src="{{ url_for('upload.uploaded_file', filename=image) }}" width="200" alt="image uploadée">
             <p>{{ image }}</p>
         </div>
     {% endfor %}
