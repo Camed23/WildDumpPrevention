@@ -27,3 +27,11 @@ def load_cache(input_path=CACHE_PATH):
     """
     with open(input_path, "r") as f:
         return json.load(f)
+    
+
+if __name__ == "__main__":
+    """
+    Si le script est exécuté directement, initialise le cache.
+    """
+    initialize_cache(CACHE_PATH)
+    print("Cache initialisé avec succès.")
