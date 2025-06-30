@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<section class="help-section py-5">
+    <div class="container">
+
+        <h2>Comment faire un bon dépôt d'image :</h2>
+        <ul class="list-unstyled mt-4">
+            <li><strong>✅ Sélectionnez une image nette :</strong> Évitez les images floues ou trop sombres.</li>
+            <li><strong>✅ Représentez clairement la poubelle :</strong> Centrez la poubelle dans le cadre, avec son contenu visible si possible.</li>
+            <li><strong>✅ Formats acceptés :</strong> JPG, PNG.</li>
+            <li><strong>✅ Taille maximale recommandée :</strong> 5 Mo.</li>
+        </ul>
+
+        <h2 class="mt-5">Informations demandées :</h2>
+        <ul class="list-unstyled mt-4">
+            <li><strong>Lieu :</strong> Donnez une adresse approximative ou un repère visuel.</li>
+            <li><strong>Date :</strong> La date à laquelle la photo a été prise.</li>
+            <li><strong>Heure :</strong> L'heure de la photo (optionnel mais recommandé).</li>
+            <li><strong>Remarques :</strong> Toute info complémentaire utile (par exemple : "point de collecte temporaire", "poubelle inaccessible").</li>
+        </ul>
+
+        <h2 class="mt-5">À éviter :</h2>
+        <ul class="list-unstyled mt-4">
+            <li>❌ Photos prises de trop loin.</li>
+            <li>❌ Images avec personnes reconnaissables (respect de la vie privée).</li>
+            <li>❌ Photos sans rapport avec le sujet (pas de spam).</li>
+        </ul>
+
+        <div class="text-center mt-5">
+            <a href="{{ url_for('upload') }}" class="btn btn-dark">Retour au téléversement</a>
+        </div>
+    </div>
+</section>
+
+<style>
+
+.help-section h2 {
+    font-weight: bold;
+}
+
+.help-section ul li {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+</style>
+
+{% endblock %}

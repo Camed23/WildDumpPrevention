@@ -1,12 +1,15 @@
 # backend/services/classifier.py
 
+from cache_manager import load_cache, initialize_cache
 from feature_extractor import ImageFeatures
-from rules_engine import apply_rules, rule_dark, rule_moyen
+from rules_engine import apply_rules, all_rules
 
 if __name__ == "__main__":
     # Exemple de liste d’images (à remplacer par la lecture d'un dossier)
-    images = ["Data/train/with_label/clean/img1.jpg",
-              "Data/train/with_label/dirty/img2.jpg"]
+    if load_cache() == None:
+        initialize_cache()
+    images = load_cache()
+
 
     for img_path in images:
         # 1. Extraire les features
@@ -18,7 +21,7 @@ if __name__ == "__main__":
         }
 
         # 2. Appliquer les règles
-        result = apply_rules(feats, [rule_dark, rule_moyen])
+        result = apply_rules(feats, all_rules)
 
         # 3. Afficher le résultat
         print(f"{img_path} → {result}")

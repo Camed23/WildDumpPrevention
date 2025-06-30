@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="annotate-confirmation-section text-center">
+    <div class="container">
+        <h1>Confirmation de l'enregistrement</h1>
+        <p>Votre image et vos informations ont été enregistrées avec succès.</p>
+
+        <div class="row mt-4">
+            <div class="col-md-6 text-start">
+                <h4>Récapitulatif :</h4>
+                <ul class="list-unstyled">
+                    <li><strong> Lieu :</strong> {{ image_info.location or 'Non renseigné' }}</li>
+                    <li><strong> Date :</strong> {{ image_info.date or 'Non renseignée' }}</li>
+                    <li><strong> Heure :</strong> {{ image_info.time or 'Non renseignée' }}</li>
+                    <li><strong> Remarques :</strong> {{ image_info.notes or 'Aucune' }}</li>
+                    <li><strong> État choisi :</strong> {{ image_info.choice or 'Non précisé' }}</li>
+                    {% if image_info.choice == 'IA' %}
+                    <li><strong> Prédiction IA :</strong> {{ image_info.prediction }}</li>
+                    {% endif %}
+                </ul>
+
+                <h4>Caractéristiques de l'image :</h4>
+                <ul class="list-unstyled">
+                    <li><strong>Taille :</strong> {{ image_info.file_size_kb }} Ko</li>
+                    <li><strong>Dimensions :</strong> {{ image_info.dimensions }}</li>
+                    <li><strong>Moyenne Rouge :</strong> {{ image_info.avg_r }}</li>
+                    <li><strong>Moyenne Vert :</strong> {{ image_info.avg_g }}</li>
+                    <li><strong>Moyenne Bleu :</strong> {{ image_info.avg_b }}</li>
+                    <li><strong>Contraste :</strong> {{ image_info.contrast }}</li>
+                </ul>
+
+
+                <h5>Merci pour votre participation 🙏</h5>
+                <p>Vous contribuez à améliorer la détection automatique des dépôts sauvages.</p>
+
+                <a href="{{ url_for('upload') }}" class="btn btn-dark mt-3">Téléverser une nouvelle image</a>
+            </div>
+
+            <div class="col-md-6 text-center">
+                {% if image_info.image_url %}
+                     <img src="{{ image_info.image_url }}" alt="Aperçu de l'image téléversée" class="img-fluid rounded shadow">
+                {% else %}
+                    <div class="alert alert-warning mt-3">
+                    Aucun aperçu d'image disponible. Veuillez réessayer l'upload si nécessaire.
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.annotate-confirmation-section {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.annotate-confirmation-section h1 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.annotate-confirmation-section ul li {
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.annotate-confirmation-section .btn-dark {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.annotate-confirmation-section img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+</style>
+
+{% endblock %}

@@ -1,0 +1,213 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Section 1 : Introduction -->
+<section id="intro-upload" class="upload-hero text-center text-white">
+    <div class="upload-hero-content">
+        <h1>Téléversement d'image de Poubelle</h1>
+        <p>Participez à la lutte contre les dépôts sauvages en annotant l'état des poubelles.</p>
+        <button class="btn btn-dark m-2" onclick="scrollToSection('upload-area')">Valider</button>
+        <a href="{{ url_for('help') }}" class="btn btn-outline-light m-2">Aide</a>
+    </div>
+</section>
+
+<!-- FORMULAIRE GLOBAL -->
+<form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+
+    <!-- Section 2 : Drag & Drop -->
+    <section id="upload-area" class="upload-section bg-light text-center">
+        <div class="container">
+            <h2>Déposez votre image ici</h2>
+            <div id="drop-zone" class="drop-zone">
+                Glissez-déposez une image ou cliquez pour sélectionner un fichier.
+                <input type="file" id="file-input" name="file" accept="image/*" style="display:none;" required>
+            </div>
+
+            <button type="button" class="btn btn-dark mt-3" onclick="scrollToSection('image-preview')">Valider</button>
+        </div>
+    </section>
+
+    <!-- Section 3 : Aperçu + Infos + Boutons -->
+    <section id="image-preview" class="upload-section text-center d-none">
+        <div class="container">
+            <h2>Aperçu de votre image</h2>
+            <button type="button" onclick="clearPreview()" class="btn btn-sm btn-danger mb-2">❌ Supprimer l'image</button>
+            <img id="preview-img" src="#" alt="Aperçu de l'image" class="img-fluid mb-3" />
+
+            <section id="image-info-section">
+                <h3>Informations sur l'image</h3>
+
+                <div class="mb-3">
+                    <label for="location">Lieu (adresse approximative)</label>
+                    <input type="text" name="location" id="location" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="date">Date de la photo</label>
+                    <input type="date" name="date" id="date" class="form-control" max="">
+                </div>
+                <div class="mb-3">
+                    <label for="time">Heure de la photo</label>
+                    <input type="time" name="time" id="time" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="notes">Remarques supplémentaires</label>
+                    <textarea name="notes" id="notes" rows="3" class="form-control"></textarea>
+                </div>
+
+                <h4>État de la poubelle :</h4>
+                <input type="hidden" name="choice" id="choice" value="">
+
+                <button type="button" onclick="setChoice('Vide', this)" class="btn btn-outline-dark m-1 choice-btn">Vide</button>
+                <button type="button" onclick="setChoice('Pleine', this)" class="btn btn-outline-dark m-1 choice-btn">Pleine</button>
+                <button type="button" onclick="setChoice('IA', this)" class="btn btn-outline-dark m-1 choice-btn">Laisser l'IA choisir</button>
+                
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-success">Valider et envoyer</button>
+                </div>
+                 
+            </section>
+        </div>
+    </section>
+</form>
+
+<script>
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+const previewImg = document.getElementById('preview-img');
+const imagePreviewSection = document.getElementById('image-preview');
+const imageInfoSection = document.getElementById('image-info-section');
+
+dropZone.addEventListener('click', () => fileInput.click());
+
+dropZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropZone.classList.add('dragover');
+});
+
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+
+dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    handleFile(e.dataTransfer.files[0]);
+});
+
+fileInput.addEventListener('change', () => handleFile(fileInput.files[0]));
+
+function handleFile(file) {
+    if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            previewImg.src = e.target.result;
+            previewImg.classList.remove('d-none');
+            imagePreviewSection.classList.remove('d-none');
+            imageInfoSection.classList.remove('d-none');
+            scrollToSection('image-preview');
+        };
+        reader.readAsDataURL(file);
+
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(file);
+        fileInput.files = dataTransfer.files;
+    }
+}
+
+function clearPreview() {
+    previewImg.src = "#";
+    previewImg.classList.add('d-none');
+    imagePreviewSection.classList.add('d-none');
+    imageInfoSection.classList.add('d-none');
+    fileInput.value = "";
+}
+
+document.querySelectorAll('button[type="submit"]').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        const fileSelected = document.getElementById('file-input').files.length > 0;
+        if (!fileSelected) {
+            e.preventDefault();
+            alert("Merci de sélectionner une image avant de choisir l'état.");
+        }
+    });
+});
+
+function setChoice(value, btn) {
+    document.getElementById('choice').value = value;
+
+    // Ne touche qu'aux boutons ayant la classe choice-btn
+    document.querySelectorAll('.choice-btn').forEach(button => {
+        button.classList.remove('btn-dark');
+        button.classList.add('btn-outline-dark');
+    });
+
+    btn.classList.remove('btn-outline-dark');
+    btn.classList.add('btn-dark');
+}
+
+
+document.querySelector('form').addEventListener('submit', function(e) {
+    const fileSelected = document.getElementById('file-input').files.length > 0;
+    const choiceSelected = document.getElementById('choice').value !== "";
+
+    if (!fileSelected || !choiceSelected) {
+        e.preventDefault();
+        alert("Merci de sélectionner une image ET un choix (Vide, Pleine ou IA) avant de valider.");
+    }
+});
+
+window.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('date').setAttribute('max', today);
+});
+
+document.getElementById('date').addEventListener('change', function() {
+    const selectedDate = this.value;
+    const now = new Date();
+
+    const timeInput = document.getElementById('time');
+
+    if (selectedDate === now.toISOString().split('T')[0]) {
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        timeInput.setAttribute('max', `${hours}:${minutes}`);
+    } else {
+        timeInput.removeAttribute('max');
+    }
+});
+</script>
+
+<style>
+.upload-section {
+    padding: 100px 20px;
+}
+.drop-zone {
+    border: 2px dashed #aaa;
+    padding: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+.drop-zone.dragover {
+    background-color: #e6e6e6;
+}
+#preview-img {
+    max-width: 300px;
+    border-radius: 8px;
+}
+#image-info-section .form-control,
+#image-info-section textarea {
+    max-width: 500px;
+    margin: 10px auto;
+}
+#image-info-section h4 {
+    margin-top: 30px;
+}
+.d-none {
+    display: none;
+}
+</style>
+
+{% endblock %}

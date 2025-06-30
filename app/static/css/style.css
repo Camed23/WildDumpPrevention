@@ -1,0 +1,344 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 30px;
+}
+
+.navbar .container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar-brand img {
+    height: 80px;
+    max-height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+
+.hero-section {
+    height: calc(100vh - 60px);
+    background-image: url('../images/test.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-section .btn {
+    margin: 10px;
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+}
+
+
+.intro-section {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.intro-section h2 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.steps-section {
+    background-color: #f8f9fa;
+    padding: 60px 20px;
+}
+
+.steps-section h2 {
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.steps-section .col-md-4 {
+    margin-bottom: 30px;
+}
+
+.steps-section img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.impact-section {
+    padding: 60px 20px;
+}
+
+.impact-section h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.testimonial-section {
+    background-color: #f8f9fa;
+    padding: 60px 20px;
+}
+
+.testimonial-section blockquote {
+    font-style: italic;
+    margin: 20px 0;
+}
+
+.footer-section {
+    background-color: #222;
+    color: white;
+    padding: 40px 20px;
+    font-size: 0.95rem;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer-section .social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.footer-section .social-icons a:hover {
+    color: white;
+}
+
+.footer-section hr {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-color: #444;
+}
+
+
+.steps-section img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px; 
+}
+
+.steps-section a {
+    text-decoration: none;
+    color: #444; 
+    font-weight: bold;
+}
+
+.steps-section a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+
+.intro-section .row {
+    display: flex;
+    align-items: center;
+}
+
+.intro-section .text-content {
+    flex: 1;
+    padding-right: 30px;
+}
+
+.intro-section .image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; 
+}
+
+.intro-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+.impact-section h2 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.impact-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.stars {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.testimonial-quote {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 20px auto;
+    max-width: 900px;
+    line-height: 1.6;
+    text-align: center;
+    font-style: normal;
+    font-family: 'Poppins', sans-serif;
+    display: block;
+}
+
+
+.testimonial-author {
+    margin-top: 30px;
+}
+
+.author-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-text {
+    font-size: 0.9rem;
+}
+
+
+.stars {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.testimonial-content {
+    text-align: center;
+}
+
+.testimonial-section blockquote {
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    text-align: center;
+}
+
+
+.navbar-nav .nav-link {
+    margin-right: 10px;
+}
+
+.navbar-brand img {
+    height: 40px;  
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 7px;
+    margin-top: 7px;
+}
+
+.upload-hero {
+    height: calc(100vh - 60px); /* prend tout l'écran sauf navbar */
+    background-image: url('../images/montgolfiere.jpg'); /* Remplace par le vrai nom de ton image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px 20px;
+}
+
+.upload-hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Ombre noire transparente */
+    z-index: -1;
+}
+
+.upload-hero h1,
+.upload-hero p,
+.upload-hero button {
+    color: white;
+}
+
+
+.upload-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.upload-section h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.annotation-section {
+    padding: 60px 20px;
+}
+
+.annotation-section h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.annotation-section .annotation-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.annotation-section .btn {
+    margin-top: 10px;
+}
+
+
+#image-info-section .form-control,
+#image-info-section textarea {
+    max-width: 500px;
+    margin: 10px auto;
+}
+
+#image-info-section h4 {
+    margin-top: 30px;
+}
+

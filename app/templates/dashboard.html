@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<section class="dashboard-hero text-center text-white py-5" style="background-color: #1abc9c;">
+    <div class="container">
+        <h1>Tableau de bord TrashAnalyser</h1>
+        <p class="lead mt-3">Visualisez les statistiques et tendances des dépôts sauvages</p>
+    </div>
+</section>
+
+<section class="dashboard-content py-5">
+    <div class="container">
+
+        <h2>Statistiques globales :</h2>
+        <div class="row text-center my-4">
+            <div class="col-md-4 mb-3">
+                <div class="p-3 shadow-sm bg-light rounded">
+                    <h3>128</h3>
+                    <p>Images uploadées</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="p-3 shadow-sm bg-light rounded">
+                    <h3>76%</h3>
+                    <p>Poubelles pleines détectées</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="p-3 shadow-sm bg-light rounded">
+                    <h3>24</h3>
+                    <p>Zones à risque identifiées</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Répartition géographique :</h2>
+        <canvas id="mapChart" class="my-4"></canvas>
+
+        <h2 class="mt-5">Evolution temporelle :</h2>
+        <canvas id="timeChart" class="my-4"></canvas>
+
+        <h2 class="mt-5">Caractéristiques des images :</h2>
+        <canvas id="colorChart" class="my-4"></canvas>
+
+        <div class="text-center mt-5">
+            <a href="{{ url_for('home') }}" class="btn btn-dark">Retour à l'accueil</a>
+        </div>
+
+        <h2 class="mt-5">🗺️ Carte interactive des dépôts :</h2>
+        <div id="map" style="height: 500px; margin-top: 20px;"></div>
+
+
+    </div>
+</section>
+
+<style>
+.dashboard-content h2 {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.dashboard-content canvas {
+    max-width: 800px;
+    margin: 0 auto;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Graphique Répartition géographique (Ex : villes ou zones)
+const ctxMap = document.getElementById('mapChart').getContext('2d');
+new Chart(ctxMap, {
+    type: 'bar',
+    data: {
+        labels: ['Zone A', 'Zone B', 'Zone C', 'Zone D'],
+        datasets: [{
+            label: 'Nombre de poubelles signalées',
+            data: [12, 19, 8, 15],
+            backgroundColor: '#2ecc71'
+        }]
+    }
+});
+
+// Graphique évolution temporelle
+const ctxTime = document.getElementById('timeChart').getContext('2d');
+new Chart(ctxTime, {
+    type: 'line',
+    data: {
+        labels: ['Semaine 1', 'Semaine 2', 'Semaine 3', 'Semaine 4'],
+        datasets: [{
+            label: 'Nouvelles images uploadées',
+            data: [5, 15, 8, 20],
+            borderColor: '#3498db',
+            fill: false
+        }]
+    }
+});
+
+// Graphique caractéristiques d'images (ex : moyenne de couleur rouge)
+const ctxColor = document.getElementById('colorChart').getContext('2d');
+new Chart(ctxColor, {
+    type: 'pie',
+    data: {
+        labels: ['Faible contraste', 'Moyen contraste', 'Haut contraste'],
+        datasets: [{
+            data: [10, 25, 15],
+            backgroundColor: ['#e74c3c', '#f1c40f', '#2ecc71']
+        }]
+    }
+});
+
+// Initialisation de la carte
+const map = L.map('map').setView([48.8566, 2.3522], 5);  // Centré sur la France
+
+// Fond de carte OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+// Exemples de points (à remplacer plus tard par tes vraies données du backend)
+const points = [
+    {
+        lat: 48.8566,
+        lon: 2.3522,
+        location: "Paris",
+        image: "{{ url_for('static', filename='uploads/exemple1.jpg') }}"
+    },
+    {
+        lat: 45.7640,
+        lon: 4.8357,
+        location: "Lyon",
+        image: "{{ url_for('static', filename='uploads/exemple2.jpg') }}"
+    },
+    {
+        lat: 43.6045,
+        lon: 1.4442,
+        location: "Toulouse",
+        image: "{{ url_for('static', filename='uploads/exemple3.jpg') }}"
+    }
+];
+
+// Ajout des marqueurs
+points.forEach(function(point) {
+    const marker = L.marker([point.lat, point.lon]).addTo(map);
+    marker.bindPopup(`
+        <strong>${point.location}</strong><br>
+        <img src="${point.image}" alt="Aperçu" style="width: 150px; border-radius: 8px; margin-top: 5px;">
+    `);
+});
+</script>
+
+{% endblock %}
