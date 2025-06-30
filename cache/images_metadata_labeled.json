@@ -1,0 +1,1002 @@
+[
+  {
+    "image_id": 130,
+    "file_path": "Data/train/with_label/clean/00204_00.jpg",
+    "name_image": "00204_00.jpg",
+    "upload_date": "2025-06-27T08:44:09.275445",
+    "user_id": 4,
+    "size": 69.06640625,
+    "width": 600,
+    "height": 600,
+    "avg_red": 122.386572222222,
+    "avg_green": 127.302588888889,
+    "avg_blue": 121.965288888889,
+    "contrast": 57.839165199265,
+    "edges_detected": true,
+    "localisation": "Bordeaux",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.226349",
+        "source": "manuel",
+        "image_id": 130,
+        "annotation_id": 102
+      }
+    ]
+  },
+  {
+    "image_id": 131,
+    "file_path": "Data/train/with_label/clean/00207_03.jpg",
+    "name_image": "00207_03.jpg",
+    "upload_date": "2025-06-27T08:44:09.422518",
+    "user_id": 4,
+    "size": 47.1884765625,
+    "width": 600,
+    "height": 600,
+    "avg_red": 130.689938888889,
+    "avg_green": 132.253711111111,
+    "avg_blue": 129.658519444444,
+    "contrast": 44.9677983003752,
+    "edges_detected": true,
+    "localisation": "Le Havre",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.264487",
+        "source": "manuel",
+        "image_id": 131,
+        "annotation_id": 103
+      }
+    ]
+  },
+  {
+    "image_id": 132,
+    "file_path": "Data/train/with_label/clean/00217_05.jpg",
+    "name_image": "00217_05.jpg",
+    "upload_date": "2025-06-27T08:44:09.488788",
+    "user_id": 4,
+    "size": 71.1669921875,
+    "width": 600,
+    "height": 600,
+    "avg_red": 112.895988888889,
+    "avg_green": 117.205311111111,
+    "avg_blue": 106.121591666667,
+    "contrast": 54.2618382826426,
+    "edges_detected": true,
+    "localisation": "Toulouse",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.294685",
+        "source": "manuel",
+        "image_id": 132,
+        "annotation_id": 104
+      }
+    ]
+  },
+  {
+    "image_id": 133,
+    "file_path": "Data/train/with_label/clean/00517_04.jpg",
+    "name_image": "00517_04.jpg",
+    "upload_date": "2025-06-27T08:44:09.55611",
+    "user_id": 4,
+    "size": 60.291015625,
+    "width": 600,
+    "height": 600,
+    "avg_red": 112.644791666667,
+    "avg_green": 114.693708333333,
+    "avg_blue": 108.389680555556,
+    "contrast": 53.7177365589902,
+    "edges_detected": true,
+    "localisation": "Bordeaux",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.335805",
+        "source": "manuel",
+        "image_id": 133,
+        "annotation_id": 105
+      }
+    ]
+  },
+  {
+    "image_id": 134,
+    "file_path": "Data/train/with_label/clean/00543_02.jpg",
+    "name_image": "00543_02.jpg",
+    "upload_date": "2025-06-27T08:44:09.629472",
+    "user_id": 4,
+    "size": 68.591796875,
+    "width": 600,
+    "height": 600,
+    "avg_red": 117.643630555556,
+    "avg_green": 117.130266666667,
+    "avg_blue": 116.230905555556,
+    "contrast": 51.5330135845334,
+    "edges_detected": true,
+    "localisation": "Marseille",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.372524",
+        "source": "manuel",
+        "image_id": 134,
+        "annotation_id": 106
+      }
+    ]
+  },
+  {
+    "image_id": 135,
+    "file_path": "Data/train/with_label/clean/00547_06.jpg",
+    "name_image": "00547_06.jpg",
+    "upload_date": "2025-06-27T08:44:09.689908",
+    "user_id": 4,
+    "size": 71.625,
+    "width": 600,
+    "height": 600,
+    "avg_red": 114.250347222222,
+    "avg_green": 113.7228,
+    "avg_blue": 109.109825,
+    "contrast": 50.0614405518813,
+    "edges_detected": true,
+    "localisation": "Marseille",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.410745",
+        "source": "manuel",
+        "image_id": 135,
+        "annotation_id": 107
+      }
+    ]
+  },
+  {
+    "image_id": 136,
+    "file_path": "Data/train/with_label/clean/00566_03.jpg",
+    "name_image": "00566_03.jpg",
+    "upload_date": "2025-06-27T08:44:09.760743",
+    "user_id": 4,
+    "size": 78.087890625,
+    "width": 600,
+    "height": 600,
+    "avg_red": 117.657169444444,
+    "avg_green": 120.646591666667,
+    "avg_blue": 119.643969444444,
+    "contrast": 48.7268877768893,
+    "edges_detected": true,
+    "localisation": "Reims",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.448047",
+        "source": "manuel",
+        "image_id": 136,
+        "annotation_id": 108
+      }
+    ]
+  },
+  {
+    "image_id": 137,
+    "file_path": "Data/train/with_label/clean/0e02598e-acbb-423e-912e-cf2b922b5bd7.jpeg",
+    "name_image": "0e02598e-acbb-423e-912e-cf2b922b5bd7.jpeg",
+    "upload_date": "2025-06-27T08:44:09.842083",
+    "user_id": 4,
+    "size": 48.38671875,
+    "width": 600,
+    "height": 803,
+    "avg_red": 130.774883769199,
+    "avg_green": 119.738655043587,
+    "avg_blue": 111.431787048568,
+    "contrast": 66.9534425400316,
+    "edges_detected": true,
+    "localisation": "Le Havre",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.483885",
+        "source": "manuel",
+        "image_id": 137,
+        "annotation_id": 109
+      }
+    ]
+  },
+  {
+    "image_id": 138,
+    "file_path": "Data/train/with_label/clean/3f53a459-b46f-4e87-90ac-f9e43cc23320.jpeg",
+    "name_image": "3f53a459-b46f-4e87-90ac-f9e43cc23320.jpeg",
+    "upload_date": "2025-06-27T08:44:09.91181",
+    "user_id": 4,
+    "size": 43.0068359375,
+    "width": 600,
+    "height": 803,
+    "avg_red": 120.865056039851,
+    "avg_green": 118.746160232462,
+    "avg_blue": 116.333665421337,
+    "contrast": 84.8717689754016,
+    "edges_detected": true,
+    "localisation": "Nantes",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.528592",
+        "source": "manuel",
+        "image_id": 138,
+        "annotation_id": 110
+      }
+    ]
+  },
+  {
+    "image_id": 139,
+    "file_path": "Data/train/with_label/clean/401.full.jpeg",
+    "name_image": "401.full.jpeg",
+    "upload_date": "2025-06-27T08:44:10.749052",
+    "user_id": 4,
+    "size": 1821.8515625,
+    "width": 4000,
+    "height": 3000,
+    "avg_red": 135.22823675,
+    "avg_green": 129.294693416667,
+    "avg_blue": 126.666413416667,
+    "contrast": 44.9922652532766,
+    "edges_detected": false,
+    "localisation": "Toulouse",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.575933",
+        "source": "manuel",
+        "image_id": 139,
+        "annotation_id": 111
+      }
+    ]
+  },
+  {
+    "image_id": 140,
+    "file_path": "Data/train/with_label/clean/86cd7cf4-726f-40c5-9788-89c890be3914.jpeg",
+    "name_image": "86cd7cf4-726f-40c5-9788-89c890be3914.jpeg",
+    "upload_date": "2025-06-27T08:44:10.818254",
+    "user_id": 4,
+    "size": 75.2998046875,
+    "width": 600,
+    "height": 682,
+    "avg_red": 125.288472629521,
+    "avg_green": 119.727622189638,
+    "avg_blue": 109.980276148583,
+    "contrast": 63.480709382236,
+    "edges_detected": true,
+    "localisation": "Strasbourg",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.623791",
+        "source": "manuel",
+        "image_id": 140,
+        "annotation_id": 112
+      }
+    ]
+  },
+  {
+    "image_id": 141,
+    "file_path": "Data/train/with_label/clean/WhatsApp Image 2020-05-09 at 2.03.37 PM (6).jpeg",
+    "name_image": "WhatsApp Image 2020-05-09 at 2.03.37 PM (6).jpeg",
+    "upload_date": "2025-06-27T08:44:10.880415",
+    "user_id": 4,
+    "size": 23.9013671875,
+    "width": 600,
+    "height": 449,
+    "avg_red": 129.291896807721,
+    "avg_green": 126.693982925019,
+    "avg_blue": 115.664962880475,
+    "contrast": 43.8234409984988,
+    "edges_detected": true,
+    "localisation": "Marseille",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.656816",
+        "source": "manuel",
+        "image_id": 141,
+        "annotation_id": 113
+      }
+    ]
+  },
+  {
+    "image_id": 142,
+    "file_path": "Data/train/with_label/clean/WhatsApp Image 2020-05-09 at 2.03.38 PM (1).jpeg",
+    "name_image": "WhatsApp Image 2020-05-09 at 2.03.38 PM (1).jpeg",
+    "upload_date": "2025-06-27T08:44:10.972234",
+    "user_id": 4,
+    "size": 67.4501953125,
+    "width": 600,
+    "height": 748,
+    "avg_red": 127.304846256684,
+    "avg_green": 127.73237745098,
+    "avg_blue": 135.818698752228,
+    "contrast": 59.4748130115887,
+    "edges_detected": true,
+    "localisation": "Nice",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.69727",
+        "source": "manuel",
+        "image_id": 142,
+        "annotation_id": 114
+      }
+    ]
+  },
+  {
+    "image_id": 143,
+    "file_path": "Data/train/with_label/clean/WhatsApp Image 2020-05-09 at 2.03.38 PM (3).jpeg",
+    "name_image": "WhatsApp Image 2020-05-09 at 2.03.38 PM (3).jpeg",
+    "upload_date": "2025-06-27T08:44:11.021223",
+    "user_id": 4,
+    "size": 51.205078125,
+    "width": 600,
+    "height": 323,
+    "avg_red": 129.328147574819,
+    "avg_green": 120.548142414861,
+    "avg_blue": 110.312182662539,
+    "contrast": 64.2775641654543,
+    "edges_detected": true,
+    "localisation": "Montpellier",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.739038",
+        "source": "manuel",
+        "image_id": 143,
+        "annotation_id": 115
+      }
+    ]
+  },
+  {
+    "image_id": 144,
+    "file_path": "Data/train/with_label/clean/WhatsApp Image 2020-05-09 at 2.08.14 PM (6).jpeg",
+    "name_image": "WhatsApp Image 2020-05-09 at 2.08.14 PM (6).jpeg",
+    "upload_date": "2025-06-27T08:44:11.093277",
+    "user_id": 4,
+    "size": 59.962890625,
+    "width": 600,
+    "height": 686,
+    "avg_red": 121.549370748299,
+    "avg_green": 122.990524781341,
+    "avg_blue": 113.873153547133,
+    "contrast": 56.0781303294857,
+    "edges_detected": true,
+    "localisation": "Montpellier",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.773487",
+        "source": "manuel",
+        "image_id": 144,
+        "annotation_id": 116
+      }
+    ]
+  },
+  {
+    "image_id": 145,
+    "file_path": "Data/train/with_label/clean/WhatsApp Image 2020-05-09 at 2.08.14 PM.jpeg",
+    "name_image": "WhatsApp Image 2020-05-09 at 2.08.14 PM.jpeg",
+    "upload_date": "2025-06-27T08:44:11.192725",
+    "user_id": 4,
+    "size": 28.8486328125,
+    "width": 600,
+    "height": 391,
+    "avg_red": 111.080029838022,
+    "avg_green": 111.900613810742,
+    "avg_blue": 105.170647911338,
+    "contrast": 55.3780096383526,
+    "edges_detected": true,
+    "localisation": "Nantes",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.813033",
+        "source": "manuel",
+        "image_id": 145,
+        "annotation_id": 117
+      }
+    ]
+  },
+  {
+    "image_id": 146,
+    "file_path": "Data/train/with_label/clean/WhatsApp Image 2020-05-09 at 2.08.15 PM (2).jpeg",
+    "name_image": "WhatsApp Image 2020-05-09 at 2.08.15 PM (2).jpeg",
+    "upload_date": "2025-06-27T08:44:11.242559",
+    "user_id": 4,
+    "size": 82.8818359375,
+    "width": 600,
+    "height": 546,
+    "avg_red": 116.27992979243,
+    "avg_green": 114.280882173382,
+    "avg_blue": 114.431877289377,
+    "contrast": 66.780420968339,
+    "edges_detected": true,
+    "localisation": "Rennes",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.845806",
+        "source": "manuel",
+        "image_id": 146,
+        "annotation_id": 118
+      }
+    ]
+  },
+  {
+    "image_id": 147,
+    "file_path": "Data/train/with_label/clean/WhatsApp Image 2020-05-09 at 3.57.59 PM.jpeg",
+    "name_image": "WhatsApp Image 2020-05-09 at 3.57.59 PM.jpeg",
+    "upload_date": "2025-06-27T08:44:11.295988",
+    "user_id": 4,
+    "size": 35.4501953125,
+    "width": 600,
+    "height": 529,
+    "avg_red": 106.65031821046,
+    "avg_green": 114.130047258979,
+    "avg_blue": 105.043648393195,
+    "contrast": 53.7607207949009,
+    "edges_detected": true,
+    "localisation": "Paris",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.879111",
+        "source": "manuel",
+        "image_id": 147,
+        "annotation_id": 119
+      }
+    ]
+  },
+  {
+    "image_id": 148,
+    "file_path": "Data/train/with_label/clean/WhatsApp Image 2020-05-09 at 9.56.49 AM (2).jpeg",
+    "name_image": "WhatsApp Image 2020-05-09 at 9.56.49 AM (2).jpeg",
+    "upload_date": "2025-06-27T08:44:11.361875",
+    "user_id": 4,
+    "size": 57.765625,
+    "width": 600,
+    "height": 688,
+    "avg_red": 122.540070251938,
+    "avg_green": 121.577119670543,
+    "avg_blue": 120.122662306202,
+    "contrast": 42.4009576657028,
+    "edges_detected": true,
+    "localisation": "Toulouse",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.913871",
+        "source": "manuel",
+        "image_id": 148,
+        "annotation_id": 120
+      }
+    ]
+  },
+  {
+    "image_id": 149,
+    "file_path": "Data/train/with_label/clean/WhatsApp Image 2020-10-04 at 10.35.23 AM (6).jpeg",
+    "name_image": "WhatsApp Image 2020-10-04 at 10.35.23 AM (6).jpeg",
+    "upload_date": "2025-06-27T08:44:11.490945",
+    "user_id": 4,
+    "size": 192.6357421875,
+    "width": 1382,
+    "height": 1496,
+    "avg_red": 111.27435921744,
+    "avg_green": 109.904110430516,
+    "avg_blue": 101.313209078527,
+    "contrast": 49.5264364586486,
+    "edges_detected": false,
+    "localisation": "Marseille",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.959346",
+        "source": "manuel",
+        "image_id": 149,
+        "annotation_id": 121
+      }
+    ]
+  },
+  {
+    "image_id": 150,
+    "file_path": "Data/train/with_label/dirty/00511_01.jpg",
+    "name_image": "00511_01.jpg",
+    "upload_date": "2025-06-27T08:55:12.971529",
+    "user_id": 4,
+    "size": 61.37890625,
+    "width": 600,
+    "height": 600,
+    "avg_red": 128.482483333333,
+    "avg_green": 130.2067,
+    "avg_blue": 127.464791666667,
+    "contrast": 51.8679199720391,
+    "edges_detected": true,
+    "localisation": "Nice",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.576767",
+        "source": "manuel",
+        "image_id": 150,
+        "annotation_id": 122
+      }
+    ]
+  },
+  {
+    "image_id": 151,
+    "file_path": "Data/train/with_label/dirty/00874_01.jpg",
+    "name_image": "00874_01.jpg",
+    "upload_date": "2025-06-27T08:55:13.056402",
+    "user_id": 4,
+    "size": 63.322265625,
+    "width": 600,
+    "height": 600,
+    "avg_red": 139.306180555556,
+    "avg_green": 143.449075,
+    "avg_blue": 140.303847222222,
+    "contrast": 52.4037679573977,
+    "edges_detected": true,
+    "localisation": "Reims",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.655703",
+        "source": "manuel",
+        "image_id": 151,
+        "annotation_id": 123
+      }
+    ]
+  },
+  {
+    "image_id": 152,
+    "file_path": "Data/train/with_label/dirty/1495.full.jpeg",
+    "name_image": "1495.full.jpeg",
+    "upload_date": "2025-06-27T08:55:13.274856",
+    "user_id": 4,
+    "size": 844.1328125,
+    "width": 1536,
+    "height": 2048,
+    "avg_red": 112.103989283244,
+    "avg_green": 113.01037534078,
+    "avg_blue": 119.226237297058,
+    "contrast": 60.0470400666732,
+    "edges_detected": true,
+    "localisation": "Bordeaux",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.719272",
+        "source": "manuel",
+        "image_id": 152,
+        "annotation_id": 124
+      }
+    ]
+  },
+  {
+    "image_id": 153,
+    "file_path": "Data/train/with_label/dirty/1616.full.jpeg",
+    "name_image": "1616.full.jpeg",
+    "upload_date": "2025-06-27T08:55:13.578794",
+    "user_id": 4,
+    "size": 1485.76171875,
+    "width": 2560,
+    "height": 1920,
+    "avg_red": 119.956766967773,
+    "avg_green": 120.571227213542,
+    "avg_blue": 131.943836873372,
+    "contrast": 56.0048455566701,
+    "edges_detected": false,
+    "localisation": "Strasbourg",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.789361",
+        "source": "manuel",
+        "image_id": 153,
+        "annotation_id": 125
+      }
+    ]
+  },
+  {
+    "image_id": 154,
+    "file_path": "Data/train/with_label/dirty/1620.full.jpeg",
+    "name_image": "1620.full.jpeg",
+    "upload_date": "2025-06-27T08:55:13.864762",
+    "user_id": 4,
+    "size": 704.80078125,
+    "width": 2121,
+    "height": 2166,
+    "avg_red": 66.5173501323223,
+    "avg_green": 70.498375955522,
+    "avg_blue": 61.1536412248269,
+    "contrast": 45.4754143566978,
+    "edges_detected": false,
+    "localisation": "Nantes",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.826563",
+        "source": "manuel",
+        "image_id": 154,
+        "annotation_id": 126
+      }
+    ]
+  },
+  {
+    "image_id": 155,
+    "file_path": "Data/train/with_label/dirty/1820.full.jpeg",
+    "name_image": "1820.full.jpeg",
+    "upload_date": "2025-06-27T08:55:14.350027",
+    "user_id": 4,
+    "size": 2707.416015625,
+    "width": 2448,
+    "height": 3264,
+    "avg_red": 111.329510434689,
+    "avg_green": 111.184684451293,
+    "avg_blue": 99.0743761914488,
+    "contrast": 64.4480084554568,
+    "edges_detected": true,
+    "localisation": "Montpellier",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.877709",
+        "source": "manuel",
+        "image_id": 155,
+        "annotation_id": 127
+      }
+    ]
+  },
+  {
+    "image_id": 156,
+    "file_path": "Data/train/with_label/dirty/2632.full.jpeg",
+    "name_image": "2632.full.jpeg",
+    "upload_date": "2025-06-27T08:55:15.067877",
+    "user_id": 4,
+    "size": 6458.140625,
+    "width": 4032,
+    "height": 3024,
+    "avg_red": 116.939174025127,
+    "avg_green": 117.124051814978,
+    "avg_blue": 111.210438925763,
+    "contrast": 63.8333004133046,
+    "edges_detected": true,
+    "localisation": "Strasbourg",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.928886",
+        "source": "manuel",
+        "image_id": 156,
+        "annotation_id": 128
+      }
+    ]
+  },
+  {
+    "image_id": 157,
+    "file_path": "Data/train/with_label/dirty/279.full.jpeg",
+    "name_image": "279.full.jpeg",
+    "upload_date": "2025-06-27T08:55:15.148986",
+    "user_id": 4,
+    "size": 147.8310546875,
+    "width": 1024,
+    "height": 768,
+    "avg_red": 100.087375640869,
+    "avg_green": 103.564509073893,
+    "avg_blue": 102.492432912191,
+    "contrast": 50.8139134491874,
+    "edges_detected": true,
+    "localisation": "Strasbourg",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.97676",
+        "source": "manuel",
+        "image_id": 157,
+        "annotation_id": 129
+      }
+    ]
+  },
+  {
+    "image_id": 158,
+    "file_path": "Data/train/with_label/dirty/3586.full.jpeg",
+    "name_image": "3586.full.jpeg",
+    "upload_date": "2025-06-27T08:55:15.225712",
+    "user_id": 4,
+    "size": 203.7998046875,
+    "width": 1140,
+    "height": 641,
+    "avg_red": 113.648787530449,
+    "avg_green": 114.69875468703,
+    "avg_blue": 114.117901031831,
+    "contrast": 71.2320736689105,
+    "edges_detected": true,
+    "localisation": "Lille",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.022704",
+        "source": "manuel",
+        "image_id": 158,
+        "annotation_id": 130
+      }
+    ]
+  },
+  {
+    "image_id": 159,
+    "file_path": "Data/train/with_label/dirty/3675.jpeg",
+    "name_image": "3675.jpeg",
+    "upload_date": "2025-06-27T08:55:15.260552",
+    "user_id": 4,
+    "size": 23.41796875,
+    "width": 250,
+    "height": 188,
+    "avg_red": 124.353957446809,
+    "avg_green": 122.487510638298,
+    "avg_blue": 113.362446808511,
+    "contrast": 61.6533139785543,
+    "edges_detected": true,
+    "localisation": "Nice",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.079208",
+        "source": "manuel",
+        "image_id": 159,
+        "annotation_id": 131
+      }
+    ]
+  },
+  {
+    "image_id": 160,
+    "file_path": "Data/train/with_label/dirty/4d7b8b72cd8cfd0b7cad769e3929e0cc37ba3581.temp.jpeg",
+    "name_image": "4d7b8b72cd8cfd0b7cad769e3929e0cc37ba3581.temp.jpeg",
+    "upload_date": "2025-06-27T08:55:15.299324",
+    "user_id": 4,
+    "size": 22.072265625,
+    "width": 250,
+    "height": 141,
+    "avg_red": 105.239489361702,
+    "avg_green": 108.510723404255,
+    "avg_blue": 109.045957446809,
+    "contrast": 62.3201629676808,
+    "edges_detected": true,
+    "localisation": "Rennes",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.134485",
+        "source": "manuel",
+        "image_id": 160,
+        "annotation_id": 132
+      }
+    ]
+  },
+  {
+    "image_id": 161,
+    "file_path": "Data/train/with_label/dirty/59b578137fcbe.jpeg",
+    "name_image": "59b578137fcbe.jpeg",
+    "upload_date": "2025-06-27T08:55:15.362806",
+    "user_id": 4,
+    "size": 35.4931640625,
+    "width": 600,
+    "height": 346,
+    "avg_red": 104.588945086705,
+    "avg_green": 106.462851637765,
+    "avg_blue": 103.826266859345,
+    "contrast": 43.3929080830258,
+    "edges_detected": true,
+    "localisation": "Toulouse",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.177503",
+        "source": "manuel",
+        "image_id": 161,
+        "annotation_id": 133
+      }
+    ]
+  },
+  {
+    "image_id": 162,
+    "file_path": "Data/train/with_label/dirty/6495.jpeg",
+    "name_image": "6495.jpeg",
+    "upload_date": "2025-06-27T08:55:15.402807",
+    "user_id": 4,
+    "size": 20.9541015625,
+    "width": 188,
+    "height": 250,
+    "avg_red": 98.9437446808511,
+    "avg_green": 93.7987234042553,
+    "avg_blue": 83.6559574468085,
+    "contrast": 48.2425649309752,
+    "edges_detected": true,
+    "localisation": "Nice",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.221771",
+        "source": "manuel",
+        "image_id": 162,
+        "annotation_id": 134
+      }
+    ]
+  },
+  {
+    "image_id": 163,
+    "file_path": "Data/train/with_label/dirty/838.full.jpeg",
+    "name_image": "838.full.jpeg",
+    "upload_date": "2025-06-27T08:55:15.589549",
+    "user_id": 4,
+    "size": 1507.802734375,
+    "width": 1536,
+    "height": 2048,
+    "avg_red": 126.059452056885,
+    "avg_green": 126.25378481547,
+    "avg_blue": 126.27935441335,
+    "contrast": 73.0361379146756,
+    "edges_detected": true,
+    "localisation": "Lyon",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.260123",
+        "source": "manuel",
+        "image_id": 163,
+        "annotation_id": 135
+      }
+    ]
+  },
+  {
+    "image_id": 164,
+    "file_path": "Data/train/with_label/dirty/WhatsApp Image 2020-05-08 at 2.16.45 PM.jpeg",
+    "name_image": "WhatsApp Image 2020-05-08 at 2.16.45 PM.jpeg",
+    "upload_date": "2025-06-27T08:55:15.660016",
+    "user_id": 4,
+    "size": 66.2861328125,
+    "width": 474,
+    "height": 1000,
+    "avg_red": 129.54405907173,
+    "avg_green": 129.792892405063,
+    "avg_blue": 131.977506329114,
+    "contrast": 64.6119806653854,
+    "edges_detected": true,
+    "localisation": "Montpellier",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.31727",
+        "source": "manuel",
+        "image_id": 164,
+        "annotation_id": 136
+      }
+    ]
+  },
+  {
+    "image_id": 165,
+    "file_path": "Data/train/with_label/dirty/WhatsApp Image 2020-05-08 at 2.18.57 PM (4).jpeg",
+    "name_image": "WhatsApp Image 2020-05-08 at 2.18.57 PM (4).jpeg",
+    "upload_date": "2025-06-27T08:55:15.719582",
+    "user_id": 4,
+    "size": 25.6142578125,
+    "width": 600,
+    "height": 450,
+    "avg_red": 98.5242703703704,
+    "avg_green": 97.7798444444444,
+    "avg_blue": 97.3051074074074,
+    "contrast": 68.1644092385929,
+    "edges_detected": true,
+    "localisation": "Paris",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.39025",
+        "source": "manuel",
+        "image_id": 165,
+        "annotation_id": 137
+      }
+    ]
+  },
+  {
+    "image_id": 166,
+    "file_path": "Data/train/with_label/dirty/WhatsApp Image 2020-05-08 at 2.21.54 PM (1).jpeg",
+    "name_image": "WhatsApp Image 2020-05-08 at 2.21.54 PM (1).jpeg",
+    "upload_date": "2025-06-27T08:55:15.784524",
+    "user_id": 4,
+    "size": 71.6669921875,
+    "width": 600,
+    "height": 800,
+    "avg_red": 125.447797916667,
+    "avg_green": 116.9047125,
+    "avg_blue": 108.326591666667,
+    "contrast": 60.1857637220677,
+    "edges_detected": true,
+    "localisation": "Paris",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.429458",
+        "source": "manuel",
+        "image_id": 166,
+        "annotation_id": 138
+      }
+    ]
+  },
+  {
+    "image_id": 167,
+    "file_path": "Data/train/with_label/dirty/WhatsApp Image 2020-05-08 at 2.21.56 PM (4).jpeg",
+    "name_image": "WhatsApp Image 2020-05-08 at 2.21.56 PM (4).jpeg",
+    "upload_date": "2025-06-27T08:55:15.835674",
+    "user_id": 4,
+    "size": 27.966796875,
+    "width": 600,
+    "height": 338,
+    "avg_red": 123.509280078895,
+    "avg_green": 124.129871794872,
+    "avg_blue": 111.29508382643,
+    "contrast": 57.6515490396753,
+    "edges_detected": true,
+    "localisation": "Nice",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.462155",
+        "source": "manuel",
+        "image_id": 167,
+        "annotation_id": 139
+      }
+    ]
+  },
+  {
+    "image_id": 168,
+    "file_path": "Data/train/with_label/dirty/WhatsApp Image 2020-05-08 at 2.21.56 PM.jpeg",
+    "name_image": "WhatsApp Image 2020-05-08 at 2.21.56 PM.jpeg",
+    "upload_date": "2025-06-27T08:55:15.903003",
+    "user_id": 4,
+    "size": 112.5302734375,
+    "width": 600,
+    "height": 800,
+    "avg_red": 128.816745833333,
+    "avg_green": 122.134610416667,
+    "avg_blue": 119.978866666667,
+    "contrast": 64.0173056643818,
+    "edges_detected": true,
+    "localisation": "Le Havre",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.513656",
+        "source": "manuel",
+        "image_id": 168,
+        "annotation_id": 140
+      }
+    ]
+  },
+  {
+    "image_id": 169,
+    "file_path": "Data/train/with_label/dirty/WhatsApp Image 2020-05-08 at 2.39.00 PM (2).jpeg",
+    "name_image": "WhatsApp Image 2020-05-08 at 2.39.00 PM (2).jpeg",
+    "upload_date": "2025-06-27T08:55:15.961294",
+    "user_id": 4,
+    "size": 25.50390625,
+    "width": 600,
+    "height": 450,
+    "avg_red": 120.988822222222,
+    "avg_green": 119.328622222222,
+    "avg_blue": 111.323555555556,
+    "contrast": 45.5385552115247,
+    "edges_detected": true,
+    "localisation": "Reims",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.557428",
+        "source": "manuel",
+        "image_id": 169,
+        "annotation_id": 141
+      }
+    ]
+  }
+]

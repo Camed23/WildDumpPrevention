@@ -23,13 +23,15 @@ def initialize_cache(output_path=CACHE_PATH, filter_type="all"):
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     
     if filter_type == "labeled":
-        # Images qui ont au moins une annotation avec un label défini
-        resp = supabase.table(IMAGE_TABLE).select("*, annotation(*)").not_.is_("annotation.label", "null").execute()
+        # Images qui ont au moins une annotation (jointure interne)
+        resp = supabase.table(IMAGE_TABLE).select("*, annotation!inner(*)").execute()
+    
     elif filter_type == "unlabeled":
-        # Images qui n'ont aucune annotation avec label OU qui ont des annotations sans label
-        resp = supabase.table(IMAGE_TABLE).select("*, annotation(*)").is_("annotation.label", "null").execute()
+        # Images qui n'ont AUCUNE annotation (LEFT JOIN puis filtrer sur NULL)
+        resp = supabase.table(IMAGE_TABLE).select("*, annotation(*)").is_("annotation", "null").execute()
+    
     else:  # filter_type == "all" ou autre valeur
-        # Toutes les images avec leurs annotations éventuelles
+        # Toutes les images avec leurs annotations éventuelles (jointure externe complète)
         resp = supabase.table(IMAGE_TABLE).select("*, annotation(*)").execute()
     
     data = resp.data
@@ -44,12 +46,19 @@ def initialize_cache(output_path=CACHE_PATH, filter_type="all"):
     
     print(f"✅ Cache généré ({len(data)} entrées - {filter_msg}) dans : {output_path}")
 
-def load_cache(input_path=CACHE_PATH):
+def load_cache(dataset_name=None, input_path=CACHE_PATH):
     """
     Charge le JSON existant et retourne la liste des métadonnées.
-    Ne touche pas à la base, ne fait qu’un simple open().
+    - Si `dataset_name` est fourni, on cherchera dans le même dossier que CACHE_PATH
+      un fichier nommé `<dataset_name>.json`.
+    - Sinon on utilisera `input_path` (par défaut CACHE_PATH).
     """
-    with open(input_path, "r") as f:
+    if dataset_name:
+        cache_dir   = os.path.dirname(input_path)
+        custom_path = os.path.join(cache_dir, f"{dataset_name}.json")
+        input_path  = custom_path
+
+    with open(input_path, "r", encoding="utf-8") as f:
         return json.load(f)
     
 
@@ -63,5 +72,4 @@ if __name__ == "__main__":
         os.remove(CACHE_PATH)
         print("Cache précédent supprimé.")
 
-    initialize_cache(CACHE_PATH,"labeled")
-    print("Cache initialisé avec succès.")
+    initialize_cache()
