@@ -13,7 +13,8 @@
     "avg_blue": 134.185080555556,
     "contrast": 45.2774217147372,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 171,
@@ -29,7 +30,8 @@
     "avg_blue": 151.752811111111,
     "contrast": 36.0454459784399,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 172,
@@ -45,7 +47,8 @@
     "avg_blue": 133.296185092127,
     "contrast": 60.0692358560936,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 173,
@@ -61,7 +64,8 @@
     "avg_blue": 116.212077777778,
     "contrast": 57.8511920032775,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 174,
@@ -77,7 +81,8 @@
     "avg_blue": 102.029913888889,
     "contrast": 54.6553205937185,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 175,
@@ -93,7 +98,8 @@
     "avg_blue": 136.031941666667,
     "contrast": 46.0865588279403,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 176,
@@ -109,7 +115,8 @@
     "avg_blue": 133.030680555556,
     "contrast": 45.7531416016822,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 177,
@@ -125,7 +132,8 @@
     "avg_blue": 111.553358333333,
     "contrast": 55.4738206182644,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 178,
@@ -141,7 +149,8 @@
     "avg_blue": 117.792580555556,
     "contrast": 55.1333154528807,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 179,
@@ -157,7 +166,8 @@
     "avg_blue": 119.326383333333,
     "contrast": 55.6339859308515,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 180,
@@ -173,7 +183,8 @@
     "avg_blue": 136.347747222222,
     "contrast": 54.3436368833616,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 181,
@@ -189,7 +200,8 @@
     "avg_blue": 121.023380555556,
     "contrast": 53.4742984190294,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 182,
@@ -205,7 +217,8 @@
     "avg_blue": 114.988191666667,
     "contrast": 52.6307232945349,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 183,
@@ -221,7 +234,8 @@
     "avg_blue": 115.181272222222,
     "contrast": 48.2366436285156,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 184,
@@ -237,7 +251,8 @@
     "avg_blue": 128.482025,
     "contrast": 48.9647827530792,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 185,
@@ -253,7 +268,8 @@
     "avg_blue": 119.3421,
     "contrast": 49.4312218111222,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 186,
@@ -269,7 +285,8 @@
     "avg_blue": 99.4857,
     "contrast": 60.3293097898603,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 187,
@@ -285,7 +302,8 @@
     "avg_blue": 117.70945,
     "contrast": 55.4589039064786,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 188,
@@ -301,7 +319,8 @@
     "avg_blue": 101.613077777778,
     "contrast": 51.789066082358,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 189,
@@ -317,7 +336,8 @@
     "avg_blue": 116.126041666667,
     "contrast": 44.7011069923074,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 190,
@@ -333,7 +353,8 @@
     "avg_blue": 112.193841666667,
     "contrast": 58.4978103885955,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 191,
@@ -349,7 +370,8 @@
     "avg_blue": 123.853961111111,
     "contrast": 50.1991325971493,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 192,
@@ -365,7 +387,8 @@
     "avg_blue": 111.58375,
     "contrast": 51.3311099040274,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 193,
@@ -381,7 +404,8 @@
     "avg_blue": 121.150652777778,
     "contrast": 45.7643956640209,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 194,
@@ -397,7 +421,8 @@
     "avg_blue": 115.384958333333,
     "contrast": 58.1186912447903,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 195,
@@ -413,7 +438,8 @@
     "avg_blue": 130.730997222222,
     "contrast": 49.417655553051,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 196,
@@ -429,7 +455,8 @@
     "avg_blue": 112.752452777778,
     "contrast": 48.1334834200851,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 197,
@@ -445,7 +472,8 @@
     "avg_blue": 137.504733333333,
     "contrast": 52.0744115437375,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 198,
@@ -461,7 +489,8 @@
     "avg_blue": 107.293833333333,
     "contrast": 53.7041494273002,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 199,
@@ -477,7 +506,8 @@
     "avg_blue": 123.83005,
     "contrast": 52.2879724214655,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 200,
@@ -493,7 +523,8 @@
     "avg_blue": 108.658066666667,
     "contrast": 46.9862122856701,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 201,
@@ -509,7 +540,8 @@
     "avg_blue": 133.960561111111,
     "contrast": 49.3543652912595,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 202,
@@ -525,7 +557,8 @@
     "avg_blue": 125.657086111111,
     "contrast": 35.9595956663479,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 203,
@@ -541,7 +574,8 @@
     "avg_blue": 122.832525,
     "contrast": 53.3036480050456,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 204,
@@ -557,7 +591,8 @@
     "avg_blue": 126.826025,
     "contrast": 54.2188630839772,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 205,
@@ -573,7 +608,8 @@
     "avg_blue": 123.732263888889,
     "contrast": 59.1449204265572,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 206,
@@ -589,7 +625,8 @@
     "avg_blue": 96.5881361111111,
     "contrast": 58.9483048016053,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 207,
@@ -605,7 +642,8 @@
     "avg_blue": 118.066725,
     "contrast": 50.5778583488385,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 208,
@@ -621,7 +659,8 @@
     "avg_blue": 119.40365,
     "contrast": 52.389720158481,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 209,
@@ -637,7 +676,8 @@
     "avg_blue": 118.618891666667,
     "contrast": 51.4991317852694,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 210,
@@ -653,7 +693,8 @@
     "avg_blue": 135.155675,
     "contrast": 40.5805474189781,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 211,
@@ -669,7 +710,8 @@
     "avg_blue": 119.251527777778,
     "contrast": 54.331515130718,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 212,
@@ -685,7 +727,8 @@
     "avg_blue": 130.398933333333,
     "contrast": 54.8970668942031,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 213,
@@ -701,7 +744,8 @@
     "avg_blue": 130.439591666667,
     "contrast": 50.4230157085841,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 214,
@@ -717,7 +761,8 @@
     "avg_blue": 128.3986,
     "contrast": 58.2091672595604,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 215,
@@ -733,7 +778,8 @@
     "avg_blue": 134.017027777778,
     "contrast": 43.4773816519534,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 216,
@@ -749,7 +795,8 @@
     "avg_blue": 141.461433333333,
     "contrast": 29.6934077524497,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 217,
@@ -765,7 +812,8 @@
     "avg_blue": 144.03875,
     "contrast": 41.6394731932139,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 218,
@@ -781,7 +829,8 @@
     "avg_blue": 149.927283333333,
     "contrast": 35.356051325432,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 219,
@@ -797,7 +846,8 @@
     "avg_blue": 114.214644444444,
     "contrast": 52.8075046502554,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 220,
@@ -813,7 +863,8 @@
     "avg_blue": 123.625441666667,
     "contrast": 37.8904379598159,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 221,
@@ -829,7 +880,8 @@
     "avg_blue": 132.152402777778,
     "contrast": 52.7043610756098,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 222,
@@ -845,7 +897,8 @@
     "avg_blue": 126.406930555556,
     "contrast": 52.8659097396694,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 223,
@@ -861,7 +914,8 @@
     "avg_blue": 126.101533333333,
     "contrast": 48.4924779647986,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 224,
@@ -877,7 +931,8 @@
     "avg_blue": 119.233397222222,
     "contrast": 54.6483334209187,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 225,
@@ -893,7 +948,8 @@
     "avg_blue": 95.3169,
     "contrast": 59.9182494348303,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 226,
@@ -909,7 +965,8 @@
     "avg_blue": 138.815391666667,
     "contrast": 37.57842883426,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 227,
@@ -925,7 +982,8 @@
     "avg_blue": 132.750561111111,
     "contrast": 35.2656287450096,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 228,
@@ -941,7 +999,8 @@
     "avg_blue": 138.467925,
     "contrast": 46.5748780551785,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 229,
@@ -957,7 +1016,8 @@
     "avg_blue": 116.005683333333,
     "contrast": 47.5854154757519,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 230,
@@ -973,7 +1033,8 @@
     "avg_blue": 111.749261111111,
     "contrast": 45.5732427524821,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 231,
@@ -989,7 +1050,8 @@
     "avg_blue": 126.275927777778,
     "contrast": 53.9973126483258,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 232,
@@ -1005,7 +1067,8 @@
     "avg_blue": 125.525886111111,
     "contrast": 52.119127684241,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 233,
@@ -1021,7 +1084,8 @@
     "avg_blue": 110.026547222222,
     "contrast": 49.7273249521082,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 234,
@@ -1037,7 +1101,8 @@
     "avg_blue": 116.497286111111,
     "contrast": 44.5185173322154,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 235,
@@ -1053,7 +1118,8 @@
     "avg_blue": 121.800980555556,
     "contrast": 47.6822294389096,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 236,
@@ -1069,7 +1135,8 @@
     "avg_blue": 126.729391666667,
     "contrast": 36.9448879814811,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 237,
@@ -1085,7 +1152,8 @@
     "avg_blue": 130.607736111111,
     "contrast": 44.0521596807251,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 238,
@@ -1101,7 +1169,8 @@
     "avg_blue": 127.673502777778,
     "contrast": 59.3123596448895,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 239,
@@ -1117,7 +1186,8 @@
     "avg_blue": 137.75025,
     "contrast": 56.5077008168348,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 130,
@@ -1133,7 +1203,16 @@
     "avg_blue": 121.965288888889,
     "contrast": 57.839165199265,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.226349",
+        "source": "manuel",
+        "image_id": 130,
+        "annotation_id": 102
+      }
+    ]
   },
   {
     "image_id": 131,
@@ -1149,7 +1228,16 @@
     "avg_blue": 129.658519444444,
     "contrast": 44.9677983003752,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.264487",
+        "source": "manuel",
+        "image_id": 131,
+        "annotation_id": 103
+      }
+    ]
   },
   {
     "image_id": 132,
@@ -1165,7 +1253,16 @@
     "avg_blue": 106.121591666667,
     "contrast": 54.2618382826426,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.294685",
+        "source": "manuel",
+        "image_id": 132,
+        "annotation_id": 104
+      }
+    ]
   },
   {
     "image_id": 133,
@@ -1181,7 +1278,16 @@
     "avg_blue": 108.389680555556,
     "contrast": 53.7177365589902,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.335805",
+        "source": "manuel",
+        "image_id": 133,
+        "annotation_id": 105
+      }
+    ]
   },
   {
     "image_id": 134,
@@ -1197,7 +1303,16 @@
     "avg_blue": 116.230905555556,
     "contrast": 51.5330135845334,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.372524",
+        "source": "manuel",
+        "image_id": 134,
+        "annotation_id": 106
+      }
+    ]
   },
   {
     "image_id": 135,
@@ -1213,7 +1328,16 @@
     "avg_blue": 109.109825,
     "contrast": 50.0614405518813,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.410745",
+        "source": "manuel",
+        "image_id": 135,
+        "annotation_id": 107
+      }
+    ]
   },
   {
     "image_id": 136,
@@ -1229,7 +1353,16 @@
     "avg_blue": 119.643969444444,
     "contrast": 48.7268877768893,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.448047",
+        "source": "manuel",
+        "image_id": 136,
+        "annotation_id": 108
+      }
+    ]
   },
   {
     "image_id": 137,
@@ -1245,7 +1378,16 @@
     "avg_blue": 111.431787048568,
     "contrast": 66.9534425400316,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.483885",
+        "source": "manuel",
+        "image_id": 137,
+        "annotation_id": 109
+      }
+    ]
   },
   {
     "image_id": 138,
@@ -1261,7 +1403,16 @@
     "avg_blue": 116.333665421337,
     "contrast": 84.8717689754016,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.528592",
+        "source": "manuel",
+        "image_id": 138,
+        "annotation_id": 110
+      }
+    ]
   },
   {
     "image_id": 139,
@@ -1277,7 +1428,16 @@
     "avg_blue": 126.666413416667,
     "contrast": 44.9922652532766,
     "edges_detected": false,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.575933",
+        "source": "manuel",
+        "image_id": 139,
+        "annotation_id": 111
+      }
+    ]
   },
   {
     "image_id": 140,
@@ -1293,7 +1453,16 @@
     "avg_blue": 109.980276148583,
     "contrast": 63.480709382236,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.623791",
+        "source": "manuel",
+        "image_id": 140,
+        "annotation_id": 112
+      }
+    ]
   },
   {
     "image_id": 141,
@@ -1309,7 +1478,16 @@
     "avg_blue": 115.664962880475,
     "contrast": 43.8234409984988,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.656816",
+        "source": "manuel",
+        "image_id": 141,
+        "annotation_id": 113
+      }
+    ]
   },
   {
     "image_id": 142,
@@ -1325,7 +1503,16 @@
     "avg_blue": 135.818698752228,
     "contrast": 59.4748130115887,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.69727",
+        "source": "manuel",
+        "image_id": 142,
+        "annotation_id": 114
+      }
+    ]
   },
   {
     "image_id": 143,
@@ -1341,7 +1528,16 @@
     "avg_blue": 110.312182662539,
     "contrast": 64.2775641654543,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.739038",
+        "source": "manuel",
+        "image_id": 143,
+        "annotation_id": 115
+      }
+    ]
   },
   {
     "image_id": 144,
@@ -1357,7 +1553,16 @@
     "avg_blue": 113.873153547133,
     "contrast": 56.0781303294857,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.773487",
+        "source": "manuel",
+        "image_id": 144,
+        "annotation_id": 116
+      }
+    ]
   },
   {
     "image_id": 145,
@@ -1373,7 +1578,16 @@
     "avg_blue": 105.170647911338,
     "contrast": 55.3780096383526,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.813033",
+        "source": "manuel",
+        "image_id": 145,
+        "annotation_id": 117
+      }
+    ]
   },
   {
     "image_id": 146,
@@ -1389,7 +1603,16 @@
     "avg_blue": 114.431877289377,
     "contrast": 66.780420968339,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.845806",
+        "source": "manuel",
+        "image_id": 146,
+        "annotation_id": 118
+      }
+    ]
   },
   {
     "image_id": 147,
@@ -1405,7 +1628,16 @@
     "avg_blue": 105.043648393195,
     "contrast": 53.7607207949009,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.879111",
+        "source": "manuel",
+        "image_id": 147,
+        "annotation_id": 119
+      }
+    ]
   },
   {
     "image_id": 240,
@@ -1421,7 +1653,8 @@
     "avg_blue": 137.449013888889,
     "contrast": 46.5006932114172,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 241,
@@ -1437,7 +1670,8 @@
     "avg_blue": 128.166322222222,
     "contrast": 47.9138878996348,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 242,
@@ -1453,7 +1687,8 @@
     "avg_blue": 109.456678383128,
     "contrast": 67.0027158666648,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 243,
@@ -1469,7 +1704,8 @@
     "avg_blue": 37.2547428571429,
     "contrast": 54.8659819991005,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 244,
@@ -1485,7 +1721,8 @@
     "avg_blue": 103.927080079377,
     "contrast": 53.0677339444141,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 245,
@@ -1501,7 +1738,8 @@
     "avg_blue": 119.030500713868,
     "contrast": 59.6759808897173,
     "edges_detected": false,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 148,
@@ -1517,7 +1755,16 @@
     "avg_blue": 120.122662306202,
     "contrast": 42.4009576657028,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.913871",
+        "source": "manuel",
+        "image_id": 148,
+        "annotation_id": 120
+      }
+    ]
   },
   {
     "image_id": 149,
@@ -1533,7 +1780,16 @@
     "avg_blue": 101.313209078527,
     "contrast": 49.5264364586486,
     "edges_detected": false,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": [
+      {
+        "label": "vide",
+        "date_a": "2025-06-27T08:50:38.959346",
+        "source": "manuel",
+        "image_id": 149,
+        "annotation_id": 121
+      }
+    ]
   },
   {
     "image_id": 150,
@@ -1549,7 +1805,16 @@
     "avg_blue": 127.464791666667,
     "contrast": 51.8679199720391,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.576767",
+        "source": "manuel",
+        "image_id": 150,
+        "annotation_id": 122
+      }
+    ]
   },
   {
     "image_id": 151,
@@ -1565,7 +1830,16 @@
     "avg_blue": 140.303847222222,
     "contrast": 52.4037679573977,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.655703",
+        "source": "manuel",
+        "image_id": 151,
+        "annotation_id": 123
+      }
+    ]
   },
   {
     "image_id": 152,
@@ -1581,7 +1855,16 @@
     "avg_blue": 119.226237297058,
     "contrast": 60.0470400666732,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.719272",
+        "source": "manuel",
+        "image_id": 152,
+        "annotation_id": 124
+      }
+    ]
   },
   {
     "image_id": 153,
@@ -1597,7 +1880,16 @@
     "avg_blue": 131.943836873372,
     "contrast": 56.0048455566701,
     "edges_detected": false,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.789361",
+        "source": "manuel",
+        "image_id": 153,
+        "annotation_id": 125
+      }
+    ]
   },
   {
     "image_id": 154,
@@ -1613,7 +1905,16 @@
     "avg_blue": 61.1536412248269,
     "contrast": 45.4754143566978,
     "edges_detected": false,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.826563",
+        "source": "manuel",
+        "image_id": 154,
+        "annotation_id": 126
+      }
+    ]
   },
   {
     "image_id": 155,
@@ -1629,7 +1930,16 @@
     "avg_blue": 99.0743761914488,
     "contrast": 64.4480084554568,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.877709",
+        "source": "manuel",
+        "image_id": 155,
+        "annotation_id": 127
+      }
+    ]
   },
   {
     "image_id": 156,
@@ -1645,7 +1955,16 @@
     "avg_blue": 111.210438925763,
     "contrast": 63.8333004133046,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.928886",
+        "source": "manuel",
+        "image_id": 156,
+        "annotation_id": 128
+      }
+    ]
   },
   {
     "image_id": 157,
@@ -1661,7 +1980,16 @@
     "avg_blue": 102.492432912191,
     "contrast": 50.8139134491874,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:25.97676",
+        "source": "manuel",
+        "image_id": 157,
+        "annotation_id": 129
+      }
+    ]
   },
   {
     "image_id": 158,
@@ -1677,7 +2005,16 @@
     "avg_blue": 114.117901031831,
     "contrast": 71.2320736689105,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.022704",
+        "source": "manuel",
+        "image_id": 158,
+        "annotation_id": 130
+      }
+    ]
   },
   {
     "image_id": 159,
@@ -1693,7 +2030,16 @@
     "avg_blue": 113.362446808511,
     "contrast": 61.6533139785543,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.079208",
+        "source": "manuel",
+        "image_id": 159,
+        "annotation_id": 131
+      }
+    ]
   },
   {
     "image_id": 160,
@@ -1709,7 +2055,16 @@
     "avg_blue": 109.045957446809,
     "contrast": 62.3201629676808,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.134485",
+        "source": "manuel",
+        "image_id": 160,
+        "annotation_id": 132
+      }
+    ]
   },
   {
     "image_id": 161,
@@ -1725,7 +2080,16 @@
     "avg_blue": 103.826266859345,
     "contrast": 43.3929080830258,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.177503",
+        "source": "manuel",
+        "image_id": 161,
+        "annotation_id": 133
+      }
+    ]
   },
   {
     "image_id": 162,
@@ -1741,7 +2105,16 @@
     "avg_blue": 83.6559574468085,
     "contrast": 48.2425649309752,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.221771",
+        "source": "manuel",
+        "image_id": 162,
+        "annotation_id": 134
+      }
+    ]
   },
   {
     "image_id": 163,
@@ -1757,7 +2130,16 @@
     "avg_blue": 126.27935441335,
     "contrast": 73.0361379146756,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.260123",
+        "source": "manuel",
+        "image_id": 163,
+        "annotation_id": 135
+      }
+    ]
   },
   {
     "image_id": 164,
@@ -1773,7 +2155,16 @@
     "avg_blue": 131.977506329114,
     "contrast": 64.6119806653854,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.31727",
+        "source": "manuel",
+        "image_id": 164,
+        "annotation_id": 136
+      }
+    ]
   },
   {
     "image_id": 165,
@@ -1789,7 +2180,16 @@
     "avg_blue": 97.3051074074074,
     "contrast": 68.1644092385929,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.39025",
+        "source": "manuel",
+        "image_id": 165,
+        "annotation_id": 137
+      }
+    ]
   },
   {
     "image_id": 166,
@@ -1805,7 +2205,16 @@
     "avg_blue": 108.326591666667,
     "contrast": 60.1857637220677,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.429458",
+        "source": "manuel",
+        "image_id": 166,
+        "annotation_id": 138
+      }
+    ]
   },
   {
     "image_id": 167,
@@ -1821,7 +2230,16 @@
     "avg_blue": 111.29508382643,
     "contrast": 57.6515490396753,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.462155",
+        "source": "manuel",
+        "image_id": 167,
+        "annotation_id": 139
+      }
+    ]
   },
   {
     "image_id": 168,
@@ -1837,7 +2255,16 @@
     "avg_blue": 119.978866666667,
     "contrast": 64.0173056643818,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.513656",
+        "source": "manuel",
+        "image_id": 168,
+        "annotation_id": 140
+      }
+    ]
   },
   {
     "image_id": 169,
@@ -1853,7 +2280,16 @@
     "avg_blue": 111.323555555556,
     "contrast": 45.5385552115247,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": [
+      {
+        "label": "plein",
+        "date_a": "2025-06-27T08:58:26.557428",
+        "source": "manuel",
+        "image_id": 169,
+        "annotation_id": 141
+      }
+    ]
   },
   {
     "image_id": 246,
@@ -1869,7 +2305,8 @@
     "avg_blue": 85.7631578250068,
     "contrast": 40.3736559211219,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 247,
@@ -1885,7 +2322,8 @@
     "avg_blue": 134.831657142857,
     "contrast": 57.4314447276398,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 248,
@@ -1901,7 +2339,8 @@
     "avg_blue": 89.1710855338363,
     "contrast": 47.1224074644672,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 249,
@@ -1917,7 +2356,8 @@
     "avg_blue": 101.824907087018,
     "contrast": 61.252330055937,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 250,
@@ -1933,7 +2373,8 @@
     "avg_blue": 118.961364347339,
     "contrast": 48.27532872625,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 251,
@@ -1949,7 +2390,8 @@
     "avg_blue": 110.79756374783,
     "contrast": 58.9643777459653,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 252,
@@ -1965,7 +2407,8 @@
     "avg_blue": 105.785362962963,
     "contrast": 62.7679429140306,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 253,
@@ -1981,7 +2424,8 @@
     "avg_blue": 117.633,
     "contrast": 66.9006979236259,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 254,
@@ -1997,7 +2441,8 @@
     "avg_blue": 126.861196381467,
     "contrast": 53.1875694107229,
     "edges_detected": false,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 255,
@@ -2013,7 +2458,8 @@
     "avg_blue": 69.2839046875,
     "contrast": 20.3231401303191,
     "edges_detected": false,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 256,
@@ -2029,7 +2475,8 @@
     "avg_blue": 103.3833984375,
     "contrast": 60.6861381583367,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 257,
@@ -2045,7 +2492,8 @@
     "avg_blue": 110.461898167928,
     "contrast": 60.9580311949506,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 258,
@@ -2061,7 +2509,8 @@
     "avg_blue": 97.4987706028963,
     "contrast": 90.1161197948577,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 259,
@@ -2077,7 +2526,8 @@
     "avg_blue": 171.95215733846,
     "contrast": 86.9159967569722,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 260,
@@ -2093,7 +2543,8 @@
     "avg_blue": 112.91514013214,
     "contrast": 64.023543765926,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 261,
@@ -2109,7 +2560,8 @@
     "avg_blue": 104.599625519632,
     "contrast": 67.9976646787512,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 262,
@@ -2125,7 +2577,8 @@
     "avg_blue": 26.2700839220492,
     "contrast": 40.4200807790665,
     "edges_detected": false,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 263,
@@ -2141,7 +2594,8 @@
     "avg_blue": 110.500393200507,
     "contrast": 61.9483469928285,
     "edges_detected": false,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 264,
@@ -2157,7 +2611,8 @@
     "avg_blue": 97.5478945414225,
     "contrast": 69.8962455166755,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 265,
@@ -2173,7 +2628,8 @@
     "avg_blue": 98.3924641927083,
     "contrast": 66.6695206742371,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 266,
@@ -2189,7 +2645,8 @@
     "avg_blue": 149.666616438356,
     "contrast": 75.8182843024067,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 267,
@@ -2205,7 +2662,8 @@
     "avg_blue": 105.424553381912,
     "contrast": 56.9222006659395,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 268,
@@ -2221,7 +2679,8 @@
     "avg_blue": 128.573653856913,
     "contrast": 67.1568709786542,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 269,
@@ -2237,7 +2696,8 @@
     "avg_blue": 115.494410876437,
     "contrast": 73.172377981892,
     "edges_detected": false,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 270,
@@ -2253,7 +2713,8 @@
     "avg_blue": 98.4174468085106,
     "contrast": 71.773373232388,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 271,
@@ -2269,7 +2730,8 @@
     "avg_blue": 113.396958414714,
     "contrast": 66.661582685696,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 272,
@@ -2285,7 +2747,8 @@
     "avg_blue": 76.4944834391276,
     "contrast": 53.1299553941964,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 273,
@@ -2301,7 +2764,8 @@
     "avg_blue": 117.42860843786,
     "contrast": 46.519752534,
     "edges_detected": false,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 274,
@@ -2317,7 +2781,8 @@
     "avg_blue": 92.495497844038,
     "contrast": 47.5802543036179,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 275,
@@ -2333,7 +2798,8 @@
     "avg_blue": 66.2223743315508,
     "contrast": 68.397189549046,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 276,
@@ -2349,7 +2815,8 @@
     "avg_blue": 119.248554575697,
     "contrast": 60.4159228324257,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 277,
@@ -2365,7 +2832,8 @@
     "avg_blue": 119.342609625668,
     "contrast": 50.9816535777407,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 278,
@@ -2381,7 +2849,8 @@
     "avg_blue": 88.0541785659721,
     "contrast": 64.9550972630135,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 279,
@@ -2397,7 +2866,8 @@
     "avg_blue": 124.866555231161,
     "contrast": 58.9620758486056,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 280,
@@ -2413,7 +2883,8 @@
     "avg_blue": 105.076080246914,
     "contrast": 59.2192892430243,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 281,
@@ -2429,7 +2900,8 @@
     "avg_blue": 101.229737654321,
     "contrast": 49.347615449237,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 282,
@@ -2445,7 +2917,8 @@
     "avg_blue": 56.6285390946502,
     "contrast": 47.6348708301855,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 283,
@@ -2461,7 +2934,8 @@
     "avg_blue": 74.5908719604863,
     "contrast": 34.5849591886362,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 284,
@@ -2477,7 +2951,8 @@
     "avg_blue": 100.421676954733,
     "contrast": 52.8259548626906,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 285,
@@ -2493,7 +2968,8 @@
     "avg_blue": 95.0806995884774,
     "contrast": 60.7498199320666,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 286,
@@ -2509,7 +2985,8 @@
     "avg_blue": 85.5614197530864,
     "contrast": 65.3391639121385,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 287,
@@ -2525,7 +3002,8 @@
     "avg_blue": 92.2721927758147,
     "contrast": 53.0172239309175,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 288,
@@ -2541,7 +3019,8 @@
     "avg_blue": 100.087943262411,
     "contrast": 31.819321279031,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 289,
@@ -2557,7 +3036,8 @@
     "avg_blue": 137.379510451045,
     "contrast": 58.9029198579633,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 290,
@@ -2573,7 +3053,8 @@
     "avg_blue": 156.714878987899,
     "contrast": 38.8630471641167,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 291,
@@ -2589,7 +3070,8 @@
     "avg_blue": 130.225884773663,
     "contrast": 59.5747920453811,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 292,
@@ -2605,7 +3087,8 @@
     "avg_blue": 85.1621147145668,
     "contrast": 70.0849270701713,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 293,
@@ -2621,7 +3104,8 @@
     "avg_blue": 101.686682098765,
     "contrast": 49.0426496736229,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 294,
@@ -2637,7 +3121,8 @@
     "avg_blue": 118.923120567376,
     "contrast": 56.2691724955973,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 295,
@@ -2653,7 +3138,8 @@
     "avg_blue": 139.386850921273,
     "contrast": 46.7242430404339,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 296,
@@ -2669,7 +3155,8 @@
     "avg_blue": 45.9522645833333,
     "contrast": 56.3543477305955,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 297,
@@ -2685,7 +3172,8 @@
     "avg_blue": 135.552010536194,
     "contrast": 57.0437082040006,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 298,
@@ -2701,7 +3189,8 @@
     "avg_blue": 73.3875531914894,
     "contrast": 66.3578407049445,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 299,
@@ -2717,7 +3206,8 @@
     "avg_blue": 103.540114726742,
     "contrast": 58.1657579876169,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 300,
@@ -2733,7 +3223,8 @@
     "avg_blue": 85.1442431640625,
     "contrast": 55.1117327400142,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 301,
@@ -2749,7 +3240,8 @@
     "avg_blue": 87.9894208333333,
     "contrast": 66.295604133209,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 302,
@@ -2765,7 +3257,8 @@
     "avg_blue": 119.737659900775,
     "contrast": 69.208567583554,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 303,
@@ -2781,7 +3274,8 @@
     "avg_blue": 142.192147890727,
     "contrast": 69.5956517160816,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 304,
@@ -2797,7 +3291,8 @@
     "avg_blue": 143.159063829787,
     "contrast": 88.6155271704705,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 305,
@@ -2813,7 +3308,8 @@
     "avg_blue": 127.029658203125,
     "contrast": 62.7290019150033,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 306,
@@ -2829,7 +3325,8 @@
     "avg_blue": 102.656808510638,
     "contrast": 60.6545073984867,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 307,
@@ -2845,7 +3342,8 @@
     "avg_blue": 130.24030492229,
     "contrast": 52.4726416408941,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 308,
@@ -2861,7 +3359,8 @@
     "avg_blue": 115.560330208333,
     "contrast": 42.8763911051701,
     "edges_detected": false,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 309,
@@ -2877,7 +3376,8 @@
     "avg_blue": 97.6571903460838,
     "contrast": 55.753814800098,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 310,
@@ -2893,7 +3393,8 @@
     "avg_blue": 119.86467428088,
     "contrast": 59.4628511226513,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 311,
@@ -2909,7 +3410,8 @@
     "avg_blue": 128.427425925926,
     "contrast": 49.2616119332541,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 312,
@@ -2925,7 +3427,8 @@
     "avg_blue": 131.375306666667,
     "contrast": 43.4853363055229,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 313,
@@ -2941,7 +3444,8 @@
     "avg_blue": 132.768567375887,
     "contrast": 56.689518354202,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 314,
@@ -2957,7 +3461,8 @@
     "avg_blue": 91.6041803278688,
     "contrast": 60.8431100912188,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 315,
@@ -2973,7 +3478,8 @@
     "avg_blue": 138.644068047337,
     "contrast": 74.8353369502698,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 316,
@@ -2989,7 +3495,8 @@
     "avg_blue": 108.784244444444,
     "contrast": 64.5348161521136,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 317,
@@ -3005,7 +3512,8 @@
     "avg_blue": 108.60447459087,
     "contrast": 63.0654529532827,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 318,
@@ -3021,7 +3529,8 @@
     "avg_blue": 120.246819526627,
     "contrast": 74.3532406416233,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 319,
@@ -3037,7 +3546,8 @@
     "avg_blue": 120.246819526627,
     "contrast": 74.3532406416233,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 320,
@@ -3053,7 +3563,8 @@
     "avg_blue": 105.406577380952,
     "contrast": 63.3622171744176,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 321,
@@ -3069,7 +3580,8 @@
     "avg_blue": 86.5253353057199,
     "contrast": 57.9372833194714,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 322,
@@ -3085,7 +3597,8 @@
     "avg_blue": 111.464207407407,
     "contrast": 59.2195597729139,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 323,
@@ -3101,7 +3614,8 @@
     "avg_blue": 89.5122797456857,
     "contrast": 71.5556056556216,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 324,
@@ -3117,7 +3631,8 @@
     "avg_blue": 101.571473429952,
     "contrast": 57.6091221922771,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 325,
@@ -3133,7 +3648,8 @@
     "avg_blue": 127.078553191489,
     "contrast": 61.3257642139048,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 326,
@@ -3149,7 +3665,8 @@
     "avg_blue": 130.147191489362,
     "contrast": 51.572135845998,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 327,
@@ -3165,7 +3682,8 @@
     "avg_blue": 99.4751259259259,
     "contrast": 58.6595104498775,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 328,
@@ -3181,7 +3699,8 @@
     "avg_blue": 87.6752145833333,
     "contrast": 55.5531111169246,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 329,
@@ -3197,7 +3716,8 @@
     "avg_blue": 90.9751444444444,
     "contrast": 58.3711311940488,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 330,
@@ -3213,7 +3733,8 @@
     "avg_blue": 94.6660638297872,
     "contrast": 34.1991601932481,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 331,
@@ -3229,7 +3750,8 @@
     "avg_blue": 137.987945261438,
     "contrast": 68.8563207044186,
     "edges_detected": false,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 332,
@@ -3245,7 +3767,8 @@
     "avg_blue": 106.857948717949,
     "contrast": 79.1207333997468,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 333,
@@ -3261,7 +3784,8 @@
     "avg_blue": 109.677226399332,
     "contrast": 78.8407951224956,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 334,
@@ -3277,7 +3801,8 @@
     "avg_blue": 150.515722379603,
     "contrast": 44.6882639476598,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 335,
@@ -3293,7 +3818,8 @@
     "avg_blue": 79.268515625,
     "contrast": 75.9212767960841,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 336,
@@ -3309,7 +3835,8 @@
     "avg_blue": 99.1039,
     "contrast": 67.7664222009444,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 337,
@@ -3325,7 +3852,8 @@
     "avg_blue": 82.755399408284,
     "contrast": 53.3699945002512,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 338,
@@ -3341,7 +3869,8 @@
     "avg_blue": 84.6101727272727,
     "contrast": 69.3500176848729,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 339,
@@ -3357,7 +3886,8 @@
     "avg_blue": 90.8270354166667,
     "contrast": 70.324515319606,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 340,
@@ -3373,7 +3903,8 @@
     "avg_blue": 76.1960555555556,
     "contrast": 51.1709454936464,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 341,
@@ -3389,7 +3920,8 @@
     "avg_blue": 96.6622326820604,
     "contrast": 73.0450728823819,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 342,
@@ -3405,7 +3937,8 @@
     "avg_blue": 137.737450690335,
     "contrast": 59.7849765885253,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 343,
@@ -3421,7 +3954,8 @@
     "avg_blue": 119.687866666667,
     "contrast": 64.5007782579479,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 344,
@@ -3437,7 +3971,8 @@
     "avg_blue": 106.237022222222,
     "contrast": 57.610589143362,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 345,
@@ -3453,7 +3988,8 @@
     "avg_blue": 160.612235410485,
     "contrast": 51.5807386638704,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 346,
@@ -3469,7 +4005,8 @@
     "avg_blue": 106.103536,
     "contrast": 28.5978680171462,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 347,
@@ -3485,7 +4022,8 @@
     "avg_blue": 102.98379877369,
     "contrast": 31.8915209315326,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 348,
@@ -3501,7 +4039,8 @@
     "avg_blue": 118.420594223485,
     "contrast": 53.6085292810188,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 349,
@@ -3517,7 +4056,8 @@
     "avg_blue": 135.060452858203,
     "contrast": 34.4488370731744,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 350,
@@ -3533,7 +4073,8 @@
     "avg_blue": 122.713079029734,
     "contrast": 73.3432446109836,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 351,
@@ -3549,7 +4090,8 @@
     "avg_blue": 84.1809561403509,
     "contrast": 54.3876202050002,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 352,
@@ -3565,7 +4107,8 @@
     "avg_blue": 133.386571191366,
     "contrast": 39.9805879185438,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 353,
@@ -3581,7 +4124,8 @@
     "avg_blue": 107.962441421013,
     "contrast": 63.9273138719651,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 354,
@@ -3597,7 +4141,8 @@
     "avg_blue": 108.060433634992,
     "contrast": 62.7810977198407,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 355,
@@ -3613,7 +4158,8 @@
     "avg_blue": 102.513160800552,
     "contrast": 49.6767760272678,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 356,
@@ -3629,7 +4175,8 @@
     "avg_blue": 101.581636971047,
     "contrast": 56.6868302542989,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 357,
@@ -3645,7 +4192,8 @@
     "avg_blue": 72.0005085374907,
     "contrast": 57.0501174977516,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 358,
@@ -3661,7 +4209,8 @@
     "avg_blue": 109.175432748538,
     "contrast": 48.0635077900117,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 359,
@@ -3677,7 +4226,8 @@
     "avg_blue": 121.239667145594,
     "contrast": 77.5674638748337,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 360,
@@ -3693,7 +4243,8 @@
     "avg_blue": 102.587138304653,
     "contrast": 49.8134882577061,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 361,
@@ -3709,7 +4260,8 @@
     "avg_blue": 116.893781828704,
     "contrast": 36.4367829249366,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 362,
@@ -3725,7 +4277,8 @@
     "avg_blue": 89.1411469864699,
     "contrast": 39.8610440780154,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 363,
@@ -3741,7 +4294,8 @@
     "avg_blue": 155.564216778025,
     "contrast": 48.0898839933663,
     "edges_detected": false,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 364,
@@ -3757,7 +4311,8 @@
     "avg_blue": 107.005522727273,
     "contrast": 58.982914850267,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 365,
@@ -3773,7 +4328,8 @@
     "avg_blue": 75.2240458333333,
     "contrast": 49.6987391116618,
     "edges_detected": false,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 366,
@@ -3789,7 +4345,8 @@
     "avg_blue": 45.9298816936488,
     "contrast": 64.8665724142451,
     "edges_detected": false,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 367,
@@ -3805,7 +4362,8 @@
     "avg_blue": 129.126315789474,
     "contrast": 53.9442585101224,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 368,
@@ -3821,7 +4379,8 @@
     "avg_blue": 81.51315625,
     "contrast": 58.0301298202727,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 369,
@@ -3837,7 +4396,8 @@
     "avg_blue": 96.4921347905282,
     "contrast": 39.9050571239078,
     "edges_detected": false,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 370,
@@ -3853,7 +4413,8 @@
     "avg_blue": 82.0222278911565,
     "contrast": 49.5257335162902,
     "edges_detected": false,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 371,
@@ -3869,7 +4430,8 @@
     "avg_blue": 107.643729763387,
     "contrast": 47.7127498359441,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 372,
@@ -3885,7 +4447,8 @@
     "avg_blue": 118.942443003145,
     "contrast": 49.3881437004488,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 373,
@@ -3901,7 +4464,8 @@
     "avg_blue": 85.2506584922797,
     "contrast": 53.1359003007567,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 374,
@@ -3917,7 +4481,8 @@
     "avg_blue": 89.7144557823129,
     "contrast": 45.3615897564869,
     "edges_detected": false,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 375,
@@ -3933,7 +4498,8 @@
     "avg_blue": 31.35475,
     "contrast": 46.0101941541788,
     "edges_detected": false,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 376,
@@ -3949,7 +4515,8 @@
     "avg_blue": 94.2925302790943,
     "contrast": 41.6553139139804,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 377,
@@ -3965,7 +4532,8 @@
     "avg_blue": 93.403731138546,
     "contrast": 33.6034127329026,
     "edges_detected": false,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 378,
@@ -3981,7 +4549,8 @@
     "avg_blue": 85.6554188481675,
     "contrast": 30.1796311712524,
     "edges_detected": false,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 379,
@@ -3997,7 +4566,8 @@
     "avg_blue": 39.7697176820208,
     "contrast": 58.2495789211333,
     "edges_detected": false,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 380,
@@ -4013,7 +4583,8 @@
     "avg_blue": 56.1611789124118,
     "contrast": 46.5862818289919,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 381,
@@ -4029,7 +4600,8 @@
     "avg_blue": 118.174749140893,
     "contrast": 50.2957494707095,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 382,
@@ -4045,7 +4617,8 @@
     "avg_blue": 103.438873873874,
     "contrast": 44.1580435890188,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 383,
@@ -4061,7 +4634,8 @@
     "avg_blue": 112.294245187437,
     "contrast": 72.667438593965,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 384,
@@ -4077,7 +4651,8 @@
     "avg_blue": 134.976825095057,
     "contrast": 58.1548661897985,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 385,
@@ -4093,7 +4668,8 @@
     "avg_blue": 114.341466221232,
     "contrast": 55.5271720401631,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 386,
@@ -4109,7 +4685,8 @@
     "avg_blue": 78.316237458194,
     "contrast": 58.5124833331053,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 387,
@@ -4125,7 +4702,8 @@
     "avg_blue": 93.6522892876563,
     "contrast": 49.6590692338207,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 388,
@@ -4141,7 +4719,8 @@
     "avg_blue": 131.871950113379,
     "contrast": 66.7144807910459,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 389,
@@ -4157,7 +4736,8 @@
     "avg_blue": 94.1945295055821,
     "contrast": 52.8425878765446,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 390,
@@ -4173,7 +4753,8 @@
     "avg_blue": 112.826053864169,
     "contrast": 37.5973422755445,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 391,
@@ -4189,7 +4770,8 @@
     "avg_blue": 108.100043936731,
     "contrast": 29.570324736033,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 392,
@@ -4205,7 +4787,8 @@
     "avg_blue": 118.159642642643,
     "contrast": 53.4876709426216,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 393,
@@ -4221,7 +4804,8 @@
     "avg_blue": 81.2898814102564,
     "contrast": 61.1884687646479,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 394,
@@ -4237,7 +4821,8 @@
     "avg_blue": 131.786218944099,
     "contrast": 39.1152306328151,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 395,
@@ -4253,7 +4838,8 @@
     "avg_blue": 86.7283594771242,
     "contrast": 36.2371759855504,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 396,
@@ -4269,7 +4855,8 @@
     "avg_blue": 129.956807720861,
     "contrast": 41.6525118798323,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 397,
@@ -4285,7 +4872,8 @@
     "avg_blue": 119.073466049383,
     "contrast": 52.1817168252961,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 398,
@@ -4301,7 +4889,8 @@
     "avg_blue": 114.155431714404,
     "contrast": 60.4972650858669,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 399,
@@ -4317,7 +4906,8 @@
     "avg_blue": 97.4365181885672,
     "contrast": 59.6114720077502,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 400,
@@ -4333,7 +4923,8 @@
     "avg_blue": 110.68632887899,
     "contrast": 63.479817266344,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 401,
@@ -4349,7 +4940,8 @@
     "avg_blue": 101.038057285181,
     "contrast": 59.4448131709041,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 402,
@@ -4365,7 +4957,8 @@
     "avg_blue": 94.5487333333333,
     "contrast": 69.6457725451903,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 403,
@@ -4381,7 +4974,8 @@
     "avg_blue": 121.19197029703,
     "contrast": 51.0408910122205,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 404,
@@ -4397,7 +4991,8 @@
     "avg_blue": 112.650108433735,
     "contrast": 25.8907056936542,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 405,
@@ -4413,7 +5008,8 @@
     "avg_blue": 134.776015936255,
     "contrast": 36.1068292758614,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 406,
@@ -4429,7 +5025,8 @@
     "avg_blue": 137.178168135095,
     "contrast": 44.8063267920156,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 407,
@@ -4445,7 +5042,8 @@
     "avg_blue": 106.278397435897,
     "contrast": 34.8111027206531,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 408,
@@ -4461,7 +5059,8 @@
     "avg_blue": 129.814291338583,
     "contrast": 71.9771087102161,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 409,
@@ -4477,7 +5076,8 @@
     "avg_blue": 113.356555944056,
     "contrast": 47.1141783378232,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 410,
@@ -4493,7 +5093,8 @@
     "avg_blue": 37.40953125,
     "contrast": 64.5054302546515,
     "edges_detected": false,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 411,
@@ -4509,7 +5110,8 @@
     "avg_blue": 112.303621834786,
     "contrast": 54.626318790589,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 412,
@@ -4525,7 +5127,8 @@
     "avg_blue": 134.201191365712,
     "contrast": 48.4646467610843,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 413,
@@ -4541,7 +5144,8 @@
     "avg_blue": 107.25304898298,
     "contrast": 54.1738792564236,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 414,
@@ -4557,7 +5161,8 @@
     "avg_blue": 126.59579064588,
     "contrast": 41.9643420072013,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 415,
@@ -4573,7 +5178,8 @@
     "avg_blue": 156.204736540664,
     "contrast": 40.716095723736,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 416,
@@ -4589,7 +5195,8 @@
     "avg_blue": 61.1605976243504,
     "contrast": 43.2101913031644,
     "edges_detected": false,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 417,
@@ -4605,7 +5212,8 @@
     "avg_blue": 120.415668812589,
     "contrast": 51.4390774936665,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 418,
@@ -4621,7 +5229,8 @@
     "avg_blue": 115.288885480573,
     "contrast": 58.1218640422765,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 419,
@@ -4637,7 +5246,8 @@
     "avg_blue": 99.8423373373373,
     "contrast": 65.6872014020037,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 420,
@@ -4653,7 +5263,8 @@
     "avg_blue": 135.845124831309,
     "contrast": 51.6486998197669,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 421,
@@ -4669,7 +5280,8 @@
     "avg_blue": 125.194375,
     "contrast": 39.7663293533107,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 422,
@@ -4685,7 +5297,8 @@
     "avg_blue": 87.0733073496659,
     "contrast": 58.863717661987,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 423,
@@ -4701,7 +5314,8 @@
     "avg_blue": 84.5223674911661,
     "contrast": 47.09252378751,
     "edges_detected": false,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 424,
@@ -4717,7 +5331,8 @@
     "avg_blue": 84.2524459527401,
     "contrast": 44.621269583011,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 425,
@@ -4733,7 +5348,8 @@
     "avg_blue": 116.487197475872,
     "contrast": 59.5220138516279,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 426,
@@ -4749,7 +5365,8 @@
     "avg_blue": 99.298288843258,
     "contrast": 35.407085432972,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 427,
@@ -4765,7 +5382,8 @@
     "avg_blue": 113.230735607676,
     "contrast": 39.4596600285486,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 428,
@@ -4781,7 +5399,8 @@
     "avg_blue": 134.983035499398,
     "contrast": 62.9253109148944,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 429,
@@ -4797,7 +5416,8 @@
     "avg_blue": 101.242237037037,
     "contrast": 40.7653372787091,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 430,
@@ -4813,7 +5433,8 @@
     "avg_blue": 104.371748329621,
     "contrast": 57.8975182100377,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 431,
@@ -4829,7 +5450,8 @@
     "avg_blue": 111.494321357285,
     "contrast": 46.7757158119075,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 432,
@@ -4845,7 +5467,8 @@
     "avg_blue": 117.183928571429,
     "contrast": 51.6151822800818,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 433,
@@ -4861,7 +5484,8 @@
     "avg_blue": 120.83829,
     "contrast": 66.7119134027525,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 434,
@@ -4877,7 +5501,8 @@
     "avg_blue": 127.245917647059,
     "contrast": 63.6351405980937,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 435,
@@ -4893,7 +5518,8 @@
     "avg_blue": 75.8431867057674,
     "contrast": 59.3231423228521,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 436,
@@ -4909,7 +5535,8 @@
     "avg_blue": 116.576899418121,
     "contrast": 66.504899638499,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 437,
@@ -4925,7 +5552,8 @@
     "avg_blue": 103.163323436263,
     "contrast": 64.0723897470984,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 438,
@@ -4941,7 +5569,8 @@
     "avg_blue": 89.095662962963,
     "contrast": 54.4465441737678,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 439,
@@ -4957,7 +5586,8 @@
     "avg_blue": 88.6666172106825,
     "contrast": 46.4855633384202,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 440,
@@ -4973,7 +5603,8 @@
     "avg_blue": 96.1779142011834,
     "contrast": 59.1751369946146,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 441,
@@ -4989,7 +5620,8 @@
     "avg_blue": 83.8853398058252,
     "contrast": 46.6730320816911,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 442,
@@ -5005,7 +5637,8 @@
     "avg_blue": 102.4995125,
     "contrast": 63.7610608356427,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 443,
@@ -5021,7 +5654,8 @@
     "avg_blue": 88.8365954415954,
     "contrast": 58.6763094780382,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 444,
@@ -5037,7 +5671,8 @@
     "avg_blue": 63.20521875,
     "contrast": 50.7122120949675,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 445,
@@ -5053,7 +5688,8 @@
     "avg_blue": 91.5298461538462,
     "contrast": 57.5111234019128,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 446,
@@ -5069,7 +5705,8 @@
     "avg_blue": 164.035283540802,
     "contrast": 73.8398996421476,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 447,
@@ -5085,7 +5722,8 @@
     "avg_blue": 109.005668088131,
     "contrast": 52.0581211111793,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 448,
@@ -5101,7 +5739,8 @@
     "avg_blue": 115.33300776583,
     "contrast": 52.2506246057095,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 449,
@@ -5117,7 +5756,8 @@
     "avg_blue": 144.05256022409,
     "contrast": 57.1152801266478,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 450,
@@ -5133,7 +5773,8 @@
     "avg_blue": 127.067059925094,
     "contrast": 62.7818978418044,
     "edges_detected": false,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 451,
@@ -5149,7 +5790,8 @@
     "avg_blue": 153.048937621832,
     "contrast": 59.5264386414292,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 452,
@@ -5165,7 +5807,8 @@
     "avg_blue": 136.754041745731,
     "contrast": 66.9437369662239,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 453,
@@ -5181,7 +5824,8 @@
     "avg_blue": 115.75347311828,
     "contrast": 42.6902491149716,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 454,
@@ -5197,7 +5841,8 @@
     "avg_blue": 133.658760775862,
     "contrast": 68.4863947334644,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 455,
@@ -5213,7 +5858,8 @@
     "avg_blue": 45.3167948717949,
     "contrast": 44.1034497643086,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 456,
@@ -5229,7 +5875,8 @@
     "avg_blue": 47.8400989119683,
     "contrast": 50.9826454118907,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 457,
@@ -5245,7 +5892,8 @@
     "avg_blue": 119.469090009891,
     "contrast": 44.222418345729,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 458,
@@ -5261,7 +5909,8 @@
     "avg_blue": 130.168745360059,
     "contrast": 49.8997065794616,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 459,
@@ -5277,7 +5926,8 @@
     "avg_blue": 111.929196762142,
     "contrast": 56.9470740032951,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 460,
@@ -5293,7 +5943,8 @@
     "avg_blue": 101.037119136571,
     "contrast": 61.8932203625392,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 461,
@@ -5309,7 +5960,8 @@
     "avg_blue": 102.841748166259,
     "contrast": 39.9488182690261,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 462,
@@ -5325,7 +5977,8 @@
     "avg_blue": 85.6227199792961,
     "contrast": 48.6831960221971,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 463,
@@ -5341,7 +5994,8 @@
     "avg_blue": 130.088522727273,
     "contrast": 38.2634050001938,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 464,
@@ -5357,7 +6011,8 @@
     "avg_blue": 94.8299501867995,
     "contrast": 55.3990710252307,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 465,
@@ -5373,7 +6028,8 @@
     "avg_blue": 100.536560344828,
     "contrast": 58.378030216614,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 466,
@@ -5389,7 +6045,8 @@
     "avg_blue": 64.7111424501424,
     "contrast": 57.8587219538723,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 467,
@@ -5405,7 +6062,8 @@
     "avg_blue": 121.806362876254,
     "contrast": 48.3948462050551,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 468,
@@ -5421,7 +6079,8 @@
     "avg_blue": 116.170184723952,
     "contrast": 36.6053740602258,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 469,
@@ -5437,7 +6096,8 @@
     "avg_blue": 84.4077832512315,
     "contrast": 42.0240396363265,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 470,
@@ -5453,7 +6113,8 @@
     "avg_blue": 113.358721461187,
     "contrast": 52.8920515649908,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 471,
@@ -5469,7 +6130,8 @@
     "avg_blue": 98.2102220838522,
     "contrast": 67.7487783856294,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 472,
@@ -5485,7 +6147,8 @@
     "avg_blue": 114.053107098381,
     "contrast": 54.2009646081692,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 473,
@@ -5501,7 +6164,8 @@
     "avg_blue": 124.868420506434,
     "contrast": 49.7097012813532,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 474,
@@ -5517,7 +6181,8 @@
     "avg_blue": 146.405974074074,
     "contrast": 43.8964893793181,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 475,
@@ -5533,7 +6198,8 @@
     "avg_blue": 98.644025,
     "contrast": 56.8549261602705,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 476,
@@ -5549,7 +6215,8 @@
     "avg_blue": 127.319190821256,
     "contrast": 74.9750735894026,
     "edges_detected": false,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 477,
@@ -5565,7 +6232,8 @@
     "avg_blue": 140.14860787172,
     "contrast": 37.0050895038565,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 478,
@@ -5581,7 +6249,8 @@
     "avg_blue": 122.960738895807,
     "contrast": 37.8471403346802,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 479,
@@ -5597,7 +6266,8 @@
     "avg_blue": 115.86000195848,
     "contrast": 33.0217042126177,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 480,
@@ -5613,7 +6283,8 @@
     "avg_blue": 113.173894489247,
     "contrast": 34.7163230282029,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 481,
@@ -5629,7 +6300,8 @@
     "avg_blue": 148.245556430446,
     "contrast": 56.3909469099461,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 482,
@@ -5645,7 +6317,8 @@
     "avg_blue": 110.649800747198,
     "contrast": 47.9798336375842,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 483,
@@ -5661,7 +6334,8 @@
     "avg_blue": 118.62970841617,
     "contrast": 57.3419156582692,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 484,
@@ -5677,7 +6351,8 @@
     "avg_blue": 109.072005089059,
     "contrast": 59.988873356761,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 485,
@@ -5693,7 +6368,8 @@
     "avg_blue": 177.325347582038,
     "contrast": 69.5153985343579,
     "edges_detected": false,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 486,
@@ -5709,7 +6385,8 @@
     "avg_blue": 121.902425562818,
     "contrast": 50.7648365926491,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 487,
@@ -5725,7 +6402,8 @@
     "avg_blue": 139.822861915367,
     "contrast": 52.9520718203072,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 488,
@@ -5741,7 +6419,8 @@
     "avg_blue": 138.201203890007,
     "contrast": 49.8858292779205,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 489,
@@ -5757,7 +6436,8 @@
     "avg_blue": 133.437558760684,
     "contrast": 50.4449921216825,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 490,
@@ -5773,7 +6453,8 @@
     "avg_blue": 116.965683760684,
     "contrast": 58.0709638064292,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 491,
@@ -5789,7 +6470,8 @@
     "avg_blue": 112.519725315516,
     "contrast": 54.2373098671414,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 492,
@@ -5805,7 +6487,8 @@
     "avg_blue": 112.743856312731,
     "contrast": 68.7228997919362,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 493,
@@ -5821,7 +6504,8 @@
     "avg_blue": 154.588974763407,
     "contrast": 42.5508670749604,
     "edges_detected": false,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 494,
@@ -5837,7 +6521,8 @@
     "avg_blue": 103.374547169811,
     "contrast": 48.226269081654,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 495,
@@ -5853,7 +6538,8 @@
     "avg_blue": 120.360374753452,
     "contrast": 43.1484029163829,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 496,
@@ -5869,7 +6555,8 @@
     "avg_blue": 45.3950517598344,
     "contrast": 47.8097044277604,
     "edges_detected": false,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 497,
@@ -5885,7 +6572,8 @@
     "avg_blue": 108.62177378702,
     "contrast": 39.9975030550213,
     "edges_detected": false,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 498,
@@ -5901,7 +6589,8 @@
     "avg_blue": 122.330906642729,
     "contrast": 51.4876191912696,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 499,
@@ -5917,7 +6606,8 @@
     "avg_blue": 125.661962156558,
     "contrast": 31.4897391780167,
     "edges_detected": false,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 500,
@@ -5933,7 +6623,8 @@
     "avg_blue": 112.352858627859,
     "contrast": 39.1805513613738,
     "edges_detected": false,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 501,
@@ -5949,7 +6640,8 @@
     "avg_blue": 94.3248509485095,
     "contrast": 18.9723198658192,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 502,
@@ -5965,7 +6657,8 @@
     "avg_blue": 107.174044329303,
     "contrast": 37.1525290749502,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 503,
@@ -5981,7 +6674,8 @@
     "avg_blue": 164.283573002755,
     "contrast": 44.2217227530175,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 504,
@@ -5997,7 +6691,8 @@
     "avg_blue": 112.208619146006,
     "contrast": 29.4772795991438,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 505,
@@ -6013,7 +6708,8 @@
     "avg_blue": 131.764221158958,
     "contrast": 52.1856924218463,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 506,
@@ -6029,7 +6725,8 @@
     "avg_blue": 102.516809690601,
     "contrast": 35.6031321497446,
     "edges_detected": false,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 507,
@@ -6045,7 +6742,8 @@
     "avg_blue": 129.831973684211,
     "contrast": 61.4448862701506,
     "edges_detected": false,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 508,
@@ -6061,7 +6759,8 @@
     "avg_blue": 81.7228091650973,
     "contrast": 41.1990926165373,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 509,
@@ -6077,7 +6776,8 @@
     "avg_blue": 75.3877860696517,
     "contrast": 20.5239101794909,
     "edges_detected": false,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 510,
@@ -6093,7 +6793,8 @@
     "avg_blue": 90.0356849315069,
     "contrast": 57.2018446194706,
     "edges_detected": false,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 511,
@@ -6109,7 +6810,8 @@
     "avg_blue": 93.9285560504826,
     "contrast": 60.6364961640042,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 512,
@@ -6125,7 +6827,8 @@
     "avg_blue": 113.647162162162,
     "contrast": 51.1154291832359,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 513,
@@ -6141,7 +6844,8 @@
     "avg_blue": 111.14513363029,
     "contrast": 67.9782350835487,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 514,
@@ -6157,7 +6861,8 @@
     "avg_blue": 119.878608217593,
     "contrast": 59.9441381696929,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 515,
@@ -6173,7 +6878,8 @@
     "avg_blue": 99.9511264181524,
     "contrast": 33.5348377494698,
     "edges_detected": false,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 516,
@@ -6189,7 +6895,8 @@
     "avg_blue": 109.660794357832,
     "contrast": 72.5852959337068,
     "edges_detected": false,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 517,
@@ -6205,7 +6912,8 @@
     "avg_blue": 99.5754936014625,
     "contrast": 47.6005867883474,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 518,
@@ -6221,7 +6929,8 @@
     "avg_blue": 118.561675213675,
     "contrast": 50.2224213819789,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 519,
@@ -6237,7 +6946,8 @@
     "avg_blue": 117.532622511334,
     "contrast": 42.9556199600512,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 520,
@@ -6253,7 +6963,8 @@
     "avg_blue": 127.690153637124,
     "contrast": 61.1416022822938,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 521,
@@ -6269,7 +6980,8 @@
     "avg_blue": 110.671050376254,
     "contrast": 56.8539878980984,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 522,
@@ -6285,7 +6997,8 @@
     "avg_blue": 137.637946801839,
     "contrast": 51.3976008577433,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 523,
@@ -6301,7 +7014,8 @@
     "avg_blue": 126.471879180602,
     "contrast": 61.8064856659938,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 524,
@@ -6317,7 +7031,8 @@
     "avg_blue": 56.9839689590301,
     "contrast": 51.4464234071452,
     "edges_detected": false,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 525,
@@ -6333,7 +7048,8 @@
     "avg_blue": 119.896302257525,
     "contrast": 53.1218863293411,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 526,
@@ -6349,7 +7065,8 @@
     "avg_blue": 118.741592286789,
     "contrast": 47.2897520670963,
     "edges_detected": false,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 527,
@@ -6365,7 +7082,8 @@
     "avg_blue": 119.295904577759,
     "contrast": 53.8734676145651,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 528,
@@ -6381,7 +7099,8 @@
     "avg_blue": 120.137595108696,
     "contrast": 43.6993467957688,
     "edges_detected": false,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 529,
@@ -6397,7 +7116,8 @@
     "avg_blue": 109.091594833018,
     "contrast": 44.9145702019052,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 530,
@@ -6413,7 +7133,8 @@
     "avg_blue": 133.919144021739,
     "contrast": 44.443180974393,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 531,
@@ -6429,7 +7150,8 @@
     "avg_blue": 112.017118520067,
     "contrast": 58.1423352241979,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 532,
@@ -6445,7 +7167,8 @@
     "avg_blue": 108.88718296504,
     "contrast": 43.5732463661432,
     "edges_detected": false,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 533,
@@ -6461,7 +7184,8 @@
     "avg_blue": 132.337293921069,
     "contrast": 53.3865312759171,
     "edges_detected": false,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 534,
@@ -6477,7 +7201,8 @@
     "avg_blue": 79.4104127209596,
     "contrast": 32.5896928423997,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 535,
@@ -6493,7 +7218,8 @@
     "avg_blue": 137.061241116221,
     "contrast": 41.5680627519464,
     "edges_detected": false,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 536,
@@ -6509,7 +7235,8 @@
     "avg_blue": 149.475710007047,
     "contrast": 40.6452958278143,
     "edges_detected": false,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 537,
@@ -6525,7 +7252,8 @@
     "avg_blue": 125.456376130828,
     "contrast": 44.1880824125263,
     "edges_detected": false,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 538,
@@ -6541,7 +7269,8 @@
     "avg_blue": 135.395333033153,
     "contrast": 43.9680003977264,
     "edges_detected": false,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 539,
@@ -6557,7 +7286,8 @@
     "avg_blue": 110.221458222568,
     "contrast": 47.4173330476393,
     "edges_detected": false,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 540,
@@ -6573,7 +7303,8 @@
     "avg_blue": 90.8817804138796,
     "contrast": 51.5919189839153,
     "edges_detected": false,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 541,
@@ -6589,7 +7320,8 @@
     "avg_blue": 121.034617077465,
     "contrast": 49.7977787388485,
     "edges_detected": false,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 542,
@@ -6605,7 +7337,8 @@
     "avg_blue": 113.044128827418,
     "contrast": 68.2778582504738,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 543,
@@ -6621,7 +7354,8 @@
     "avg_blue": 98.4266066078562,
     "contrast": 59.8604374322053,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 544,
@@ -6637,7 +7371,8 @@
     "avg_blue": 105.176595285525,
     "contrast": 49.7711149998203,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 545,
@@ -6653,7 +7388,8 @@
     "avg_blue": 117.430193368686,
     "contrast": 66.7224133486455,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 546,
@@ -6669,7 +7405,8 @@
     "avg_blue": 120.659915234375,
     "contrast": 51.3842623985222,
     "edges_detected": false,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 547,
@@ -6685,7 +7422,8 @@
     "avg_blue": 146.146018518519,
     "contrast": 40.5474497873456,
     "edges_detected": false,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 548,
@@ -6701,7 +7439,8 @@
     "avg_blue": 111.828632347771,
     "contrast": 39.6454839955538,
     "edges_detected": false,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 549,
@@ -6717,7 +7456,8 @@
     "avg_blue": 116.03346019289,
     "contrast": 50.5317512336754,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 550,
@@ -6733,7 +7473,8 @@
     "avg_blue": 81.9402586681343,
     "contrast": 49.4237076856459,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 551,
@@ -6749,7 +7490,8 @@
     "avg_blue": 129.529044209866,
     "contrast": 46.1032965125911,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 552,
@@ -6765,7 +7507,8 @@
     "avg_blue": 118.927125313545,
     "contrast": 62.6268245953618,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 553,
@@ -6781,7 +7524,8 @@
     "avg_blue": 117.788928198161,
     "contrast": 53.6512709318083,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 554,
@@ -6797,7 +7541,8 @@
     "avg_blue": 71.5482380208333,
     "contrast": 42.7798078990226,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 555,
@@ -6813,7 +7558,8 @@
     "avg_blue": 110.789591495881,
     "contrast": 53.2762077723033,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 556,
@@ -6829,7 +7575,8 @@
     "avg_blue": 120.713745210728,
     "contrast": 43.9207103074023,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 557,
@@ -6845,7 +7592,8 @@
     "avg_blue": 141.291748623131,
     "contrast": 59.2222567768456,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 558,
@@ -6861,7 +7609,8 @@
     "avg_blue": 127.394749211967,
     "contrast": 60.3481836769112,
     "edges_detected": false,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 559,
@@ -6877,7 +7626,8 @@
     "avg_blue": 94.2637983583211,
     "contrast": 55.88225144663,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 560,
@@ -6893,7 +7643,8 @@
     "avg_blue": 79.5656664492281,
     "contrast": 51.0302809283787,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 561,
@@ -6909,7 +7660,8 @@
     "avg_blue": 86.1109400010791,
     "contrast": 47.4512068922768,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 562,
@@ -6925,7 +7677,8 @@
     "avg_blue": 86.8376872814518,
     "contrast": 51.5788746451508,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 563,
@@ -6941,7 +7694,8 @@
     "avg_blue": 125.376513900502,
     "contrast": 61.1036708147888,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 564,
@@ -6957,7 +7711,8 @@
     "avg_blue": 103.626689948619,
     "contrast": 69.8388042608561,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 565,
@@ -6973,7 +7728,8 @@
     "avg_blue": 118.658326163968,
     "contrast": 59.9072166221041,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 566,
@@ -6989,7 +7745,8 @@
     "avg_blue": 157.050327248087,
     "contrast": 60.2081177458526,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 567,
@@ -7005,7 +7762,8 @@
     "avg_blue": 120.691222303512,
     "contrast": 51.6949078800064,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 568,
@@ -7021,7 +7779,8 @@
     "avg_blue": 117.432648422251,
     "contrast": 58.6792586485178,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 569,
@@ -7037,7 +7796,8 @@
     "avg_blue": 113.797027069398,
     "contrast": 51.77525577852,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 570,
@@ -7053,7 +7813,8 @@
     "avg_blue": 119.119241220736,
     "contrast": 56.1063180898577,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 571,
@@ -7069,7 +7830,8 @@
     "avg_blue": 109.669454673052,
     "contrast": 52.3387513747368,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 572,
@@ -7085,7 +7847,8 @@
     "avg_blue": 113.257618498322,
     "contrast": 72.9172695151372,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 573,
@@ -7101,7 +7864,8 @@
     "avg_blue": 94.6593232650502,
     "contrast": 70.1512426347661,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 574,
@@ -7117,7 +7881,8 @@
     "avg_blue": 105.956908553321,
     "contrast": 78.7648618884675,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 575,
@@ -7133,7 +7898,8 @@
     "avg_blue": 93.8145530268658,
     "contrast": 60.688334756555,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 576,
@@ -7149,7 +7915,8 @@
     "avg_blue": 107.022598244147,
     "contrast": 54.5518891906384,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 577,
@@ -7165,7 +7932,8 @@
     "avg_blue": 111.635411266722,
     "contrast": 74.5498853784075,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 578,
@@ -7181,7 +7949,8 @@
     "avg_blue": 123.157084231322,
     "contrast": 52.6045452842333,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 579,
@@ -7197,7 +7966,8 @@
     "avg_blue": 142.074567307692,
     "contrast": 32.7476992272869,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 580,
@@ -7213,7 +7983,8 @@
     "avg_blue": 128.767620172013,
     "contrast": 44.7972215194668,
     "edges_detected": false,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 581,
@@ -7229,7 +8000,8 @@
     "avg_blue": 100.38267971246,
     "contrast": 68.5362904479995,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 582,
@@ -7245,7 +8017,8 @@
     "avg_blue": 137.199306020067,
     "contrast": 32.5012262075888,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 583,
@@ -7261,7 +8034,8 @@
     "avg_blue": 115.861490384615,
     "contrast": 57.2941094739234,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 584,
@@ -7277,7 +8051,8 @@
     "avg_blue": 86.135370145288,
     "contrast": 49.2333599770689,
     "edges_detected": false,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 585,
@@ -7293,7 +8068,8 @@
     "avg_blue": 128.272287834448,
     "contrast": 57.0595107121232,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 586,
@@ -7309,7 +8085,8 @@
     "avg_blue": 91.5127205267559,
     "contrast": 62.4343193558069,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 587,
@@ -7325,7 +8102,8 @@
     "avg_blue": 86.3133632105943,
     "contrast": 51.9423355775077,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 588,
@@ -7341,7 +8119,8 @@
     "avg_blue": 76.5242171875,
     "contrast": 68.3885340846986,
     "edges_detected": false,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 589,
@@ -7357,7 +8136,8 @@
     "avg_blue": 71.7679067708333,
     "contrast": 56.5305415192813,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 590,
@@ -7373,7 +8153,8 @@
     "avg_blue": 84.953634375,
     "contrast": 61.5698444014442,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 591,
@@ -7389,7 +8170,8 @@
     "avg_blue": 84.23285,
     "contrast": 57.5632059526603,
     "edges_detected": false,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 592,
@@ -7405,7 +8187,8 @@
     "avg_blue": 91.5278265625,
     "contrast": 67.2950065778712,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 593,
@@ -7421,7 +8204,8 @@
     "avg_blue": 74.6482609375,
     "contrast": 68.1902598854235,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 594,
@@ -7437,7 +8221,8 @@
     "avg_blue": 86.3267166666667,
     "contrast": 51.1296768375125,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 595,
@@ -7453,7 +8238,8 @@
     "avg_blue": 113.316372805184,
     "contrast": 62.7068784832006,
     "edges_detected": false,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 596,
@@ -7469,7 +8255,8 @@
     "avg_blue": 116.995943741084,
     "contrast": 33.5004556540801,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 597,
@@ -7485,7 +8272,8 @@
     "avg_blue": 112.298764632107,
     "contrast": 67.1646779868623,
     "edges_detected": false,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 598,
@@ -7501,7 +8289,8 @@
     "avg_blue": 120.347830006439,
     "contrast": 42.6572031963232,
     "edges_detected": false,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 599,
@@ -7517,7 +8306,8 @@
     "avg_blue": 64.0608054738448,
     "contrast": 35.5611612119021,
     "edges_detected": false,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 600,
@@ -7533,7 +8323,8 @@
     "avg_blue": 109.25874007107,
     "contrast": 45.4435245992465,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 601,
@@ -7549,7 +8340,8 @@
     "avg_blue": 118.27233223253,
     "contrast": 70.6013221387907,
     "edges_detected": false,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 602,
@@ -7565,7 +8357,8 @@
     "avg_blue": 107.572898202341,
     "contrast": 47.42891875205,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 603,
@@ -7581,7 +8374,8 @@
     "avg_blue": 155.6150495317,
     "contrast": 61.463563098106,
     "edges_detected": false,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 604,
@@ -7597,7 +8391,8 @@
     "avg_blue": 110.991072695035,
     "contrast": 51.6091177338836,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 605,
@@ -7613,7 +8408,8 @@
     "avg_blue": 101.640901625173,
     "contrast": 34.3663652439096,
     "edges_detected": false,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 606,
@@ -7629,7 +8425,8 @@
     "avg_blue": 103.842097920505,
     "contrast": 44.437653040315,
     "edges_detected": false,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 607,
@@ -7645,7 +8442,8 @@
     "avg_blue": 101.66287240969,
     "contrast": 45.936944765038,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 608,
@@ -7661,7 +8459,8 @@
     "avg_blue": 116.309098150782,
     "contrast": 50.3935560025313,
     "edges_detected": false,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 609,
@@ -7677,7 +8476,8 @@
     "avg_blue": 106.446788127179,
     "contrast": 56.0452933156018,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 610,
@@ -7693,7 +8493,8 @@
     "avg_blue": 137.672805139837,
     "contrast": 49.6990666557383,
     "edges_detected": false,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 611,
@@ -7709,7 +8510,8 @@
     "avg_blue": 96.9868650217707,
     "contrast": 43.2815874957818,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 612,
@@ -7725,7 +8527,8 @@
     "avg_blue": 77.483370883726,
     "contrast": 42.3047922612618,
     "edges_detected": false,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 613,
@@ -7741,7 +8544,8 @@
     "avg_blue": 129.259063022575,
     "contrast": 59.8378296812607,
     "edges_detected": false,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 614,
@@ -7757,7 +8561,8 @@
     "avg_blue": 110.177239323843,
     "contrast": 44.9707568406111,
     "edges_detected": false,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 615,
@@ -7773,7 +8578,8 @@
     "avg_blue": 85.3753479155069,
     "contrast": 36.1553258496918,
     "edges_detected": false,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 616,
@@ -7789,7 +8595,8 @@
     "avg_blue": 131.454372057511,
     "contrast": 61.151675702429,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 617,
@@ -7805,7 +8612,8 @@
     "avg_blue": 112.921521566289,
     "contrast": 66.0838338202512,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 618,
@@ -7821,7 +8629,8 @@
     "avg_blue": 126.450925823108,
     "contrast": 61.2675443492191,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 619,
@@ -7837,7 +8646,8 @@
     "avg_blue": 124.896470559108,
     "contrast": 44.9211347129997,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 620,
@@ -7853,7 +8663,8 @@
     "avg_blue": 137.796743436818,
     "contrast": 26.9849305180034,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 621,
@@ -7869,7 +8680,8 @@
     "avg_blue": 137.854877232143,
     "contrast": 62.6681066260099,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 622,
@@ -7885,7 +8697,8 @@
     "avg_blue": 97.196566680602,
     "contrast": 60.4647616237259,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 623,
@@ -7901,7 +8714,8 @@
     "avg_blue": 96.3296510416667,
     "contrast": 56.6617013979529,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 624,
@@ -7917,7 +8731,8 @@
     "avg_blue": 48.0477487458194,
     "contrast": 51.5339515575601,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 625,
@@ -7933,7 +8748,8 @@
     "avg_blue": 91.888931333612,
     "contrast": 75.8661208082731,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 626,
@@ -7949,7 +8765,8 @@
     "avg_blue": 132.624482291667,
     "contrast": 65.0891663617111,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 627,
@@ -7965,7 +8782,8 @@
     "avg_blue": 115.095833333333,
     "contrast": 64.5819543184743,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 628,
@@ -7981,7 +8799,8 @@
     "avg_blue": 87.9284444444444,
     "contrast": 69.6861620538778,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 629,
@@ -7997,7 +8816,8 @@
     "avg_blue": 95.4134442934783,
     "contrast": 73.638155092356,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 630,
@@ -8013,7 +8833,8 @@
     "avg_blue": 76.504363256785,
     "contrast": 49.4676029113232,
     "edges_detected": false,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 631,
@@ -8029,7 +8850,8 @@
     "avg_blue": 110.025553407191,
     "contrast": 45.9929633453411,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 632,
@@ -8045,7 +8867,8 @@
     "avg_blue": 129.575716666667,
     "contrast": 47.4303393652283,
     "edges_detected": false,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 633,
@@ -8061,7 +8884,8 @@
     "avg_blue": 116.855203125,
     "contrast": 53.8734775212997,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 634,
@@ -8077,7 +8901,8 @@
     "avg_blue": 120.532482232441,
     "contrast": 46.3567741432576,
     "edges_detected": false,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 635,
@@ -8093,7 +8918,8 @@
     "avg_blue": 131.93879453125,
     "contrast": 63.1012468516021,
     "edges_detected": false,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 636,
@@ -8109,7 +8935,8 @@
     "avg_blue": 58.1507546875,
     "contrast": 48.2761247453635,
     "edges_detected": false,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 637,
@@ -8125,7 +8952,8 @@
     "avg_blue": 118.548056662221,
     "contrast": 56.0936754551743,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 638,
@@ -8141,7 +8969,8 @@
     "avg_blue": 96.5883965277778,
     "contrast": 62.6840165653329,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 639,
@@ -8157,7 +8986,8 @@
     "avg_blue": 138.355704796031,
     "contrast": 55.3690871139603,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 640,
@@ -8173,7 +9003,8 @@
     "avg_blue": 122.151481633752,
     "contrast": 57.2704148254221,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 641,
@@ -8189,7 +9020,8 @@
     "avg_blue": 152.913932662385,
     "contrast": 49.6195295528282,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 642,
@@ -8205,7 +9037,8 @@
     "avg_blue": 109.891737562709,
     "contrast": 48.9871239260171,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 643,
@@ -8221,7 +9054,8 @@
     "avg_blue": 71.2923573369565,
     "contrast": 46.4501831078037,
     "edges_detected": false,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 644,
@@ -8237,7 +9071,8 @@
     "avg_blue": 137.548717600334,
     "contrast": 49.2975107577061,
     "edges_detected": false,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 645,
@@ -8253,7 +9088,8 @@
     "avg_blue": 101.459336852007,
     "contrast": 52.8464543961137,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 646,
@@ -8269,7 +9105,8 @@
     "avg_blue": 142.430355707396,
     "contrast": 73.2947821878645,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 647,
@@ -8285,7 +9122,8 @@
     "avg_blue": 94.9769826505017,
     "contrast": 49.2969420449642,
     "edges_detected": false,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 648,
@@ -8301,7 +9139,8 @@
     "avg_blue": 83.7117433110368,
     "contrast": 40.1913831757177,
     "edges_detected": false,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 649,
@@ -8317,7 +9156,8 @@
     "avg_blue": 90.064562604515,
     "contrast": 49.5231985570485,
     "edges_detected": false,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 650,
@@ -8333,7 +9173,8 @@
     "avg_blue": 73.9793964255853,
     "contrast": 44.7636792683956,
     "edges_detected": false,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 651,
@@ -8349,7 +9190,8 @@
     "avg_blue": 116.189719899666,
     "contrast": 84.5388105528878,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 652,
@@ -8365,7 +9207,8 @@
     "avg_blue": 118.604203595318,
     "contrast": 77.5838073844671,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 653,
@@ -8381,7 +9224,8 @@
     "avg_blue": 87.7371028428094,
     "contrast": 60.9337643780521,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 654,
@@ -8397,7 +9241,8 @@
     "avg_blue": 136.552372916667,
     "contrast": 59.8934424477566,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 655,
@@ -8413,7 +9258,8 @@
     "avg_blue": 105.681989583333,
     "contrast": 69.0493654046812,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 656,
@@ -8429,7 +9275,8 @@
     "avg_blue": 83.3724069148936,
     "contrast": 55.096407291182,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 657,
@@ -8445,7 +9292,8 @@
     "avg_blue": 76.8916868729097,
     "contrast": 44.1377043766009,
     "edges_detected": false,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 658,
@@ -8461,7 +9309,8 @@
     "avg_blue": 109.161702793834,
     "contrast": 48.2807497167504,
     "edges_detected": false,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 659,
@@ -8477,7 +9326,8 @@
     "avg_blue": 119.167440104167,
     "contrast": 65.7135485043448,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 660,
@@ -8493,7 +9343,8 @@
     "avg_blue": 97.6984672949002,
     "contrast": 72.9172837795262,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 661,
@@ -8509,7 +9360,8 @@
     "avg_blue": 93.0572311529934,
     "contrast": 65.8238307910626,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 662,
@@ -8525,7 +9377,8 @@
     "avg_blue": 89.1203519955654,
     "contrast": 69.514602064309,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 663,
@@ -8541,7 +9394,8 @@
     "avg_blue": 128.758817567568,
     "contrast": 31.259070532299,
     "edges_detected": false,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 664,
@@ -8557,7 +9411,8 @@
     "avg_blue": 114.254436446629,
     "contrast": 53.5731204515485,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 665,
@@ -8573,7 +9428,8 @@
     "avg_blue": 107.671272573363,
     "contrast": 73.6658998806512,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 666,
@@ -8589,7 +9445,8 @@
     "avg_blue": 92.2297916666667,
     "contrast": 64.7592028984775,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 667,
@@ -8605,7 +9462,8 @@
     "avg_blue": 129.250297222222,
     "contrast": 50.8988472608754,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 668,
@@ -8621,7 +9479,8 @@
     "avg_blue": 65.1936041666667,
     "contrast": 64.2626436377865,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 669,
@@ -8637,7 +9496,8 @@
     "avg_blue": 100.402252083333,
     "contrast": 76.3100074058471,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 670,
@@ -8653,7 +9513,8 @@
     "avg_blue": 129.36381875,
     "contrast": 46.684378976389,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 671,
@@ -8669,7 +9530,8 @@
     "avg_blue": 115.5314328125,
     "contrast": 68.6417314252799,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 672,
@@ -8685,7 +9547,8 @@
     "avg_blue": 119.46490625,
     "contrast": 64.0071799023794,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 673,
@@ -8701,7 +9564,8 @@
     "avg_blue": 135.395860416667,
     "contrast": 58.1601325066311,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 674,
@@ -8717,7 +9581,8 @@
     "avg_blue": 76.2285642971246,
     "contrast": 61.2156341557572,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 675,
@@ -8733,7 +9598,8 @@
     "avg_blue": 118.108525,
     "contrast": 67.8655319766387,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 676,
@@ -8749,7 +9615,8 @@
     "avg_blue": 68.159175,
     "contrast": 54.7311622719522,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 677,
@@ -8765,7 +9632,8 @@
     "avg_blue": 79.0521333333333,
     "contrast": 55.1370332343552,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 678,
@@ -8781,7 +9649,8 @@
     "avg_blue": 135.395860416667,
     "contrast": 58.1601325066311,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 679,
@@ -8797,7 +9666,8 @@
     "avg_blue": 119.46490625,
     "contrast": 64.0071799023794,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 680,
@@ -8813,7 +9683,8 @@
     "avg_blue": 110.53963125,
     "contrast": 56.6713390573969,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 681,
@@ -8829,7 +9700,8 @@
     "avg_blue": 114.48730625,
     "contrast": 57.0675030405543,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 682,
@@ -8845,7 +9717,8 @@
     "avg_blue": 122.869522916667,
     "contrast": 61.0435616498015,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 683,
@@ -8861,7 +9734,8 @@
     "avg_blue": 82.285609688196,
     "contrast": 64.9020601270663,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 684,
@@ -8877,7 +9751,8 @@
     "avg_blue": 105.742360335196,
     "contrast": 57.7269093690246,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 685,
@@ -8893,7 +9768,8 @@
     "avg_blue": 42.2031854166667,
     "contrast": 44.8661025129162,
     "edges_detected": false,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 686,
@@ -8909,7 +9785,8 @@
     "avg_blue": 85.7833625,
     "contrast": 55.746844891623,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 687,
@@ -8925,7 +9802,8 @@
     "avg_blue": 140.470073851203,
     "contrast": 53.8272479446706,
     "edges_detected": true,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 688,
@@ -8941,7 +9819,8 @@
     "avg_blue": 121.723720833333,
     "contrast": 60.591997155623,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 689,
@@ -8957,7 +9836,8 @@
     "avg_blue": 111.945198306595,
     "contrast": 79.094389183336,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 690,
@@ -8973,7 +9853,8 @@
     "avg_blue": 115.07331970405,
     "contrast": 76.4092919370909,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 691,
@@ -8989,7 +9870,8 @@
     "avg_blue": 141.706466666667,
     "contrast": 67.728918936967,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 692,
@@ -9005,7 +9887,8 @@
     "avg_blue": 121.302412087912,
     "contrast": 59.4520219211228,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 693,
@@ -9021,7 +9904,8 @@
     "avg_blue": 116.822952777778,
     "contrast": 60.5007622210564,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 694,
@@ -9037,7 +9921,8 @@
     "avg_blue": 132.327675202156,
     "contrast": 41.7762025956022,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 695,
@@ -9053,7 +9938,8 @@
     "avg_blue": 101.150914750958,
     "contrast": 53.9922127276323,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 696,
@@ -9069,7 +9955,8 @@
     "avg_blue": 126.407794689119,
     "contrast": 57.4214986009619,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 697,
@@ -9085,7 +9972,8 @@
     "avg_blue": 122.455376254181,
     "contrast": 50.5646166146574,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 698,
@@ -9101,7 +9989,8 @@
     "avg_blue": 129.650959677419,
     "contrast": 56.2138995221758,
     "edges_detected": true,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 699,
@@ -9117,7 +10006,8 @@
     "avg_blue": 111.702744565217,
     "contrast": 50.213641085936,
     "edges_detected": true,
-    "localisation": "Strasbourg"
+    "localisation": "Strasbourg",
+    "annotation": []
   },
   {
     "image_id": 700,
@@ -9133,7 +10023,8 @@
     "avg_blue": 111.260527476255,
     "contrast": 59.5241278969474,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 701,
@@ -9149,7 +10040,8 @@
     "avg_blue": 143.470025083612,
     "contrast": 46.5539042041984,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 702,
@@ -9165,7 +10057,8 @@
     "avg_blue": 112.881155966278,
     "contrast": 52.1145673473025,
     "edges_detected": true,
-    "localisation": "Rennes"
+    "localisation": "Rennes",
+    "annotation": []
   },
   {
     "image_id": 703,
@@ -9181,7 +10074,8 @@
     "avg_blue": 95.9429145833333,
     "contrast": 66.1154330669445,
     "edges_detected": true,
-    "localisation": "Lille"
+    "localisation": "Lille",
+    "annotation": []
   },
   {
     "image_id": 704,
@@ -9197,7 +10091,8 @@
     "avg_blue": 92.6315963060686,
     "contrast": 68.5899758988304,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 705,
@@ -9213,7 +10108,8 @@
     "avg_blue": 116.159139182058,
     "contrast": 79.2903757890363,
     "edges_detected": false,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 706,
@@ -9229,7 +10125,8 @@
     "avg_blue": 122.331767810026,
     "contrast": 75.2878440543166,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 707,
@@ -9245,7 +10142,8 @@
     "avg_blue": 165.940055970149,
     "contrast": 59.0081067708154,
     "edges_detected": false,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 708,
@@ -9261,7 +10159,8 @@
     "avg_blue": 109.963951257862,
     "contrast": 65.2008866652953,
     "edges_detected": false,
-    "localisation": "Toulouse"
+    "localisation": "Toulouse",
+    "annotation": []
   },
   {
     "image_id": 709,
@@ -9277,7 +10176,8 @@
     "avg_blue": 132.809090719064,
     "contrast": 40.8122083762405,
     "edges_detected": true,
-    "localisation": "Nantes"
+    "localisation": "Nantes",
+    "annotation": []
   },
   {
     "image_id": 710,
@@ -9293,7 +10193,8 @@
     "avg_blue": 143.469971417683,
     "contrast": 59.2807273084366,
     "edges_detected": true,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 711,
@@ -9309,7 +10210,8 @@
     "avg_blue": 131.770263377926,
     "contrast": 61.7911712492835,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   },
   {
     "image_id": 712,
@@ -9325,7 +10227,8 @@
     "avg_blue": 140.446987876254,
     "contrast": 59.7549259726212,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 713,
@@ -9341,7 +10244,8 @@
     "avg_blue": 135.109304785021,
     "contrast": 57.0874889052716,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 714,
@@ -9357,7 +10261,8 @@
     "avg_blue": 81.1625313324538,
     "contrast": 36.2241855441085,
     "edges_detected": false,
-    "localisation": "Lyon"
+    "localisation": "Lyon",
+    "annotation": []
   },
   {
     "image_id": 715,
@@ -9373,7 +10278,8 @@
     "avg_blue": 142.040931886228,
     "contrast": 36.3576352013008,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 716,
@@ -9389,7 +10295,8 @@
     "avg_blue": 119.861476157083,
     "contrast": 53.2676239958552,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 717,
@@ -9405,7 +10312,8 @@
     "avg_blue": 104.042697587354,
     "contrast": 36.2397890828,
     "edges_detected": false,
-    "localisation": "Marseille"
+    "localisation": "Marseille",
+    "annotation": []
   },
   {
     "image_id": 718,
@@ -9421,7 +10329,8 @@
     "avg_blue": 153.815146604938,
     "contrast": 54.0295481983913,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 719,
@@ -9437,7 +10346,8 @@
     "avg_blue": 136.207122222222,
     "contrast": 56.4410942504719,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 720,
@@ -9453,7 +10363,8 @@
     "avg_blue": 129.967020392749,
     "contrast": 61.0223434403903,
     "edges_detected": false,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 721,
@@ -9469,7 +10380,8 @@
     "avg_blue": 131.517424749164,
     "contrast": 40.0284340378065,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 722,
@@ -9485,7 +10397,8 @@
     "avg_blue": 128.852759197324,
     "contrast": 56.5503083932152,
     "edges_detected": true,
-    "localisation": "Le Havre"
+    "localisation": "Le Havre",
+    "annotation": []
   },
   {
     "image_id": 723,
@@ -9501,7 +10414,8 @@
     "avg_blue": 38.8260305183946,
     "contrast": 30.5222484488116,
     "edges_detected": true,
-    "localisation": "Paris"
+    "localisation": "Paris",
+    "annotation": []
   },
   {
     "image_id": 724,
@@ -9517,7 +10431,8 @@
     "avg_blue": 132.946475752508,
     "contrast": 35.9458237486297,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 725,
@@ -9533,7 +10448,8 @@
     "avg_blue": 138.71658235786,
     "contrast": 33.4452007950361,
     "edges_detected": true,
-    "localisation": "Bordeaux"
+    "localisation": "Bordeaux",
+    "annotation": []
   },
   {
     "image_id": 726,
@@ -9549,7 +10465,8 @@
     "avg_blue": 107.895644150418,
     "contrast": 51.3392364622863,
     "edges_detected": true,
-    "localisation": "Reims"
+    "localisation": "Reims",
+    "annotation": []
   },
   {
     "image_id": 727,
@@ -9565,7 +10482,8 @@
     "avg_blue": 89.7566071428571,
     "contrast": 71.6151955496308,
     "edges_detected": true,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 728,
@@ -9581,7 +10499,8 @@
     "avg_blue": 90.7520631270903,
     "contrast": 72.9709900349738,
     "edges_detected": false,
-    "localisation": "Nice"
+    "localisation": "Nice",
+    "annotation": []
   },
   {
     "image_id": 729,
@@ -9597,6 +10516,7 @@
     "avg_blue": 130.533120819398,
     "contrast": 37.7688332163895,
     "edges_detected": true,
-    "localisation": "Montpellier"
+    "localisation": "Montpellier",
+    "annotation": []
   }
 ]
