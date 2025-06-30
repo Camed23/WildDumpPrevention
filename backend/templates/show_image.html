@@ -5,6 +5,7 @@
     <title>Image uploadée</title>
 </head>
 <body>
+
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         <ul>
@@ -16,8 +17,18 @@
     {% endwith %}
 
     <h2>Image uploadée avec succès</h2>
-    <img src="{{ url_for('upload.uploaded_file', filename=filename) }}" width="300" alt="Image nouvellement uploadé">
+    <img src="{{ url_for('upload.uploaded_file', filename=filename) }}" width="300" alt="Image nouvellement uploadée">
 
-    <p><a href="/upload">Uploader une autre image</a> | <a href="/gallery">Voir la galerie</a></p>
+    <h3>Nom du fichier : {{ filename }}</h3>
+
+    <form method="POST" action="{{ url_for('annotate.submit_annotation', filename=filename) }}">
+        <p>Annoter cette image :</p>
+        <button type="submit" name="label" value="plein">Pleine</button>
+        <button type="submit" name="label" value="vide">Vide</button>
+    </form>
+
+    <p><a href="{{ url_for('upload.upload_file') }}">Uploader une autre image</a> |
+       <a href="{{ url_for('upload.gallery') }}">Voir la galerie</a></p>
+
 </body>
 </html>

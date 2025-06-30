@@ -1,7 +1,9 @@
+import os
 from flask import Flask, render_template
 from backend.routes.upload_routes import upload_bp
 from backend.routes.user_routes import user_bp
-import os
+from backend.routes.annotation_routes import annotate_bp
+
 
 app = Flask(__name__)
 app.secret_key = "dev_une_clé_pas_sécurisée"
@@ -12,6 +14,7 @@ app.config['UPLOAD_FOLDER'] = os.path.join(BASE_DIR, "uploads")
 
 app.register_blueprint(upload_bp)
 app.register_blueprint(user_bp)
+app.register_blueprint(annotate_bp)
 
 @app.route("/")
 def home():

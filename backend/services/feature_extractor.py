@@ -1,4 +1,27 @@
-# backend/services/feature_extractor.py
+from PIL import Image, ImageStat, ImageFilter
+import numpy as np
+import os
+
+def calculate_image_properties(image_path):
+    img = Image.open(image_path).convert('RGB')
+    stat = ImageStat.Stat(img)
+
+    avg_red, avg_green, avg_blue = stat.mean
+    width, height = img.size
+
+    # Taille fichier en kilo-octets (ou octets)
+    size = os.path.getsize(image_path) / 1024  # en ko
+
+    # Calcul du contraste (écart-type des pixels)
+    contrast = np.std(np.array(img))
+
+    # Détection des bords : on applique un filtre de contours puis on calcule la moyenne
+    edges = img.filter(ImageFilter.FIND_EDGES)
+    edges_stat = ImageStat.Stat(edges)
+    edges_mean = np.mean(edges_stat.mean)
+    edges_detected = edges_mean > 10  # seuil arbitraire à ajuster
+
+    return size, width, height, avg_red, avg_green, avg_blue, contrast, edges_detected
 
 """int image_id unique
 string file_path
@@ -14,7 +37,7 @@ real contrast
 bool edges_detected
 string localisation #nom de la ville""" # inutile de recoder ces features, elles sont déjà dans la base de données
 
-
+"""
 from PIL import Image
 import numpy as np
 
@@ -39,3 +62,4 @@ class ImageFeatures:
         # 4. Estimer la zone occupée (stub)
         # On renvoie 0.5 par défaut, à remplacer plus tard
         return 0.5
+"""
