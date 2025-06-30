@@ -3,7 +3,7 @@
 import os
 import json
 import backend.config as config
-from Data.init_db import supabase                      
+from Data.init_db import supabase            
 
 IMAGE_TABLE = config.IMAGE_TABLE
 CACHE_PATH  = config.CACHE_PATH
