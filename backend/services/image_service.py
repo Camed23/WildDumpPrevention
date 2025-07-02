@@ -1,11 +1,12 @@
 from backend.config import supabase
-from backend.services.user_service import get_or_create_user
-from backend.services.feature_extractor import calculate_image_properties
 
-def insert_image_metadata(filename, filepath):
-    size, width, height, avg_red, avg_green, avg_blue, contrast, edges_detected = calculate_image_properties(filepath)
-    user_id = get_or_create_user()
-
+def insert_image_metadata(
+    filename, user_id,
+    location=None,
+    size=None, width=None, height=None,
+    avg_red=None, avg_green=None, avg_blue=None, contrast=None,
+    edges_detected=None
+):
     return supabase.rpc("creation_image", {
         "p_user_id": user_id,
         "p_file_path": f"/uploads/{filename}",
@@ -17,7 +18,8 @@ def insert_image_metadata(filename, filepath):
         "p_avg_green": avg_green,
         "p_avg_blue": avg_blue,
         "p_contrast": contrast,
-        "p_edges_detected": int(edges_detected)
+        "p_edges_detected": bool(edges_detected),
+        "p_localisation": location
     }).execute()
 
 def insert_annotation(image_id, label, source='manuel'):

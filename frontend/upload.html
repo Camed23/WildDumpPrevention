@@ -6,14 +6,12 @@
     <div class="upload-hero-content">
         <h1>Téléversement d'image de Poubelle</h1>
         <p>Participez à la lutte contre les dépôts sauvages en annotant l'état des poubelles.</p>
-        <button class="btn btn-dark m-2" onclick="scrollToSection('upload-area')">Valider</button>
-        <a href="{{ url_for('help') }}" class="btn btn-outline-light m-2">Aide</a>
+        <button class="btn btn-dark m-2" onclick="scrollToSection('upload-area')">Commencer</button>
+        <a href="{{ url_for('aide') }}" class="btn btn-outline-light m-2">Aide</a>
     </div>
 </section>
 
-<!-- FORMULAIRE GLOBAL -->
-<form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
-
+<form method="POST" action="{{ url_for('upload.upload_file') }}" enctype="multipart/form-data">
     <!-- Section 2 : Drag & Drop -->
     <section id="upload-area" class="upload-section bg-light text-center">
         <div class="container">
@@ -22,25 +20,25 @@
                 Glissez-déposez une image ou cliquez pour sélectionner un fichier.
                 <input type="file" id="file-input" name="file" accept="image/*" style="display:none;" required>
             </div>
-
-            <button type="button" class="btn btn-dark mt-3" onclick="scrollToSection('image-preview')">Valider</button>
+            <button type="button" class="btn btn-dark mt-3" onclick="scrollToSection('image-preview')">Suivant</button>
         </div>
     </section>
 
-    <!-- Section 3 : Aperçu + Infos + Boutons -->
+    <!-- Section 3 : Aperçu + Infos + Choix -->
     <section id="image-preview" class="upload-section text-center d-none">
         <div class="container">
             <h2>Aperçu de votre image</h2>
             <button type="button" onclick="clearPreview()" class="btn btn-sm btn-danger mb-2">❌ Supprimer l'image</button>
-            <img id="preview-img" src="#" alt="Aperçu de l'image" class="img-fluid mb-3" />
+            <img id="preview-img" src="#" alt="Aperçu de l'image" class="img-fluid mb-3 d-none" />
 
-            <section id="image-info-section">
+            <section id="image-info-section" class="d-none">
                 <h3>Informations sur l'image</h3>
 
                 <div class="mb-3">
                     <label for="location">Lieu (adresse approximative)</label>
                     <input type="text" name="location" id="location" class="form-control">
                 </div>
+                <!--
                 <div class="mb-3">
                     <label for="date">Date de la photo</label>
                     <input type="date" name="date" id="date" class="form-control" max="">
@@ -49,22 +47,22 @@
                     <label for="time">Heure de la photo</label>
                     <input type="time" name="time" id="time" class="form-control">
                 </div>
+
                 <div class="mb-3">
                     <label for="notes">Remarques supplémentaires</label>
                     <textarea name="notes" id="notes" rows="3" class="form-control"></textarea>
                 </div>
-
+                -->
                 <h4>État de la poubelle :</h4>
                 <input type="hidden" name="choice" id="choice" value="">
 
-                <button type="button" onclick="setChoice('Vide', this)" class="btn btn-outline-dark m-1 choice-btn">Vide</button>
-                <button type="button" onclick="setChoice('Pleine', this)" class="btn btn-outline-dark m-1 choice-btn">Pleine</button>
+                <button type="button" onclick="setChoice('vide', this)" class="btn btn-outline-dark m-1 choice-btn">Vide</button>
+                <button type="button" onclick="setChoice('plein', this)" class="btn btn-outline-dark m-1 choice-btn">Pleine</button>
                 <button type="button" onclick="setChoice('IA', this)" class="btn btn-outline-dark m-1 choice-btn">Laisser l'IA choisir</button>
-                
+
                 <div class="mt-4">
                     <button type="submit" class="btn btn-success">Valider et envoyer</button>
                 </div>
-                 
             </section>
         </div>
     </section>
@@ -137,7 +135,7 @@ document.querySelectorAll('button[type="submit"]').forEach(btn => {
 function setChoice(value, btn) {
     document.getElementById('choice').value = value;
 
-    // Ne touche qu'aux boutons ayant la classe choice-btn
+    // Ne touche qu'aux boutons ayant la classe choice btn
     document.querySelectorAll('.choice-btn').forEach(button => {
         button.classList.remove('btn-dark');
         button.classList.add('btn-outline-dark');
@@ -157,7 +155,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
         alert("Merci de sélectionner une image ET un choix (Vide, Pleine ou IA) avant de valider.");
     }
 });
-
+/*
 window.addEventListener('DOMContentLoaded', function() {
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('date').setAttribute('max', today);
@@ -176,7 +174,7 @@ document.getElementById('date').addEventListener('change', function() {
     } else {
         timeInput.removeAttribute('max');
     }
-});
+});*/
 </script>
 
 <style>

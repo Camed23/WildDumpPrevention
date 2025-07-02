@@ -11,7 +11,7 @@
                 <h4>Récapitulatif :</h4>
                 <ul class="list-unstyled">
                     <li><strong> Lieu :</strong> {{ image_info.location or 'Non renseigné' }}</li>
-                    <li><strong> Date :</strong> {{ image_info.date or 'Non renseignée' }}</li>
+                    <li><strong> Date :</strong> {{ image_info.date or 'Non disponible' }}</li>
                     <li><strong> Heure :</strong> {{ image_info.time or 'Non renseignée' }}</li>
                     <li><strong> Remarques :</strong> {{ image_info.notes or 'Aucune' }}</li>
                     <li><strong> État choisi :</strong> {{ image_info.choice or 'Non précisé' }}</li>
@@ -34,7 +34,7 @@
                 <h5>Merci pour votre participation 🙏</h5>
                 <p>Vous contribuez à améliorer la détection automatique des dépôts sauvages.</p>
 
-                <a href="{{ url_for('upload') }}" class="btn btn-dark mt-3">Téléverser une nouvelle image</a>
+                <a href="{{ url_for('upload.upload_file') }}" class="btn btn-dark mt-3">Téléverser une nouvelle image</a>
             </div>
 
             <div class="col-md-6 text-center">
