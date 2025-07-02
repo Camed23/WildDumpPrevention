@@ -1,9 +1,12 @@
 import os
-from flask import Blueprint, render_template, request, redirect, flash, url_for, current_app, send_from_directory
+from flask import Blueprint, render_template, request, redirect, flash, url_for, current_app, send_from_directory, session
 from backend.services.image_service import insert_image_metadata, insert_annotation, get_image_id_by_filename
 from backend.services.feature_extractor import calculate_image_properties
 from backend.services.user_service import get_or_create_user
 from backend.utils.helpers import allowed_file, generate_unique_filename
+
+
+
 
 upload_bp = Blueprint('upload', __name__)
 
@@ -27,6 +30,10 @@ def upload_file():
 
         # Infos du formulaire
         location = request.form.get("location")
+        session["temp_date"] = request.form.get("date")
+        session["temp_time"] = request.form.get("time")
+        session["temp_notes"] = request.form.get("notes")
+
         choice = request.form.get("choice")
 
         # Caractéristiques de l’image

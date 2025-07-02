@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, flash, url_for, redirect
+from flask import Blueprint, render_template, flash, url_for, redirect, session
 from backend.services.image_service import get_image_id_by_filename
 from backend.config import supabase
 
@@ -20,9 +20,9 @@ def show_annotation(filename):
 
     image_info = {
         "location": image_data.get("localisation"),
-        "date": image_data.get("upload_date"),  # ajout pour afficher la date auto
-        "time": None,
-        "notes": None,
+        "date_user": session.pop("temp_date", None),  # date saisie par l'utilisateur
+        "time": session.pop("temp_time", None),
+        "notes": session.pop("temp_notes", None),
         "choice": image_data.get("annotation_source", "manuel"),
         "prediction": image_data.get("label") if image_data.get("annotation_source") == "auto" else None,
         "file_size_kb": round(image_data["size"], 2),
@@ -32,6 +32,7 @@ def show_annotation(filename):
         "avg_b": round(image_data["avg_blue"], 2),
         "contrast": round(image_data["contrast"], 2),
         "edges_detected": round(image_data["edges_detected"], 2),
+        "upload_date": image_data.get("upload_date"),  # date automatique
         "image_url": url_for('upload.uploaded_file', filename=image_data["name_image"])
     }
 

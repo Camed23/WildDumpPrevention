@@ -38,7 +38,7 @@
                     <label for="location">Lieu (adresse approximative)</label>
                     <input type="text" name="location" id="location" class="form-control">
                 </div>
-                <!--
+
                 <div class="mb-3">
                     <label for="date">Date de la photo</label>
                     <input type="date" name="date" id="date" class="form-control" max="">
@@ -52,7 +52,7 @@
                     <label for="notes">Remarques supplémentaires</label>
                     <textarea name="notes" id="notes" rows="3" class="form-control"></textarea>
                 </div>
-                -->
+
                 <h4>État de la poubelle :</h4>
                 <input type="hidden" name="choice" id="choice" value="">
 
@@ -155,7 +155,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
         alert("Merci de sélectionner une image ET un choix (Vide, Pleine ou IA) avant de valider.");
     }
 });
-/*
+
 window.addEventListener('DOMContentLoaded', function() {
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('date').setAttribute('max', today);
@@ -174,7 +174,7 @@ document.getElementById('date').addEventListener('change', function() {
     } else {
         timeInput.removeAttribute('max');
     }
-});*/
+});
 </script>
 
 <style>
