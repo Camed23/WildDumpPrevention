@@ -1,7 +1,9 @@
-from PIL import Image, ImageStat, ImageFilter
 import numpy as np
 import cv2
 import os
+from skimage.feature import hog, greycomatrix, greycoprops
+from sklearn.cluster import KMeans
+
 # Metadonnées de l'image dans la base de données
 """int image_id unique
 string file_path
