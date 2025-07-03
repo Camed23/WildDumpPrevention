@@ -81,8 +81,8 @@ all_rules = [
 ]
 
 def apply_rules(features, rules):
-    # Parcourt les règles et renvoie le nom de la première qui s’applique
-    for rule in rules:
-        if rule.applies(features):
-            return rule.name
-    return "pas_de_conclusion"
+    # Applique chaque règle et stocke le résultat (True = dirty, False = clean)
+    results = [rule.applies(features) for rule in rules]
+    # Pourcentage de règles qui renvoient dirty (True)
+    dirty_ratio = sum(results) / len(results) if results else 0
+    return dirty_ratio, results
