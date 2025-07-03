@@ -197,3 +197,7 @@ cython_debug/
 
 # ignore cache files created by the function output
 .cache/images_metadata.json
+
+# ignore test folder
+test/
+tests/

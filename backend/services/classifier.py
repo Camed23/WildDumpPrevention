@@ -33,7 +33,7 @@ def test_classifier(cache_path=CACHE_PATH):
         dirty_ratios.append(dirty_ratio)  # Pour statistiques
         
         # Classification basée sur le dirty_ratio
-        if dirty_ratio >= 0.75:
+        if dirty_ratio >= 0.25:  # Seuil optimal identifié par tests
             predicted = "plein"
         else:
             predicted = "vide"

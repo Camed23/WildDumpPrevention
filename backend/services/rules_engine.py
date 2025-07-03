@@ -11,12 +11,12 @@ class Rule:
 
 # 1) Zone occupée (surface détectée / surface totale)
 rule_area_full  = Rule(
-    "area_ratio > 0.6 → dirty",
-    lambda f: f["area_ratio"] > 0.6
+    "area_ratio > 0.4 → dirty",  # Ajusté de 0.6 à 0.4
+    lambda f: f["area_ratio"] > 0.4
 )
 rule_area_empty = Rule(
-    "area_ratio < 0.2 → clean",
-    lambda f: f["area_ratio"] < 0.2
+    "area_ratio < 0.3 → clean",  # Ajusté de 0.2 à 0.3
+    lambda f: f["area_ratio"] < 0.3
 )
 
 # 2) Densité de contours (beaucoup de déchets = plein de formes / arêtes)
@@ -41,12 +41,12 @@ rule_light_empty = Rule(
 
 # 4) Contraste inter-quartile (beaucoup de variation = plein)
 rule_contrast_full  = Rule(
-    "contrast_iqr > 80 → dirty",
-    lambda f: f["contrast_iqr"] > 80
+    "contrast_iqr > 60 → dirty",  # Ajusté de 80 à 60
+    lambda f: f["contrast_iqr"] > 60
 )
 rule_contrast_empty = Rule(
-    "contrast_iqr < 30 → clean",
-    lambda f: f["contrast_iqr"] < 30
+    "contrast_iqr < 40 → clean",  # Ajusté de 30 à 40
+    lambda f: f["contrast_iqr"] < 40
 )
 
 # 5) Taille de fichier (fichiers plus gros quand ils contiennent plus de détails)
@@ -57,12 +57,12 @@ rule_size_full = Rule(
 
 # 6) Variabilité de teinte (plus de couleurs / saletés = plein)
 rule_hue_full  = Rule(
-    "hue_std > 25 → dirty",
-    lambda f: f["hue_std"] > 25
+    "hue_std > 20 → dirty",  # Ajusté de 25 à 20
+    lambda f: f["hue_std"] > 20
 )
 rule_hue_empty = Rule(
-    "hue_std < 10 → clean",
-    lambda f: f["hue_std"] < 10
+    "hue_std < 15 → clean",  # Ajusté de 10 à 15
+    lambda f: f["hue_std"] < 15
 )
 
 # Regrouper toutes les règles
