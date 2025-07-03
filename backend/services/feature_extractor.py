@@ -2,8 +2,8 @@ import numpy as np
 from PIL import Image, ImageStat, ImageFilter
 import cv2
 import os
-from skimage.feature import hog, greycomatrix, greycoprops
-from sklearn.cluster import KMeans
+#from skimage.feature import hog, greycomatrix, greycoprops
+#from sklearn.cluster import KMeans
 
 # Metadonnées de l'image dans la base de données
 """int image_id unique
@@ -16,7 +16,7 @@ int height
 real avg_red
 real avg_green
 real avg_blue
-real contrast
+real contrasts
 bool edges_detected
 string localisation #nom de la ville""" 
 
@@ -140,15 +140,131 @@ class ImageFeatures:
         ])
         return float(rgb_std)
 
+    def compute_texture_entropy(self):
+        """Calculer l'entropie de texture - mesure la complexité/désordre de l'image"""
+        if self.pixels is not None:
+            # Convertir en niveaux de gris
+            gray = np.mean(self.pixels, axis=2).astype(np.uint8)
+            # Calculer l'histogramme
+            hist, _ = np.histogram(gray.flatten(), bins=256, range=(0, 256))
+            # Normaliser l'histogramme
+            hist = hist / hist.sum()
+            # Calculer l'entropie
+            entropy = -np.sum(hist * np.log2(hist + 1e-7))  # +1e-7 pour éviter log(0)
+            return float(entropy)
+        return 5.0  # Valeur par défaut
+
+    def compute_color_complexity(self):
+        """Calculer la complexité des couleurs - nombre de couleurs distinctes (VERSION OPTIMISÉE)"""
+        if self.pixels is not None:
+            # OPTIMISATION: Réduire drastiquement la résolution
+            small_img = self.pixels[::8, ::8]  # Prendre 1 pixel sur 8 (au lieu de 4)
+            
+            # Quantifier plus agressivement les couleurs
+            colors = small_img.reshape(-1, 3)
+            quantized = (colors // 64) * 64  # Réduire à 4 niveaux par canal (au lieu de 8)
+            
+            # Compter les couleurs uniques
+            unique_colors = len(np.unique(quantized.view(np.dtype((np.void, quantized.dtype.itemsize*3)))))
+            return float(unique_colors / len(colors))
+        return 0.1
+
+    def compute_brightness_variance(self):
+        """Calculer la variance de luminosité - détecte les ombres et variations"""
+        if self.pixels is not None:
+            brightness = np.mean(self.pixels, axis=2)
+            return float(np.var(brightness))
+        # Utiliser le contraste du cache comme approximation
+        contrast = self.image_data.get('contrast', 0)
+        return float(contrast ** 2)  # Variance ≈ contraste²
+
+    def compute_edge_coherence(self):
+        """Calculer la cohérence des contours - structure vs chaos"""
+        if self.img is not None:
+            # Appliquer différents filtres de contours
+            edges_h = self.img.filter(ImageFilter.Kernel((3, 3), [-1, -1, -1, 0, 0, 0, 1, 1, 1]))
+            edges_v = self.img.filter(ImageFilter.Kernel((3, 3), [-1, 0, 1, -1, 0, 1, -1, 0, 1]))
+            
+            # Calculer la cohérence (faible = chaos, élevée = structure)
+            edges_h_std = np.std(np.array(edges_h))
+            edges_v_std = np.std(np.array(edges_v))
+            coherence = abs(edges_h_std - edges_v_std) / (edges_h_std + edges_v_std + 1e-7)
+            return float(coherence)
+        return 0.5
+
+    def compute_spatial_frequency(self):
+        """Calculer la fréquence spatiale - détecte les motifs répétitifs vs aléatoires"""
+        if self.pixels is not None:
+            gray = np.mean(self.pixels, axis=2)
+            # Calculer les gradients
+            grad_x = np.diff(gray, axis=1)
+            grad_y = np.diff(gray, axis=0)
+            # Fréquence spatiale = moyenne des gradients
+            spatial_freq = np.sqrt(np.mean(grad_x**2) + np.mean(grad_y**2))
+            return float(spatial_freq)
+        return 10.0
+
+    def compute_fill_ratio_advanced(self):
+        """Calculer un ratio de remplissage plus sophistiqué basé sur la segmentation"""
+        if self.pixels is not None:
+            # Convertir en HSV pour une meilleure segmentation
+            hsv = np.array(self.img.convert('HSV'))
+            
+    def compute_fill_ratio_advanced(self):
+        """Calculer un ratio de remplissage plus sophistiqué basé sur la segmentation (VERSION OPTIMISÉE)"""
+        if self.pixels is not None:
+            # OPTIMISATION 1: Réduire la taille de l'image pour accélérer
+            h, w = self.pixels.shape[:2]
+            scale_factor = 4  # Traiter 1 pixel sur 4
+            small_pixels = self.pixels[::scale_factor, ::scale_factor]
+            
+            # Convertir en HSV
+            small_img = Image.fromarray(small_pixels).convert('HSV')
+            hsv = np.array(small_img)
+            
+            # OPTIMISATION 2: Utiliser un kernel plus grand et moins de calculs
+            h_small, w_small = hsv[:,:,0].shape
+            kernel_size = max(3, min(h_small, w_small) // 20)  # Kernel plus grand
+            
+            # OPTIMISATION 3: Calculer seulement sur une grille, pas tous les pixels
+            step = max(1, kernel_size // 2)  # Calculer 1 point sur 2 ou 3
+            variance_samples = []
+            
+            for i in range(kernel_size//2, h_small - kernel_size//2, step):
+                for j in range(kernel_size//2, w_small - kernel_size//2, step):
+                    region = hsv[i-kernel_size//2:i+kernel_size//2+1, 
+                               j-kernel_size//2:j+kernel_size//2+1, :]
+                    variance_samples.append(np.var(region))
+            
+            if variance_samples:
+                # Ratio de zones à forte variance
+                threshold = np.percentile(variance_samples, 60)
+                high_variance_ratio = sum(1 for v in variance_samples if v > threshold) / len(variance_samples)
+                return float(high_variance_ratio)
+        
+        # Fallback rapide
+        return self.compute_area_ratio()
+
     
     def extract_all_features(self):
         """Extraire toutes les features nécessaires pour le rules engine"""
         return {
+            # Features existantes (rapides)
             "mean_brightness": self.compute_mean_brightness(),
             "edge_density": self.compute_edge_density(),
             "area_ratio": self.compute_area_ratio(),
             "contrast_iqr": self.compute_contrast_iqr(),
             "file_size_mb": self.compute_file_size_mb(),
-            "hue_std": self.compute_hue_std()
+            "hue_std": self.compute_hue_std(),
+            
+            # Nouvelles features optimisées (plus rapides)
+            "texture_entropy": self.compute_texture_entropy(),
+            "color_complexity": self.compute_color_complexity(),
+            "brightness_variance": self.compute_brightness_variance(),
+            "spatial_frequency": self.compute_spatial_frequency(),
+            "fill_ratio_advanced": self.compute_fill_ratio_advanced(),
+            
+            # Feature lente désactivée temporairement
+            # "edge_coherence": self.compute_edge_coherence(),  # TROP LENTE
         }
 
