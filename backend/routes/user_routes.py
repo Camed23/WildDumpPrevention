@@ -3,7 +3,7 @@ from backend.config import supabase
 
 user_bp = Blueprint("user", __name__)
 
-@user_bp.route('/users')
+@user_bp.route('/')
 def users():
     try:
         result = supabase.table("User").select("*").execute()

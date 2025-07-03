@@ -5,7 +5,7 @@
     <div class="container text-center text-white">
         <h1>Prévenir le débordement, protéger la ville.</h1>
         <p>TrashAnalyser s'engage à protéger nos villes en luttant contre le dumping illégal de déchets. Grâce à notre plateforme innovante, chaque citoyen peut contribuer à un environnement plus propre et durable.</p>
-        <a href="{{ url_for('upload') }}" class="btn btn-light m-2">Téléverser une image</a>
+        <a href="{{ url_for('upload.upload_file') }}" class="btn btn-light m-2">Téléverser une image</a>
         <a href="{{ url_for('dashboard') }}" class="btn btn-outline-light m-2">Voir le tableau de bord</a>
     </div>
 </header>
@@ -34,7 +34,7 @@
                 <img src="{{ url_for('static', filename='images/femme-upload.jpg') }}" alt="Upload Image">
                 <h5>Téléchargez des images</h5>
                 <p>Notre plateforme permet de signaler facilement les poubelles pleines ou vides.</p>
-                <a href="{{ url_for('upload') }}">Télécharger →</a>
+                <a href="{{ url_for('upload.upload_file') }}">Télécharger →</a>
             </div>
             <div class="col-md-4">
                 <img src="{{ url_for('static', filename='images/homme-annoter.jpg') }}" alt="Annotate Image">
