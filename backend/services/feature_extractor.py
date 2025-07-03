@@ -1,4 +1,5 @@
 import numpy as np
+from PIL import Image, ImageStat, ImageFilter
 import cv2
 import os
 from skimage.feature import hog, greycomatrix, greycoprops
@@ -127,7 +128,6 @@ class ImageFeatures:
         """Calculer l'écart-type de la teinte (variabilité des couleurs)"""
         if self.pixels is not None:
             # Convertir en HSV et calculer l'écart-type de la teinte
-            from PIL import Image as PILImage
             hsv_img = self.img.convert('HSV')
             hsv_pixels = np.array(hsv_img)
             hue_values = hsv_pixels[:, :, 0].flatten()
