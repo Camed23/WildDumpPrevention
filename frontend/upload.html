@@ -60,14 +60,67 @@
                 <button type="button" onclick="setChoice('plein', this)" class="btn btn-outline-dark m-1 choice-btn">Pleine</button>
                 <button type="button" onclick="setChoice('IA', this)" class="btn btn-outline-dark m-1 choice-btn">Laisser l'IA choisir</button>
 
+
+                
                 <div class="mt-4">
                     <button type="submit" class="btn btn-success">Valider et envoyer</button>
                 </div>
+                <div class="text-center mt-3 d-none" id="rules-toggle-container">
+                    <button type="button" class="btn btn-secondary" onclick="toggleRulesSection()">
+                        ⚙️ Gérer les règles de la classification
+                    </button>
+                </div>
+
             </section>
         </div>
     </section>
 </form>
+<!-- Section : Gestion des règles -->
 
+<section id="rules-section" class="upload-section bg-white mt-5 p-4 rounded shadow d-none">
+    <form id="reset-form" class="mb-3">
+        <button type="button" onclick="resetRules()" class="btn btn-danger btn-sm">
+            🔄 Réinitialiser les seuils par défaut
+        </button>
+    </form>
+    <h3>Gestion des règles de classification</h3>
+    <p>Modifiez les seuils utilisés pour classer l'image automatiquement.</p>
+
+    <table class="table table-bordered table-sm">
+        <thead class="table-light">
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Opérateur</th>
+                <th>Seuil</th>
+                <th>Poids</th>
+                <th>Catégorie</th>
+                <th>Save</th>
+            </tr>
+        </thead>
+        <tbody id="rules-tbody">
+            {% for rule in rules %}
+            <tr>
+                <form class="rule-form" method="POST">
+                    <td>{{ rule.rule_name }}</td>
+                    <td>{{ rule.description }}</td>
+                    <td>{{ rule.threshold_operator }}</td>
+                    <td>
+                        <input type="number" step="0.01" name="threshold_value"
+                            value="{{ rule.threshold_value }}" class="form-control form-control-sm" required>
+                        <input type="hidden" name="rule_name" value="{{ rule.rule_name }}">
+                    </td>
+                    <td>{{ rule.weight }}</td>
+                    <td>{{ rule.category }}</td>
+                    <td>
+                        <button type="submit" class="btn btn-primary btn-sm">💾</button>
+                    </td>
+                </form>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
 <script>
 function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
@@ -105,6 +158,7 @@ function handleFile(file) {
             imagePreviewSection.classList.remove('d-none');
             imageInfoSection.classList.remove('d-none');
             scrollToSection('image-preview');
+            document.getElementById('rules-toggle-container').classList.remove('d-none');
         };
         reader.readAsDataURL(file);
 
@@ -120,6 +174,14 @@ function clearPreview() {
     imagePreviewSection.classList.add('d-none');
     imageInfoSection.classList.add('d-none');
     fileInput.value = "";
+
+    // Cache le bouton et la section règles
+    document.getElementById('rules-toggle-container').classList.add('d-none');
+    document.getElementById('rules-section').classList.add('d-none');
+
+    // Remet aussi le texte du bouton au cas où il était ouvert
+    const btn = document.querySelector('#rules-toggle-container button');
+    if (btn) btn.textContent = "⚙️ Gérer les règles de la classification";
 }
 
 document.querySelectorAll('button[type="submit"]').forEach(btn => {
@@ -156,10 +218,6 @@ document.querySelector('form').addEventListener('submit', function(e) {
     }
 });
 
-window.addEventListener('DOMContentLoaded', function() {
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('date').setAttribute('max', today);
-});
 
 document.getElementById('date').addEventListener('change', function() {
     const selectedDate = this.value;
@@ -174,6 +232,183 @@ document.getElementById('date').addEventListener('change', function() {
     } else {
         timeInput.removeAttribute('max');
     }
+});
+
+
+function toggleRulesSection() {
+    const section = document.getElementById('rules-section');
+    const btn = document.querySelector('button[onclick="toggleRulesSection()"]');
+    
+    section.classList.toggle('d-none');
+    
+    if (!section.classList.contains('d-none')) {
+        btn.textContent = "Fermer la gestion des règles";
+    } else {
+        btn.textContent = "⚙️ Gérer les règles de la classification";
+    }
+}
+
+// ------------------- Sauvegarde des règles 
+document.querySelectorAll('.rule-form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();  // Ne recharge pas la page
+
+        const formData = new FormData(this);
+
+        // Ajoute le champ action manuellement si besoin
+        if (!formData.has('action')) {
+            formData.append('action', 'update_rule');
+        }
+
+        fetch(window.location.href, {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => {
+            if (!response.ok) throw new Error("Erreur réseau");
+            return response.text();
+        })
+        .then(data => {
+            // Optionnel : feedback visuel
+            alert("✅ Règle mise à jour !");
+        })
+        .catch(error => {
+            alert("Erreur lors de la mise à jour de la règle.");
+            console.error(error);
+        });
+    });
+});
+
+// ------------------- Gestion de la réinitialisation -------------------
+async function reloadRulesTable() {
+    try {
+        const response = await fetch('/upload/get_rules_json', {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const rules = await response.json();
+        const tbody = document.getElementById('rules-tbody');
+        
+        tbody.innerHTML = rules.map(rule => `
+            <tr>
+                <form class="rule-form">
+                    <td>${rule.rule_name}</td>
+                    <td>${rule.description}</td>
+                    <td>${rule.threshold_operator}</td>
+                    <td>
+                        <input type="number" step="0.01" 
+                               value="${rule.threshold_value}" required>
+                    </td>
+                    <td>${rule.weight}</td>
+                    <td>${rule.category}</td>
+                    <td>
+                        <button type="submit" class="btn btn-sm btn-primary">💾</button>
+                    </td>
+                </form>
+            </tr>
+        `).join('');
+
+    } catch (error) {
+        console.error("Fetch error:", error);
+        document.getElementById('rules-tbody').innerHTML = `
+            <tr>
+                <td colspan="7" class="text-danger">
+                    Error loading data: ${error.message}
+                </td>
+            </tr>
+        `;
+    }
+}
+async function resetRules() {
+    const btn = document.querySelector('#reset-form button');
+    const originalText = btn.textContent;
+    
+    btn.textContent = "Réinitialisation...";
+    btn.disabled = true;
+
+    try {
+        const response = await fetch('/upload/reset_rules', {
+            method: 'POST',
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+                "Accept": "application/json"
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error("Échec de la réinitialisation");
+        }
+
+        const result = await response.json();
+        alert(result.message || "✅ Réinitialisation réussie !");
+        
+        // Recharger le tableau
+        await reloadRulesTable();
+        
+    } catch (err) {
+        console.error("Erreur:", err);
+        alert(`❌ Erreur: ${err.message}`);
+    } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+    }
+}
+
+// ------------------- Rechargement du tableau -------------------
+function setupRuleForms() {
+    const forms = document.querySelectorAll('.rule-form');
+    if (!forms.length) return;
+
+    forms.forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            if (!btn) return;
+
+            const originalHtml = btn.innerHTML;
+            btn.innerHTML = "⏳";
+            btn.disabled = true;
+
+            try {
+                const formData = new FormData(this);
+                const response = await fetch('/upload/update_rule', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error("Erreur serveur");
+                }
+
+                const result = await response.json();
+                alert(result.message || "Mise à jour réussie");
+                
+                // Recharger le tableau après mise à jour
+                await reloadRulesTable();
+                
+            } catch (error) {
+                console.error("Erreur:", error);
+                alert("Erreur: " + error.message);
+            } finally {
+                btn.innerHTML = originalHtml;
+                btn.disabled = false;
+            }
+        });
+    });
+}
+
+
+window.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('date').setAttribute('max', today);
+    setupRuleForms();
 });
 </script>
 
@@ -206,6 +441,13 @@ document.getElementById('date').addEventListener('change', function() {
 .d-none {
     display: none;
 }
+.upload-section h3 {
+    margin-bottom: 20px;
+}
+.upload-section table input {
+    width: 80px;
+}
+
 </style>
 
 {% endblock %}
