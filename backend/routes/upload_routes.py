@@ -91,45 +91,23 @@ def uploaded_file(filename):
 @upload_bp.route('/get_rules_json')
 def get_rules_json():
     try:
-        rules = get_all_rules()
-        response = jsonify([{
-            'rule_name': r.rule_name,
-            'description': r.description,
-            'threshold_operator': r.threshold_operator,
-            'threshold_value': float(r.threshold_value),
-            'weight': float(r.weight),
-            'category': r.category
-        } for r in rules])
-        
-        # Forcer les bons en-têtes
-        response.headers['Connection'] = 'keep-alive'
-        response.headers['Content-Type'] = 'application/json; charset=utf-8'
-        return response
-        
+        data = get_all_rules()           # ← liste de dicts
+        return jsonify(data)             # ← JSON = liste
     except Exception as e:
-        print(f"DEBUG - Error: {str(e)}")
-        return jsonify({"error": str(e)}), 500
-    
-    
+        current_app.logger.error(e)
+        return jsonify(error=str(e)), 500
+
+
 @upload_bp.route('/reset_rules', methods=['POST'])
 def reset_rules():
     try:
-        # Réinitialise les règles
         reset_all_thresholds()
-        
-        # Retourne simplement un succès sans données
-        return jsonify({
-            "status": "success",
-            "message": "Rules reset successfully"
-        })
-        
+        #  ❯❯ Rien d’autre : juste « Pas de contenu »
+        return ("", 204)
     except Exception as e:
-        current_app.logger.error(f"Error in reset_rules: {str(e)}")
-        return jsonify({
-            "status": "error",
-            "message": str(e)
-        }), 500
-    
+        current_app.logger.error(f"Error in reset_rules: {e}")
+        return jsonify(status="error", message=str(e)), 500
+
 
 @upload_bp.route('/update_rule', methods=['POST'])
 def update_rule():

@@ -99,26 +99,30 @@
             </tr>
         </thead>
         <tbody id="rules-tbody">
-            {% for rule in rules %}
+        {% for rule in rules %}
             <tr>
-                <form class="rule-form" method="POST">
-                    <td>{{ rule.rule_name }}</td>
-                    <td>{{ rule.description }}</td>
-                    <td>{{ rule.threshold_operator }}</td>
-                    <td>
-                        <input type="number" step="0.01" name="threshold_value"
-                            value="{{ rule.threshold_value }}" class="form-control form-control-sm" required>
-                        <input type="hidden" name="rule_name" value="{{ rule.rule_name }}">
-                    </td>
-                    <td>{{ rule.weight }}</td>
-                    <td>{{ rule.category }}</td>
-                    <td>
-                        <button type="submit" class="btn btn-primary btn-sm">💾</button>
-                    </td>
-                </form>
+            <form class="rule-form" method="POST">
+                <td>
+                {{ rule.rule_name }}
+                <input type="hidden" name="rule_name" value="{{ rule.rule_name }}">
+                </td>
+                <td>{{ rule.description }}</td>
+                <td>{{ rule.threshold_operator }}</td>
+                <td>
+                <input type="number" step="0.01" name="threshold_value"
+                        value="{{ rule.threshold_value }}" required>
+                </td>
+                <td>{{ rule.weight }}</td>
+                <td>{{ rule.category }}</td>
+                <td>
+                <button class="btn btn-sm btn-primary">💾</button>
+                </td>
+            </form>
             </tr>
-            {% endfor %}
+        {% endfor %}
         </tbody>
+
+
     </table>
 </section>
 <script>
@@ -249,160 +253,81 @@ function toggleRulesSection() {
 }
 
 // ------------------- Sauvegarde des règles 
-document.querySelectorAll('.rule-form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();  // Ne recharge pas la page
-
-        const formData = new FormData(this);
-
-        // Ajoute le champ action manuellement si besoin
-        if (!formData.has('action')) {
-            formData.append('action', 'update_rule');
-        }
-
-        fetch(window.location.href, {
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => {
-            if (!response.ok) throw new Error("Erreur réseau");
-            return response.text();
-        })
-        .then(data => {
-            // Optionnel : feedback visuel
-            alert("✅ Règle mise à jour !");
-        })
-        .catch(error => {
-            alert("Erreur lors de la mise à jour de la règle.");
-            console.error(error);
-        });
-    });
-});
-
 // ------------------- Gestion de la réinitialisation -------------------
-async function reloadRulesTable() {
-    try {
-        const response = await fetch('/upload/get_rules_json', {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const rules = await response.json();
-        const tbody = document.getElementById('rules-tbody');
-        
-        tbody.innerHTML = rules.map(rule => `
-            <tr>
-                <form class="rule-form">
-                    <td>${rule.rule_name}</td>
-                    <td>${rule.description}</td>
-                    <td>${rule.threshold_operator}</td>
-                    <td>
-                        <input type="number" step="0.01" 
-                               value="${rule.threshold_value}" required>
-                    </td>
-                    <td>${rule.weight}</td>
-                    <td>${rule.category}</td>
-                    <td>
-                        <button type="submit" class="btn btn-sm btn-primary">💾</button>
-                    </td>
-                </form>
-            </tr>
-        `).join('');
-
-    } catch (error) {
-        console.error("Fetch error:", error);
-        document.getElementById('rules-tbody').innerHTML = `
-            <tr>
-                <td colspan="7" class="text-danger">
-                    Error loading data: ${error.message}
-                </td>
-            </tr>
-        `;
-    }
-}
-async function resetRules() {
-    const btn = document.querySelector('#reset-form button');
-    const originalText = btn.textContent;
-    
-    btn.textContent = "Réinitialisation...";
-    btn.disabled = true;
-
-    try {
-        const response = await fetch('/upload/reset_rules', {
-            method: 'POST',
-            headers: {
-                "X-Requested-With": "XMLHttpRequest",
-                "Accept": "application/json"
-            }
-        });
-        
-        if (!response.ok) {
-            throw new Error("Échec de la réinitialisation");
-        }
-
-        const result = await response.json();
-        alert(result.message || "✅ Réinitialisation réussie !");
-        
-        // Recharger le tableau
-        await reloadRulesTable();
-        
-    } catch (err) {
-        console.error("Erreur:", err);
-        alert(`❌ Erreur: ${err.message}`);
-    } finally {
-        btn.textContent = originalText;
-        btn.disabled = false;
-    }
-}
-
 // ------------------- Rechargement du tableau -------------------
-function setupRuleForms() {
-    const forms = document.querySelectorAll('.rule-form');
-    if (!forms.length) return;
 
-    forms.forEach(form => {
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button[type="submit"]');
-            if (!btn) return;
+async function reloadRulesTable() {
+  const tbody  = document.getElementById('rules-tbody');
+  const rules  = await (await fetch('/upload/get_rules_json')).json();
+    tbody.innerHTML = rules.map(r => `
+    <tr>
+        <form class="rule-form" method="POST">
+        <td>${r.rule_name}
+            <input type="hidden" name="rule_name" value="${r.rule_name}">
+        </td>
+        <td>${r.description}</td>
+        <td>${r.threshold_operator}</td>
+        <td><input type="number" step="0.01" name="threshold_value"
+                    value="${r.threshold_value}" required></td>
+        <td>${r.weight}</td>
+        <td>${r.category}</td>
+        <td><button class="btn btn-sm btn-primary">💾</button></td>
+        </form>
+    </tr>
+    `).join('');
 
-            const originalHtml = btn.innerHTML;
-            btn.innerHTML = "⏳";
-            btn.disabled = true;
 
-            try {
-                const formData = new FormData(this);
-                const response = await fetch('/upload/update_rule', {
-                    method: 'POST',
-                    body: formData
-                });
 
-                if (!response.ok) {
-                    throw new Error("Erreur serveur");
-                }
-
-                const result = await response.json();
-                alert(result.message || "Mise à jour réussie");
-                
-                // Recharger le tableau après mise à jour
-                await reloadRulesTable();
-                
-            } catch (error) {
-                console.error("Erreur:", error);
-                alert("Erreur: " + error.message);
-            } finally {
-                btn.innerHTML = originalHtml;
-                btn.disabled = false;
-            }
-        });
-    });
 }
+
+
+async function resetRules() {
+  const btn = document.querySelector('#reset-form button');
+  btn.disabled = true;
+  btn.textContent = "Réinitialisation…";
+
+  try {
+    const res = await fetch('/upload/reset_rules', { method: 'POST' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    await reloadRulesTable();        // ⭠ on recharge juste le tableau
+    setupRuleForms();
+    alert("✅ Seuils remis par défaut");
+  } catch (err) {
+    alert(`❌ ${err.message}`);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "🔄 Réinitialiser les seuils par défaut";
+  }
+}
+
+
+
+function setupRuleForms() {
+  document.getElementById('rules-tbody').addEventListener('submit', async (e) => {
+    if (!e.target.matches('.rule-form')) return;
+    e.preventDefault();
+
+    const form = e.target;
+    const btn  = e.submitter || form.querySelector('button, input[type="submit"]');
+    if (btn) { btn.disabled = true; btn.textContent = "⏳"; }
+
+    try {
+      const r = await fetch('/upload/update_rule', {
+        method: 'POST',
+        body: new FormData(form)
+      });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      alert("✅ Règle mise à jour");
+    } catch (err) {
+      alert(`❌ ${err.message}`);
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = "💾"; }
+    }
+  });
+}
+
+
 
 
 window.addEventListener('DOMContentLoaded', function() {
