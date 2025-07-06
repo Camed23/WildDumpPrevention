@@ -35,92 +35,224 @@ class BinClassifier:
     2. Applique des seuils pour convertir le score en classe
     3. Calcule une confiance basée sur la distance aux seuils
     4. Permet l'ajustement dynamique des seuils
+    5. **NOUVEAU**: Mode haute précision utilisant les règles avancées
     
     AVANTAGES :
     - Séparation claire entre scoring et classification
     - Gestion explicite de l'incertitude
     - Métriques de confiance pour filtrer les prédictions douteuses
     - Facilité d'ajustement des seuils selon le contexte d'usage
+    - Exploitation optimale des règles avancées
     """
-    def __init__(self, rules_engine=None, thresholds=None):
+    def __init__(self, rules_engine=None, thresholds=None, high_precision=False):
         """
         Initialise le classificateur
         
         Args:
             rules_engine (RulesEngine): Moteur de règles personnalisé (optionnel)
             thresholds (dict): Seuils de classification personnalisés (optionnel)
+            high_precision (bool): Active le mode haute précision (plus strict, plus de règles)
             
         LOGIQUE DES SEUILS :
         - full_min : Score minimum pour être sûr que c'est "plein"
         - empty_max : Score maximum pour être sûr que c'est "vide"
         - Zone d'incertitude : entre empty_max et full_min
         - confidence_min : Seuil de confiance en dessous duquel on force "inconnu"
+        - rules_count_min : Nombre minimum de règles actives pour une confiance élevée
+        - advanced_rules_bonus : Bonus de confiance si des règles avancées sont actives
         """
         self.rules_engine = rules_engine or RulesEngine()
-        self.thresholds = thresholds or {
-            'full_min': 0.2,      # Score minimum pour "plein" (moins strict)
-            'empty_max': -0.05,   # Score maximum pour "vide" (moins strict)
-            'confidence_min': 0.1  # Confiance minimum (évite les prédictions hasardeuses)
+        self.high_precision = high_precision
+        
+        # Seuils recalibrés pour équilibrer les prédictions entre "plein" et "vide"
+        base_thresholds = {
+            'full_min': 0.20 if high_precision else 0.15,      # ABAISSÉ pour faciliter la détection "plein"
+            'empty_max': -0.2 if high_precision else -0.15,    # RENDU PLUS STRICT pour "vide" 
+            'confidence_min': 0.15 if high_precision else 0.12, # ABAISSÉ pour réduire les "inconnu"
+            'rules_count_min': 5 if high_precision else 4,      # Légèrement réduit
+            'advanced_rules_bonus': 0.1,                        # AUGMENTÉ pour valoriser les règles avancées
+            'negative_rules_min': 3 if high_precision else 2    # Inchangé
         }
+        
+        # Utiliser les seuils fournis ou les valeurs par défaut
+        self.thresholds = thresholds or base_thresholds
+        
+        # Liste des règles avancées pour le bonus de confiance
+        self.advanced_rules = [
+            'texture_entropy_high', 'texture_entropy_low',
+            'color_complexity_high', 'color_complexity_low',
+            'brightness_variance_high', 'brightness_variance_low',
+            'spatial_frequency_high', 'spatial_frequency_low',
+            'fill_ratio_advanced_high', 'fill_ratio_advanced_low',
+            'red_blue_ratio_high', 'saturation_high',
+            'corner_variance_high', 'vertical_fill_high',
+            'irregular_shapes_high', 'symmetry_high',
+            'background_uniformity_high', 'center_emptiness_high',
+            'vertical_fill_low', 'perspective_lines_visible'
+        ]
         
     def classify(self, features):
         """
         Classifie une image en fonction de ses features extraites
         
-        LOGIQUE DE CLASSIFICATION :
+        LOGIQUE DE CLASSIFICATION AMÉLIORÉE :
         1. Obtenir un score normalisé [-1, +1] via le RulesEngine
-        2. Appliquer les seuils pour déterminer la classe
-        3. Calculer une confiance basée sur la distance aux seuils
-        4. Appliquer un filtre de confiance minimum
+        2. Calculer le ratio de règles positives vs négatives
+        3. Vérifier si le score et le ratio de règles sont cohérents
+        4. Appliquer une logique plus stricte pour la classe "plein"
+        5. Calculer une confiance en tenant compte du ratio de règles
+        6. Filtrer les prédictions à faible confiance
         
-        INTERPRÉTATION DES SCORES :
-        - score >= full_min (ex: 0.3) → "plein" avec confiance = score
-        - score <= empty_max (ex: -0.3) → "vide" avec confiance = |score|
-        - entre les deux → "inconnu" (zone d'incertitude)
-        - confiance < confidence_min → forcer "inconnu" (prédiction pas fiable)
+        STRATÉGIE DE DÉCISION :
+        - "plein" : score élevé ET nombre significatif de règles positives vs négatives
+        - "vide" : score faible ET nombre significatif de règles négatives vs positives
+        - "inconnu" : score/ratio contradictoires OU confiance insuffisante
         
         Args:
             features (dict): Features extraites de l'image (area_ratio, contrast, etc.)
             
         Returns:
             dict: {
-                'prediction': str,        # 'plein', 'vide', ou 'inconnu'
-                'confidence': float,      # Confiance [0, 1] dans la prédiction
-                'score': float,          # Score brut du RulesEngine [-1, +1]
-                'details': dict          # Détails de l'évaluation (règles actives, etc.)
+                'prediction': str,          # 'plein', 'vide', ou 'inconnu'
+                'confidence': float,        # Confiance [0, 1] dans la prédiction
+                'score': float,             # Score brut du RulesEngine [-1, +1]
+                'details': dict,            # Détails de l'évaluation (règles actives, etc.)
+                'advanced_rules': list,     # Liste des règles avancées actives
+                'positive_rules_count': int, # Nombre de règles positives activées
+                'negative_rules_count': int, # Nombre de règles négatives activées
+                'rules_ratio': float        # Ratio règles positives/négatives
             }
         """
         # Étape 1 : Évaluation avec le moteur de règles
         evaluation = self.rules_engine.evaluate(features)
         score = evaluation['score']  # Score normalisé [-1, +1]
+        active_rules = evaluation.get('active_rules', [])
+        raw_score = evaluation.get('raw_score', 0)
         
-        # Étape 2 : Classification basée sur les seuils
-        if score >= self.thresholds['full_min']:
-            # Score élevé = poubelle pleine
+        # Étape 2 : Analyse des règles actives par type
+        # Liste des règles négatives (vide) connues - rendue plus précise et exhaustive
+        negative_rule_prefixes = (
+            'area_ratio_low', 'hue_std_low', 'contrast_iqr_low', 'edge_density_high', 
+            'mean_brightness_high', 'texture_entropy_low', 'color_complexity_low', 
+            'brightness_variance_low', 'spatial_frequency_low', 'fill_ratio_advanced_low', 
+            'spatial_frequency_very_low', 'file_size_low', 'edge_coherence_high', 
+            'symmetry_high', 'background_uniformity_high', 'center_emptiness_high', 
+            'vertical_fill_low', 'perspective_lines_visible', 'edge_density_low', 
+            'very_empty_center', 'structural_symmetry_with_edges', 'uniform_brightness',
+            'corner_variance_low'
+        )
+        
+        # Compter les règles négatives et positives de manière plus robuste
+        negative_rules = [rule for rule in active_rules if any(rule.startswith(prefix) for prefix in negative_rule_prefixes)]
+        positive_rules = [rule for rule in active_rules if rule not in negative_rules]
+        
+        # Calculer le ratio de règles (éviter division par zéro)
+        pos_count = len(positive_rules)
+        neg_count = len(negative_rules)
+        rules_ratio = pos_count / max(1, neg_count)
+        
+        # Étape 3 : Classification basée sur les seuils et le ratio des règles - RECALIBRÉE
+        if score >= self.thresholds['full_min'] and rules_ratio >= 1.5:  # ABAISSÉ de 2.0 à 1.5
+            # Critères pour "plein" : RENDUS PLUS PERMISSIFS
             prediction = "plein"
-            confidence = min(score, 1.0)  # Confiance = proximité à +1
-        elif score <= self.thresholds['empty_max']:
-            # Score faible = poubelle vide
-            prediction = "vide"
-            confidence = min(abs(score), 1.0)  # Confiance = proximité à -1
-        else:
-            # Score dans la zone d'incertitude
-            prediction = "inconnu"
-            confidence = 1.0 - abs(score)  # Plus on est proche de 0, moins on est sûr
+            # Confiance basée sur le score et la force du ratio positif/négatif
+            confidence = min(score * 1.2, 1.0) * min(rules_ratio / 3.0, 1.0)  # AUGMENTÉ pour renforcer la confiance
             
-        # Étape 3 : Filtre de confiance minimum
-        # Si la confiance est trop faible, forcer "inconnu" pour éviter les erreurs
+        elif score <= self.thresholds['empty_max'] and neg_count >= self.thresholds['negative_rules_min'] and rules_ratio < 1.8:  # AUGMENTÉ de 1.5 à 1.8
+            # Critères pour "vide" : plus permissif sur le ratio
+            prediction = "vide"
+            # Confiance basée sur le score et le nombre de règles négatives
+            confidence = min(abs(score) * 1.1, 1.0) * min(neg_count / self.thresholds['negative_rules_min'], 1.0)  # AUGMENTÉ
+            
+        elif score < -0.05 and neg_count > pos_count:  # RENDU PLUS STRICT (ajout du seuil score < -0.05)
+            # Cas favorable à "vide" même si pas en dessous du seuil strict
+            prediction = "vide"
+            # Confiance réduite car en dehors du seuil idéal
+            confidence = min(abs(score) * 0.9, 1.0) * (neg_count / (pos_count + 1)) * 0.8  # AUGMENTÉ
+            
+        elif score > 0.05 and rules_ratio >= 2.0:  # ABAISSÉ de 2.5 à 2.0 et ajout du seuil score > 0.05
+            # Cas favorable à "plein" avec ratio fort, même si score sous le seuil idéal
+            prediction = "plein"
+            # Confiance réduite car en dehors du seuil idéal
+            confidence = min(score * 0.8, 1.0) * (rules_ratio / 2.5) * 0.8  # AUGMENTÉ
+            
+        else:
+            # Score dans la zone d'incertitude ou contradiction entre score et types de règles
+            prediction = "inconnu"
+            # Confiance très basse pour les cas ambigus
+            confidence = 0.1
+            
+        # Étape 4 : Ajustement de confiance basé sur les règles avancées
+        # Identifier les règles avancées actives
+        advanced_active = [rule for rule in active_rules if rule in self.advanced_rules]
+        # Étape 4 : Ajustements basés sur les règles avancées spécifiques
+        if len(advanced_active) > 0:
+                # Règles spécifiques à la classe pleine
+                if prediction == "plein":
+                    # Vérifier la présence de règles avancées vraiment discriminantes pour "plein"
+                    critical_full_rules = ['fill_ratio_advanced_high', 'vertical_fill_high', 'irregular_shapes_high']
+                    critical_count = len([r for r in advanced_active if r in critical_full_rules])
+                    
+                    if critical_count > 0:
+                        # Bonus si des règles critiques sont présentes
+                        bonus = min(critical_count / len(critical_full_rules), 1.0) * 0.3
+                        confidence = min(confidence + bonus, 1.0)
+                    else:
+                        # Pénalité si aucune règle critique n'est présente
+                        confidence *= 0.7
+                        
+                    # Vérifier qu'il n'y a pas trop de règles contradictoires
+                    contradictory_rules = ['symmetry_high', 'background_uniformity_high', 'center_emptiness_high']
+                    contradictory_count = len([r for r in advanced_active if r in contradictory_rules])
+                    
+                    if contradictory_count > 0:
+                        # Forte pénalité si des règles contradictoires sont présentes
+                        confidence *= (1.0 - contradictory_count * 0.2)
+                
+                # Règles spécifiques à la classe vide
+                elif prediction == "vide":
+                    # Vérifier la présence de règles avancées vraiment discriminantes pour "vide"
+                    critical_empty_rules = ['symmetry_high', 'background_uniformity_high', 'center_emptiness_high', 'vertical_fill_low']
+                    critical_count = len([r for r in advanced_active if r in critical_empty_rules])
+                    
+                    if critical_count > 0:
+                        # Bonus si des règles critiques sont présentes
+                        bonus = min(critical_count / len(critical_empty_rules), 1.0) * 0.3
+                        confidence = min(confidence + bonus, 1.0)
+                    else:
+                        # Pénalité si aucune règle critique n'est présente
+                        confidence *= 0.7
+        
+        # Étape 5 : Malus de confiance si trop peu de règles sont actives au total
+        min_total_rules = self.thresholds['rules_count_min']
+        if len(active_rules) < min_total_rules:
+                confidence *= (len(active_rules) / min_total_rules) * 0.8
+        
+        # Étape 6 : Filtre de confiance minimum
+        # Si la confiance est trop faible, forcer "inconnu"
         if confidence < self.thresholds['confidence_min']:
+            prediction = "inconnu"
+            
+        # Étape 7 : Vérification supplémentaire pour les cas limites
+        if prediction == "plein" and rules_ratio < 2.0:
+            # Cas limites de "plein" avec ratio faible
+            prediction = "inconnu"
+        elif prediction == "vide" and neg_count < 3:
+            # Cas limites de "vide" avec peu de règles négatives
             prediction = "inconnu"
             
         return {
             'prediction': prediction,
             'confidence': confidence,
             'score': score,
-            'details': evaluation
+            'details': evaluation,
+            'advanced_rules': advanced_active,
+            'positive_rules_count': len(positive_rules),
+            'negative_rules_count': len(negative_rules)
         }
     
-    def set_thresholds(self, full_min=None, empty_max=None, confidence_min=None):
+    def set_thresholds(self, full_min=None, empty_max=None, confidence_min=None, 
+                      rules_count_min=None, advanced_rules_bonus=None, negative_rules_min=None):
         """
         Ajuste les seuils de classification pour optimiser les performances
         
@@ -133,6 +265,9 @@ class BinClassifier:
             full_min (float): Seuil minimum pour "plein" (plus haut = plus strict)
             empty_max (float): Seuil maximum pour "vide" (plus bas = plus strict)  
             confidence_min (float): Confiance minimum requise (plus haut = plus d'"inconnu")
+            rules_count_min (int): Nombre minimum de règles actives pour confiance élevée
+            advanced_rules_bonus (float): Bonus de confiance pour les règles avancées
+            negative_rules_min (int): Nombre minimum de règles négatives pour classer "vide"
         """
         if full_min is not None:
             self.thresholds['full_min'] = full_min
@@ -140,9 +275,46 @@ class BinClassifier:
             self.thresholds['empty_max'] = empty_max
         if confidence_min is not None:
             self.thresholds['confidence_min'] = confidence_min
+        if rules_count_min is not None:
+            self.thresholds['rules_count_min'] = rules_count_min
+        if advanced_rules_bonus is not None:
+            self.thresholds['advanced_rules_bonus'] = advanced_rules_bonus
+        if negative_rules_min is not None:
+            self.thresholds['negative_rules_min'] = negative_rules_min
+            
+    def set_high_precision(self, enabled=True):
+        """
+        Active ou désactive le mode haute précision
+        
+        UTILITÉ :
+        - Quand la précision est critique, utiliser enabled=True
+        - Pour maximiser les prédictions définitives, utiliser enabled=False
+        
+        Args:
+            enabled (bool): True pour activer le mode haute précision
+        """
+        self.high_precision = enabled
+        
+        # Ajuster les seuils selon le mode - nettement recalibrés
+        if enabled:
+            self.set_thresholds(
+                full_min=0.35,              # Beaucoup plus strict pour "plein"
+                empty_max=-0.1,             # Plus permissif pour "vide"
+                confidence_min=0.2,         # Confiance minimum augmentée
+                rules_count_min=6,          # Plus de règles requises
+                negative_rules_min=3        # Minimum 3 règles négatives pour "vide"
+            )
+        else:
+            self.set_thresholds(
+                full_min=0.3,               # Plus strict qu'avant
+                empty_max=-0.08,            # Plus permissif qu'avant
+                confidence_min=0.15,        # Plus exigeant en confiance
+                rules_count_min=4,          # Plus de règles requises
+                negative_rules_min=2        # Minimum 2 règles négatives pour "vide"
+            )
 
 
-def test_classifier(cache_path=CACHE_PATH, show_details=False):
+def test_classifier(cache_path=CACHE_PATH, show_details=False, high_precision=False):
     """
     Fonction de test et d'évaluation du classifier sur un dataset labellisé
     
@@ -151,22 +323,25 @@ def test_classifier(cache_path=CACHE_PATH, show_details=False):
     2. Analyser la répartition des prédictions (plein/vide/inconnu)
     3. Identifier les erreurs pour améliorer les règles
     4. Calculer des métriques de performance (confiance, scores)
+    5. Analyser l'impact des règles avancées et le ratio règles positives/négatives
     
     LOGIQUE D'ANALYSE :
     - Comparer prédictions vs labels réels
     - Tracker les règles impliquées dans les erreurs
     - Calculer précision avec et sans les "inconnu"
     - Statistiques des scores pour validation du système
+    - Analyse spécifique des règles avancées et des ratios positif/négatif
     
     Args:
         cache_path (str): Chemin vers le fichier JSON des images labellisées
         show_details (bool): Afficher les détails des règles pour debug
+        high_precision (bool): Utiliser le mode haute précision
         
     Returns:
         tuple: (classifier, accuracy) pour usage programmatique
     """
-    # Initialisation du classifier avec paramètres par défaut
-    classifier = BinClassifier()
+    # Initialisation du classifier avec paramètres recalibrés
+    classifier = BinClassifier(high_precision=high_precision)
     
     # Chargement du dataset labellisé depuis le cache JSON
     with open(cache_path, "r", encoding="utf-8") as f:
@@ -175,12 +350,19 @@ def test_classifier(cache_path=CACHE_PATH, show_details=False):
     # Initialisation des métriques de performance
     total = len(images)                                          # Nombre total d'images
     correct = 0                                                  # Prédictions correctes
-    predictions_count = {"plein": 0, "vide": 0, "inconnu": 0}  # Répartition des prédictions
+    predictions_count = {"plein": 0, "vide": 0, "inconnu": 0}   # Répartition des prédictions
     scores = []                                                  # Scores pour analyse statistique
     confidences = []                                             # Niveaux de confiance
     errors_analysis = []                                         # Analyse détaillée des erreurs
+    advanced_rules_usage = Counter()                             # Compteur des règles avancées
+    advanced_rules_success = Counter()                           # Règles avancées dans les prédictions correctes
+    
+    # Nouvelles métriques pour analyse des règles positives/négatives
+    positive_rules_avg = {"plein": [], "vide": [], "inconnu": []}  # Règles positives par classe
+    negative_rules_avg = {"plein": [], "vide": [], "inconnu": []}  # Règles négatives par classe
 
-    print("=== TEST DU CLASSIFIER MODERNE ===\n")
+    precision_mode = "HAUTE PRÉCISION" if high_precision else "STANDARD"
+    print(f"=== TEST DU CLASSIFIER RECALIBRÉ (MODE {precision_mode}) ===\n")
     
     # Boucle principale : tester chaque image du dataset
     for i, img in enumerate(images):
@@ -196,16 +378,31 @@ def test_classifier(cache_path=CACHE_PATH, show_details=False):
         predicted = result['prediction']    # Classe prédite
         confidence = result['confidence']   # Confiance [0, 1]
         score = result['score']            # Score brut [-1, +1]
+        advanced_rules = result.get('advanced_rules', [])  # Règles avancées utilisées
         
         # Mise à jour des statistiques globales
         predictions_count[predicted] += 1
         scores.append(score)
         confidences.append(confidence)
         
-        # Affichage du résultat pour suivi en temps réel
+        # Mise à jour du compteur de règles avancées
+        for rule in advanced_rules:
+            advanced_rules_usage[rule] += 1
+            if predicted == true_label:
+                advanced_rules_success[rule] += 1
+        
+        # Collecte des statistiques sur les règles positives/négatives
+        pos_count = result.get('positive_rules_count', 0)
+        neg_count = result.get('negative_rules_count', 0)
+        positive_rules_avg[predicted].append(pos_count)
+        negative_rules_avg[predicted].append(neg_count)
+        
+        # Affichage du résultat pour suivi en temps réel avec ratio positif/négatif
         status = "✓" if predicted == true_label else "✗"  # Symbole visuel pour rapidité
         img_name = img.get('name_image', '')[:25]          # Nom tronqué pour lisibilité
-        print(f"{status} {img_name:25} | {true_label:6} → {predicted:6} | Score: {score:+.3f} | Conf: {confidence:.3f}")
+        advanced_count = len(advanced_rules)
+        ratio_str = f"{pos_count}+/{neg_count}-"           # Ratio règles positives/négatives
+        print(f"{status} {img_name:25} | {true_label:6} → {predicted:6} | Score: {score:+.3f} | Conf: {confidence:.3f} | {ratio_str:7} | {advanced_count} règles avancées")
         
         # Évaluation de la prédiction et collecte des erreurs
         if predicted == true_label:
@@ -218,17 +415,19 @@ def test_classifier(cache_path=CACHE_PATH, show_details=False):
                 'predicted': predicted,
                 'score': score,
                 'confidence': confidence,
-                'active_rules': result['details']['active_rules']  # Règles qui ont influencé l'erreur
+                'active_rules': result['details']['active_rules'],  # Règles qui ont influencé l'erreur
+                'advanced_rules': advanced_rules                   # Règles avancées impliquées
             })
             
         # Debug détaillé pour les premières images (optionnel)
         if show_details and i < 3:
             print(f"    Rules actives: {result['details']['active_rules']}")
+            print(f"    Règles avancées: {advanced_rules}")
             print(f"    Score brut: {result['details']['raw_score']:.2f}")
     
     # === CALCUL ET AFFICHAGE DES MÉTRIQUES FINALES ===
     
-    print(f"\n=== RÉSULTATS FINAUX ===")
+    print(f"\n=== RÉSULTATS FINAUX (MODE {precision_mode}) ===")
     print(f"Précision globale: {correct}/{total} = {correct/total:.2%}")
     print(f"Répartition: {predictions_count}")
     
@@ -248,15 +447,28 @@ def test_classifier(cache_path=CACHE_PATH, show_details=False):
         print(f"  Moyenne: {sum(scores)/len(scores):+.3f}")        # Biais vers plein (+) ou vide (-)
         print(f"  Min: {min(scores):+.3f}, Max: {max(scores):+.3f}")  # Étendue des scores
         print(f"  Confiance moyenne: {sum(confidences)/len(confidences):.3f}")  # Fiabilité générale
+        
+    # Analyse des ratios de règles positives/négatives
+    print(f"\nAnalyse des ratios règles positives/négatives:")
+    for class_name in ["plein", "vide", "inconnu"]:
+        if positive_rules_avg[class_name]:
+            pos_avg = sum(positive_rules_avg[class_name]) / len(positive_rules_avg[class_name])
+            neg_avg = sum(negative_rules_avg[class_name]) / len(negative_rules_avg[class_name])
+            print(f"  {class_name}: {pos_avg:.1f}+ / {neg_avg:.1f}- (ratio: {pos_avg/max(1, neg_avg):.2f})")
     
     # Analyse des erreurs pour identifier les améliorations possibles
     if errors_analysis:
         print(f"\nAnalyse des erreurs ({len(errors_analysis)} erreurs):")
         error_rules = []  # Collecte des règles impliquées dans les erreurs
         
-        # Affichage des erreurs les plus représentatives
+        # Affichage des erreurs les plus représentatives avec ratio positif/négatif
         for err in errors_analysis[:5]:  # Limiter à 5 pour lisibilité
-            print(f"  {err['image']:20} {err['expected']} → {err['predicted']} (score: {err['score']:+.3f})")
+            pos_count = sum(1 for rule in err['active_rules'] if not rule.startswith(('area_ratio_low', 'hue_std_low', 
+                                                                                     'contrast_iqr_low', 'edge_density_high', 
+                                                                                     'mean_brightness_high', 'texture_entropy_low',
+                                                                                     'color_complexity_low', 'brightness_variance_low')))
+            neg_count = len(err['active_rules']) - pos_count
+            print(f"  {err['image']:20} {err['expected']} → {err['predicted']} (score: {err['score']:+.3f}, ratio: {pos_count}+/{neg_count}-)")
             error_rules.extend(err['active_rules'])  # Accumuler les règles problématiques
         
         # Identification des règles les plus souvent impliquées dans les erreurs
@@ -264,9 +476,32 @@ def test_classifier(cache_path=CACHE_PATH, show_details=False):
         if error_rules:
             rule_counter = Counter(error_rules)
             print(f"\nRègles les plus impliquées dans les erreurs:")
-            for rule, count in rule_counter.most_common(3):
-                print(f"  {rule}: {count} fois")
-                # CONSEIL : Examiner ces règles pour ajuster seuils ou poids
+            for rule, count in rule_counter.most_common(5):
+                # Déterminer si c'est une règle positive ou négative
+                rule_type = "+" if not rule.startswith(('area_ratio_low', 'hue_std_low', 'contrast_iqr_low', 
+                                                       'edge_density_high', 'mean_brightness_high', 'texture_entropy_low',
+                                                       'color_complexity_low', 'brightness_variance_low', 'spatial_frequency_low',
+                                                       'fill_ratio_advanced_low')) else "-"
+                print(f"  {rule} ({rule_type}): {count} fois")
+    
+    # === ANALYSE DES RÈGLES AVANCÉES ===
+    if advanced_rules_usage:
+        print(f"\nAnalyse des règles avancées:")
+        print(f"  Utilisation totale des règles avancées: {sum(advanced_rules_usage.values())} fois")
+        
+        # Top 5 des règles avancées les plus utilisées
+        print(f"\nTop 5 des règles avancées les plus actives:")
+        for rule, count in advanced_rules_usage.most_common(5):
+            success_rate = advanced_rules_success.get(rule, 0) / count if count > 0 else 0
+            print(f"  {rule}: {count} fois (taux de succès: {success_rate:.1%})")
+        
+        # Règles avancées avec le meilleur taux de succès
+        print(f"\nRègles avancées les plus efficaces (min. 5 utilisations):")
+        for rule, count in advanced_rules_usage.items():
+            if count >= 5:  # Au moins 5 utilisations pour être significatif
+                success_rate = advanced_rules_success.get(rule, 0) / count
+                if success_rate > 0.7:  # Afficher seulement les règles à succès élevé
+                    print(f"  {rule}: {success_rate:.1%} de succès ({advanced_rules_success.get(rule, 0)}/{count})")
     
     return classifier, correct/total
 
@@ -280,16 +515,45 @@ if __name__ == "__main__":
     - python backend/services/classifier.py
     - Ou depuis la racine : python -c "from backend.services.classifier import test_classifier; test_classifier()"
     
-    CONSEIL : Utiliser show_details=True pour debug approfondi des règles
+    OPTIONS:
+    - show_details=True: Afficher le détail des règles
+    - high_precision=True: Utiliser le mode haute précision (plus strict)
     """
-    print("🚀 Test du classifier moderne...\n")
-    classifier, accuracy = test_classifier(show_details=True)
-    print(f"\n🎯 Accuracy finale: {accuracy:.2%}")
+    print("🚀 Test du classifier avec correction majeure du biais vers 'plein'...\n")
     
-    # PROCHAINES ÉTAPES suggérées selon l'accuracy :
-    if accuracy > 0.8:
-        print("✅ Bonnes performances ! Considérer l'ajout de features avancées.")
-    elif accuracy > 0.6:
-        print("⚠️  Performances moyennes. Revoir les seuils et règles problématiques.")
+    # Test en mode standard
+    print("\n\n=== MODE STANDARD ===")
+    classifier_std, accuracy_std = test_classifier(show_details=True, high_precision=False)
+    
+    # Test en mode haute précision
+    print("\n\n=== MODE HAUTE PRÉCISION ===")
+    classifier_hp, accuracy_hp = test_classifier(show_details=True, high_precision=True)
+    
+    # Comparaison des résultats
+    print("\n\n=== COMPARAISON DES MODES ===")
+    print(f"🎯 Mode standard:        {accuracy_std:.2%}")
+    print(f"🎯 Mode haute précision: {accuracy_hp:.2%}")
+    
+    # PROCHAINES ÉTAPES suggérées selon l'accuracy du meilleur mode:
+    best_accuracy = max(accuracy_std, accuracy_hp)
+    if best_accuracy > 0.85:
+        print("✅ Excellentes performances ! La correction du biais fonctionne bien.")
+        print("   Suggestions d'améliorations futures:")
+        print("   1. Calibrer plus finement les seuils des règles les plus efficaces")
+        print("   2. Ajouter de nouvelles features très spécifiques pour les cas d'erreur restants")
+    elif best_accuracy > 0.75:
+        print("✅ Bonnes performances ! Plusieurs pistes d'amélioration:")
+        print("   1. Analyser les erreurs restantes et ajuster les poids des règles")
+        print("   2. Ajouter des features qui distinguent mieux les cas limites entre vide/plein")
+        print("   3. Considérer l'intégration d'un modèle de machine learning simple en complément")
+    elif best_accuracy > 0.65:
+        print("⚠️  Performances acceptables. Recommandations:")
+        print("   1. Continuer à ajuster les poids pour équilibrer encore plus les classes")
+        print("   2. Envisager d'ajouter des règles spécifiques pour les types d'images problématiques")
+        print("   3. Explorer une approche hybride règles+ML pour certains types d'images difficiles")
     else:
-        print("❌ Performances faibles. Revoir la logique des règles et les features.")
+        print("❌ Performances encore insuffisantes. Actions recommandées:")
+        print("   1. Analyser si certaines règles se déclenchent incorrectement sur toutes les images")
+        print("   2. Envisager une approche hybride avec machine learning pour les cas difficiles")
+        print("   3. Créer des profils de règles différents selon les types de poubelles/conteneurs")
+        print("   4. Considérer une approche de vote entre différentes méthodes de classification")
