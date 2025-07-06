@@ -4,92 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrashAnalyser</title>
-
-    <!-- Styles externes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
-    <!-- Style perso -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- Bandeau utilisateur -->
+    {% if session.username %}
+        <div class="alert alert-info text-center mb-0 py-2" role="alert">
+            Connecté en tant que <strong>{{ session.username }}</strong>
+            ({{ session.role }}) |
+            <a href="{{ url_for('auth.logout') }}">Se déconnecter</a>
+        </div>
+    {% else %}
+        <div class="alert alert-secondary text-center mb-0 py-2" role="alert">
+            <a href="{{ url_for('auth.login') }}">Se connecter en tant qu'admin</a> pour annoter manuellement
+        </div>
+    {% endif %}
+
+
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ url_for('home') }}">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo TrashAnalyser" height="40">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo TrashAnalyser">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-3">
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('upload.upload_file') }}">Uploader une image</a></li>
-
-                    {# Active ces lignes si les routes existent #}
-                    {# <li class="nav-item"><a class="nav-link" href="{{ url_for('dashboard') }}">Tableau de bord</a></li> #}
-                    {# <li class="nav-item"><a class="nav-link" href="{{ url_for('greenit') }}">Green IT</a></li> #}
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('upload.upload_file') }}">Upload une image</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('dashboard') }}">Tableau de bord</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('greenit') }}">Green IT</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- CONTENU PRINCIPAL -->
-    <main class="container py-4">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <div class="alert-container">
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }}" role="alert">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
+    <!-- Affichage des messages flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="container mt-3">
+          {% for category, message in messages %}
+            <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
 
-        {% block content %}{% endblock %}
-    </main>
+    {% block content %}{% endblock %}
 
-    <!-- FOOTER -->
-    <footer class="footer-section mt-5 bg-light border-top pt-4">
+    <!-- Footer -->
+    <footer class="footer-section mt-5">
         <div class="container">
             <div class="row">
-
-                <!-- Colonne gauche -->
                 <div class="col-md-6 mb-4">
-                    <p><strong>Adresse :</strong><br>12 rue des Trois Bacs, Décharge-sur-Seine, 75019 France</p>
-                    <p><strong>Contact :</strong><br>
-                        <a href="mailto:relationtri@trashalyser.com">relationtri@trashalyser.com</a>
-                    </p>
+                    <p><strong>Adresse :</strong><br>12 rue des Trois Bacs Décharge-sur-Seine, 75019 France</p>
+                    <p><strong>Contact :</strong><br><a href="mailto:relationtri@trashalyser.com">relationtri@trashalyser.com</a></p>
                     <div class="social-icons mt-2">
-                        <a href="#"><i class="fab fa-facebook-f me-2"></i></a>
-                        <a href="#"><i class="fab fa-instagram me-2"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in me-2"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
 
-                <!-- Colonne droite -->
                 <div class="col-md-6 mb-4 text-md-end">
-                    {# Active ces lignes si les routes existent #}
-                    {# <p><a href="{{ url_for('privacy') }}">Politique de confidentialité</a></p> #}
-                    {# <p><a href="{{ url_for('terms') }}">Conditions de service</a></p> #}
-                    {# <p><a href="{{ url_for('cookies') }}">Paramètres des cookies</a></p> #}
+                    <p><a href="{{ url_for('privacy') }}">Politique de confidentialité</a></p>
+                    <p><a href="{{ url_for('terms') }}">Conditions de service</a></p>
+                    <p><a href="{{ url_for('cookies') }}">Paramètres des cookies</a></p>
                 </div>
             </div>
 
-            <hr class="border-dark">
+            <hr style="border-color: #444;">
             <p class="text-center small mb-0">© 2025 TrashAnalyser. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
