@@ -1,14 +1,14 @@
 """
-Classifier - Module de classification des poubelles pleines/vides
+Classifier - Module de classification binaire des poubelles pleines/vides
 
 LOGIQUE GÉNÉRALE :
 - Séparer scoring (rules_engine) et classification (ce module)
 - Utiliser des seuils configurables pour transformer les scores en prédictions
-- Gérer l'incertitude avec une catégorie "inconnu"
+- Classification binaire forcée : "plein" ou "vide" uniquement (plus d'"inconnu")
 - Fournir des métriques de confiance pour évaluer la qualité des prédictions
 
 ARCHITECTURE :
-1. BinClassifier : Classe principale qui utilise RulesEngine + seuils
+1. BinClassifier : Classe principale qui utilise RulesEngine + décision binaire
 2. test_classifier() : Fonction pour évaluer les performances sur un dataset
 3. Gestion des erreurs et analyse pour amélioration continue
 """
@@ -23,25 +23,25 @@ from collections import Counter
 
 # Configuration
 CACHE_PATH = "cache/images_metadata_labeled.json"
-# CACHE_PATH = config.CACHE_PATH  # Utiliser la configuration une fois le projet terminé
+#CACHE_PATH = config.CACHE_PATH  # Utiliser la configuration une fois le projet terminé
 
 
 class BinClassifier:
     """
-    Classificateur principal pour déterminer si une poubelle est pleine, vide ou incertaine
+    Classificateur principal pour déterminer si une poubelle est pleine ou vide (classification binaire)
     
     LOGIQUE DE CONCEPTION :
     1. Utilise un RulesEngine pour obtenir un score [-1, +1]
-    2. Applique des seuils pour convertir le score en classe
-    3. Calcule une confiance basée sur la distance aux seuils
+    2. Applique une décision binaire simple : score >= 0 → "plein", score < 0 → "vide"
+    3. Calcule une confiance basée sur l'amplitude du score et la cohérence des règles
     4. Permet l'ajustement dynamique des seuils
-    5. **NOUVEAU**: Mode haute précision utilisant les règles avancées
+    5. **NOUVEAU**: Plus de catégorie "inconnu" - toujours une décision ferme
     
     AVANTAGES :
     - Séparation claire entre scoring et classification
-    - Gestion explicite de l'incertitude
-    - Métriques de confiance pour filtrer les prédictions douteuses
-    - Facilité d'ajustement des seuils selon le contexte d'usage
+    - Décision binaire forcée pour éviter l'indécision
+    - Métriques de confiance pour évaluer la fiabilité
+    - Facilité d'ajustement des paramètres selon le contexte d'usage
     - Exploitation optimale des règles avancées
     """
     def __init__(self, rules_engine=None, thresholds=None, high_precision=False):
@@ -103,17 +103,17 @@ class BinClassifier:
         5. Calculer une confiance en tenant compte du ratio de règles
         6. Filtrer les prédictions à faible confiance
         
-        STRATÉGIE DE DÉCISION :
-        - "plein" : score élevé ET nombre significatif de règles positives vs négatives
-        - "vide" : score faible ET nombre significatif de règles négatives vs positives
-        - "inconnu" : score/ratio contradictoires OU confiance insuffisante
+        STRATÉGIE DE DÉCISION BINAIRE (SANS "INCONNU") :
+        - "plein" : score >= 0 (positif ou neutre)
+        - "vide" : score < 0 (négatif)
+        - Confiance calculée selon l'amplitude du score et la cohérence des règles
         
         Args:
             features (dict): Features extraites de l'image (area_ratio, contrast, etc.)
             
         Returns:
             dict: {
-                'prediction': str,          # 'plein', 'vide', ou 'inconnu'
+                'prediction': str,          # 'plein' ou 'vide' uniquement
                 'confidence': float,        # Confiance [0, 1] dans la prédiction
                 'score': float,             # Score brut du RulesEngine [-1, +1]
                 'details': dict,            # Détails de l'évaluation (règles actives, etc.)
@@ -151,36 +151,23 @@ class BinClassifier:
         neg_count = len(negative_rules)
         rules_ratio = pos_count / max(1, neg_count)
         
-        # Étape 3 : Classification basée sur les seuils et le ratio des règles - RECALIBRÉE
-        if score >= self.thresholds['full_min'] and rules_ratio >= 1.5:  # ABAISSÉ de 2.0 à 1.5
-            # Critères pour "plein" : RENDUS PLUS PERMISSIFS
+        # Étape 3 : Classification binaire forcée (plus de label "inconnu")
+        # Logique simplifiée : décision basée principalement sur le score
+        if score >= 0:
+            # Score positif ou neutre → tendance "plein"
             prediction = "plein"
-            # Confiance basée sur le score et la force du ratio positif/négatif
-            confidence = min(score * 1.2, 1.0) * min(rules_ratio / 3.0, 1.0)  # AUGMENTÉ pour renforcer la confiance
-            
-        elif score <= self.thresholds['empty_max'] and neg_count >= self.thresholds['negative_rules_min'] and rules_ratio < 1.8:  # AUGMENTÉ de 1.5 à 1.8
-            # Critères pour "vide" : plus permissif sur le ratio
-            prediction = "vide"
-            # Confiance basée sur le score et le nombre de règles négatives
-            confidence = min(abs(score) * 1.1, 1.0) * min(neg_count / self.thresholds['negative_rules_min'], 1.0)  # AUGMENTÉ
-            
-        elif score < -0.05 and neg_count > pos_count:  # RENDU PLUS STRICT (ajout du seuil score < -0.05)
-            # Cas favorable à "vide" même si pas en dessous du seuil strict
-            prediction = "vide"
-            # Confiance réduite car en dehors du seuil idéal
-            confidence = min(abs(score) * 0.9, 1.0) * (neg_count / (pos_count + 1)) * 0.8  # AUGMENTÉ
-            
-        elif score > 0.05 and rules_ratio >= 2.0:  # ABAISSÉ de 2.5 à 2.0 et ajout du seuil score > 0.05
-            # Cas favorable à "plein" avec ratio fort, même si score sous le seuil idéal
-            prediction = "plein"
-            # Confiance réduite car en dehors du seuil idéal
-            confidence = min(score * 0.8, 1.0) * (rules_ratio / 2.5) * 0.8  # AUGMENTÉ
+            # Confiance basée sur le score et renforcée par le ratio de règles
+            base_confidence = min(abs(score) * 1.5 + 0.3, 1.0)  # Score minimum de confiance : 0.3
+            rules_bonus = min(rules_ratio / 4.0, 0.3) if rules_ratio >= 1.0 else 0  # Bonus si ratio favorable
+            confidence = min(base_confidence + rules_bonus, 1.0)
             
         else:
-            # Score dans la zone d'incertitude ou contradiction entre score et types de règles
-            prediction = "inconnu"
-            # Confiance très basse pour les cas ambigus
-            confidence = 0.1
+            # Score négatif → tendance "vide"  
+            prediction = "vide"
+            # Confiance basée sur l'amplitude du score négatif et le nombre de règles négatives
+            base_confidence = min(abs(score) * 1.5 + 0.3, 1.0)  # Score minimum de confiance : 0.3
+            neg_bonus = min(neg_count / 5.0, 0.3) if neg_count >= 2 else 0  # Bonus si suffisamment de règles négatives
+            confidence = min(base_confidence + neg_bonus, 1.0)
             
         # Étape 4 : Ajustement de confiance basé sur les règles avancées
         # Identifier les règles avancées actives
@@ -226,20 +213,10 @@ class BinClassifier:
         # Étape 5 : Malus de confiance si trop peu de règles sont actives au total
         min_total_rules = self.thresholds['rules_count_min']
         if len(active_rules) < min_total_rules:
-                confidence *= (len(active_rules) / min_total_rules) * 0.8
+            confidence *= (len(active_rules) / min_total_rules) * 0.9  # Moins pénalisant qu'avant
         
-        # Étape 6 : Filtre de confiance minimum
-        # Si la confiance est trop faible, forcer "inconnu"
-        if confidence < self.thresholds['confidence_min']:
-            prediction = "inconnu"
-            
-        # Étape 7 : Vérification supplémentaire pour les cas limites
-        if prediction == "plein" and rules_ratio < 2.0:
-            # Cas limites de "plein" avec ratio faible
-            prediction = "inconnu"
-        elif prediction == "vide" and neg_count < 3:
-            # Cas limites de "vide" avec peu de règles négatives
-            prediction = "inconnu"
+        # Plus de filtrage par confiance minimum ni de vérifications supplémentaires
+        # qui forceraient vers "inconnu" - on garde toujours la prédiction binaire
             
         return {
             'prediction': prediction,
@@ -320,7 +297,7 @@ def test_classifier(cache_path=CACHE_PATH, show_details=False, high_precision=Fa
     
     OBJECTIFS :
     1. Mesurer la précision globale du système
-    2. Analyser la répartition des prédictions (plein/vide/inconnu)
+    2. Analyser la répartition des prédictions (plein/vide uniquement)
     3. Identifier les erreurs pour améliorer les règles
     4. Calculer des métriques de performance (confiance, scores)
     5. Analyser l'impact des règles avancées et le ratio règles positives/négatives
@@ -328,7 +305,7 @@ def test_classifier(cache_path=CACHE_PATH, show_details=False, high_precision=Fa
     LOGIQUE D'ANALYSE :
     - Comparer prédictions vs labels réels
     - Tracker les règles impliquées dans les erreurs
-    - Calculer précision avec et sans les "inconnu"
+    - Calculer précision binaire directe (toutes les prédictions sont définitives)
     - Statistiques des scores pour validation du système
     - Analyse spécifique des règles avancées et des ratios positif/négatif
     
@@ -350,7 +327,7 @@ def test_classifier(cache_path=CACHE_PATH, show_details=False, high_precision=Fa
     # Initialisation des métriques de performance
     total = len(images)                                          # Nombre total d'images
     correct = 0                                                  # Prédictions correctes
-    predictions_count = {"plein": 0, "vide": 0, "inconnu": 0}   # Répartition des prédictions
+    predictions_count = {"plein": 0, "vide": 0}   # Répartition des prédictions (plus d'"inconnu")
     scores = []                                                  # Scores pour analyse statistique
     confidences = []                                             # Niveaux de confiance
     errors_analysis = []                                         # Analyse détaillée des erreurs
@@ -358,8 +335,8 @@ def test_classifier(cache_path=CACHE_PATH, show_details=False, high_precision=Fa
     advanced_rules_success = Counter()                           # Règles avancées dans les prédictions correctes
     
     # Nouvelles métriques pour analyse des règles positives/négatives
-    positive_rules_avg = {"plein": [], "vide": [], "inconnu": []}  # Règles positives par classe
-    negative_rules_avg = {"plein": [], "vide": [], "inconnu": []}  # Règles négatives par classe
+    positive_rules_avg = {"plein": [], "vide": []}  # Règles positives par classe (plus d'"inconnu")
+    negative_rules_avg = {"plein": [], "vide": []}  # Règles négatives par classe (plus d'"inconnu")
 
     precision_mode = "HAUTE PRÉCISION" if high_precision else "STANDARD"
     print(f"=== TEST DU CLASSIFIER RECALIBRÉ (MODE {precision_mode}) ===\n")
@@ -431,15 +408,8 @@ def test_classifier(cache_path=CACHE_PATH, show_details=False, high_precision=Fa
     print(f"Précision globale: {correct}/{total} = {correct/total:.2%}")
     print(f"Répartition: {predictions_count}")
     
-    # Calcul de la précision en excluant les prédictions "inconnu"
-    # LOGIQUE : Les "inconnu" ne sont ni vrais ni faux, on s'intéresse aux prédictions fermes
-    definitive = total - predictions_count["inconnu"]
-    if definitive > 0:
-        # Compter les prédictions correctes parmi les prédictions définitives
-        definitive_correct = sum(1 for err in errors_analysis if err['predicted'] != 'inconnu')
-        definitive_correct = correct - (len(errors_analysis) - definitive_correct)
-        definitive_accuracy = definitive_correct / definitive
-        print(f"Précision sur prédictions définitives: {definitive_correct}/{definitive} = {definitive_accuracy:.2%}")
+    # Plus besoin de calculer la précision sans les "inconnu" puisqu'il n'y en a plus
+    # Toutes les prédictions sont maintenant définitives
     
     # Statistiques des scores pour validation de la distribution
     if scores:
@@ -450,7 +420,7 @@ def test_classifier(cache_path=CACHE_PATH, show_details=False, high_precision=Fa
         
     # Analyse des ratios de règles positives/négatives
     print(f"\nAnalyse des ratios règles positives/négatives:")
-    for class_name in ["plein", "vide", "inconnu"]:
+    for class_name in ["plein", "vide"]:  # Plus d'"inconnu"
         if positive_rules_avg[class_name]:
             pos_avg = sum(positive_rules_avg[class_name]) / len(positive_rules_avg[class_name])
             neg_avg = sum(negative_rules_avg[class_name]) / len(negative_rules_avg[class_name])
@@ -519,41 +489,22 @@ if __name__ == "__main__":
     - show_details=True: Afficher le détail des règles
     - high_precision=True: Utiliser le mode haute précision (plus strict)
     """
-    print("🚀 Test du classifier avec correction majeure du biais vers 'plein'...\n")
+    print("Test du classifier\n")
     
     # Test en mode standard
     print("\n\n=== MODE STANDARD ===")
-    classifier_std, accuracy_std = test_classifier(show_details=True, high_precision=False)
+    classifier_std, accuracy_std = test_classifier(show_details=True, high_precision=True)
+    print(f"\n🎯 Précision mode standard: {accuracy_std:.2%}..")
     
     # Test en mode haute précision
-    print("\n\n=== MODE HAUTE PRÉCISION ===")
-    classifier_hp, accuracy_hp = test_classifier(show_details=True, high_precision=True)
+    #print("\n\n=== MODE HAUTE PRÉCISION ===")
+    #classifier_hp, accuracy_hp = test_classifier(show_details=True, high_precision=True)
     
     # Comparaison des résultats
-    print("\n\n=== COMPARAISON DES MODES ===")
-    print(f"🎯 Mode standard:        {accuracy_std:.2%}")
-    print(f"🎯 Mode haute précision: {accuracy_hp:.2%}")
+    #print("\n\n=== COMPARAISON DES MODES ===")
+    #print(f"🎯 Mode standard:        {accuracy_std:.2%}")
+    #print(f"🎯 Mode haute précision: {accuracy_hp:.2%}")
     
     # PROCHAINES ÉTAPES suggérées selon l'accuracy du meilleur mode:
-    best_accuracy = max(accuracy_std, accuracy_hp)
-    if best_accuracy > 0.85:
-        print("✅ Excellentes performances ! La correction du biais fonctionne bien.")
-        print("   Suggestions d'améliorations futures:")
-        print("   1. Calibrer plus finement les seuils des règles les plus efficaces")
-        print("   2. Ajouter de nouvelles features très spécifiques pour les cas d'erreur restants")
-    elif best_accuracy > 0.75:
-        print("✅ Bonnes performances ! Plusieurs pistes d'amélioration:")
-        print("   1. Analyser les erreurs restantes et ajuster les poids des règles")
-        print("   2. Ajouter des features qui distinguent mieux les cas limites entre vide/plein")
-        print("   3. Considérer l'intégration d'un modèle de machine learning simple en complément")
-    elif best_accuracy > 0.65:
-        print("⚠️  Performances acceptables. Recommandations:")
-        print("   1. Continuer à ajuster les poids pour équilibrer encore plus les classes")
-        print("   2. Envisager d'ajouter des règles spécifiques pour les types d'images problématiques")
-        print("   3. Explorer une approche hybride règles+ML pour certains types d'images difficiles")
-    else:
-        print("❌ Performances encore insuffisantes. Actions recommandées:")
-        print("   1. Analyser si certaines règles se déclenchent incorrectement sur toutes les images")
-        print("   2. Envisager une approche hybride avec machine learning pour les cas difficiles")
-        print("   3. Créer des profils de règles différents selon les types de poubelles/conteneurs")
-        print("   4. Considérer une approche de vote entre différentes méthodes de classification")
+    #best_accuracy = max(accuracy_std, accuracy_hp)
+    #print(best_accuracy)
