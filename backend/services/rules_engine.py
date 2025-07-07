@@ -4,6 +4,7 @@ class Rule:
     def __init__(self, name, condition_fn, weight=1.0):
         self.name = name
         self.condition = condition_fn
+        self.weight = weight
 
     def applies(self, features):
         # Renvoie True si la règle correspond à dirty
