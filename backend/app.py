@@ -55,13 +55,14 @@ app.register_blueprint(auth_bp, url_prefix="/auth")
 def home():
     return render_template("accueil.html")
 
-@app.route("/dashboard")
-def dashboard():
-    return render_template("dashboard.html")
 
 @app.route("/greenit")
 def greenit():
     return render_template("greenit.html")
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
 
 @app.route("/help")
 def aide():

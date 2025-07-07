@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="evaluation-header text-center text-white py-5" style="background-color: #2980b9;">
+    <div class="container">
+        <h1>Évaluation des risques & Démarche Green IT</h1>
+        <p class="lead mt-3">Garantir un numérique responsable, durable et innovant</p>
+    </div>
+</section>
+
+<section class="evaluation-content py-5">
+    <div class="container">
+        <h2>Objectifs</h2>
+        <p>
+            Cette démarche vise à :
+            <ul>
+                <li>Identifier les risques techniques et d’usage de la plateforme.</li>
+                <li>Réduire l’impact environnemental via une approche Green IT.</li>
+                <li>Sensibiliser les utilisateurs à la problématique des déchets sauvages.</li>
+            </ul>
+        </p>
+
+        <h3 class="mt-4">Documents disponibles</h3>
+        <ul>
+            <li>
+                📄 <a href="{{ url_for('evaluation.download_document', filename='questionnaire_ecoconception.docx') }}">Questionnaire d'écoconception de services numériques (Word)</a>
+            </li>
+            <li>
+                📊 <a href="{{ url_for('evaluation.download_document', filename='tableau_impact.xlsx') }}">Tableau de synthèse de l’impact du projet (Excel)</a>
+            </li>
+        </ul>
+
+        <h3 class="mt-5">Thèmes abordés</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>🧠 Logiciel</h5>
+                <ul>
+                    <li>Design & architecture technique</li>
+                    <li>Code & algorithmie efficiente</li>
+                    <li>Stockage, transport et hébergement optimisé</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h5>💻 Équipement utilisateur</h5>
+                <ul>
+                    <li>Compatibilité multi-supports (PC, smartphone, tablette)</li>
+                    <li>Limitation des ressources gourmandes</li>
+                    <li>Conception accessible et inclusive</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="{{ url_for('dashboard.dashboard') }}" class="btn btn-secondary">Retour au tableau de bord</a>
+        </div>
+    </div>
+</section>
+
+<style>
+.evaluation-content h2, .evaluation-content h3 {
+    font-weight: bold;
+}
+</style>
+
+{% endblock %}
