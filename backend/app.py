@@ -3,6 +3,10 @@ from flask import Flask, render_template
 from backend.routes.upload_routes import upload_bp
 from backend.routes.user_routes import user_bp
 from backend.routes.annotation_routes import annotate_bp
+from backend.routes.dashboard_routes import dashboard_bp
+from backend.routes.greenit_routes import greenit_bp
+
+
 
 # === Chemins absolus pour les dossiers templates et statics ===
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -20,19 +24,22 @@ app.config['UPLOAD_FOLDER'] = os.path.join(BASE_DIR, "uploads")
 app.register_blueprint(upload_bp, url_prefix="/upload")
 app.register_blueprint(user_bp, url_prefix="/users")
 app.register_blueprint(annotate_bp, url_prefix="/annotate")
+app.register_blueprint(dashboard_bp, url_prefix="/dashboard")
+app.register_blueprint(greenit_bp, url_prefix="/greenit")
 
 # === Pages principales ===
 @app.route("/")
 def home():
     return render_template("accueil.html")
 
-@app.route("/dashboard")
-def dashboard():
-    return render_template("dashboard.html")
 
 @app.route("/greenit")
 def greenit():
     return render_template("greenit.html")
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
 
 @app.route("/help")
 def aide():
