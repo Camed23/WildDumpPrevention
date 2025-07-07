@@ -102,6 +102,7 @@ def dashboard():
         plt.savefig(filepath)
         plt.close()
 
+        city_stats = get_city_stats()
         return render_template("dashboard.html",
                                total_images=total_images,
                                full_percentage=full_percentage,
@@ -110,7 +111,8 @@ def dashboard():
                                empty_count=empty_count,
                                file_sizes=file_sizes,
                                plot_filename=plot_filename,
-                               images=data)
+                               images=data,
+                                city_stats=city_stats)
 
     except Exception as e:
         print(f"Erreur critique : {e}")
@@ -125,3 +127,47 @@ def dashboard():
                                file_sizes=[],
                                plot_filename=None,
                                images=[])
+    
+
+
+def get_city_stats():
+    villes_possibles = [
+        "Paris", "Lyon", "Marseille", "Toulouse", "Nice",
+        "Lille", "Nantes", "Strasbourg", "Bordeaux", "Montpellier",
+        "Rennes", "Reims", "Le Havre"
+    ]
+
+    stats = []
+
+    for ville in villes_possibles:
+        try:
+            pleines_resp = supabase.rpc("nb_poubelles_pleines", {"par_ville": ville}).execute()
+            vides_resp = supabase.rpc("nb_poubelles_vides", {"par_ville": ville}).execute()
+            non_annot_resp = supabase.rpc("nb_poubelles_non_annotées", {"par_ville": ville}).execute()
+
+            print(f"DEBUG {ville} pleines_resp.data:", pleines_resp.data)
+            print(f"DEBUG {ville} vides_resp.data:", vides_resp.data)
+            print(f"DEBUG {ville} non_annot_resp.data:", non_annot_resp.data)
+
+            pleines = pleines_resp.data if pleines_resp.data is not None else 0
+            vides = vides_resp.data if vides_resp.data is not None else 0
+            non_annotées = non_annot_resp.data if non_annot_resp.data is not None else 0
+
+            stats.append({
+                "ville": ville,
+                "pleines": pleines,
+                "vides": vides,
+                "non_annotées": non_annotées
+            })
+
+        except Exception as e:
+            print(f"Erreur récupération stats pour {ville} : {e}")
+            stats.append({
+                "ville": ville,
+                "pleines": 0,
+                "vides": 0,
+                "non_annotées": 0
+            })
+
+    return stats
+
