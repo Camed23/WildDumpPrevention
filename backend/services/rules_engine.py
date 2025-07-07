@@ -1,7 +1,7 @@
 # backend/services/rules_engine.py
 
 class Rule:
-    def __init__(self, name, condition_fn):
+    def __init__(self, name, condition_fn, weight=1.0):
         self.name = name
         self.condition = condition_fn
 
