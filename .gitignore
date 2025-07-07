@@ -194,10 +194,3 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
-
-# ignore cache files created by the function output
-.cache/images_metadata.json
-
-# ignore test folder
-test/
-tests/

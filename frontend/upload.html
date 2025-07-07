@@ -36,7 +36,22 @@
 
                 <div class="mb-3">
                     <label for="location">Lieu (adresse approximative)</label>
-                    <input type="text" name="location" id="location" class="form-control">
+                    <input list="city-list" name="location" id="location" class="form-control" required>
+                    <datalist id="city-list">
+                        <option value="Paris">
+                        <option value="Lyon">
+                        <option value="Marseille">
+                        <option value="Toulouse">
+                        <option value="Nice">
+                        <option value="Lille">
+                        <option value="Nantes">
+                        <option value="Strasbourg">
+                        <option value="Bordeaux">
+                        <option value="Montpellier">
+                        <option value="Rennes">
+                        <option value="Reims">
+                        <option value="Le Havre">
+                    </datalist>
                 </div>
 
                 <div class="mb-3">
@@ -56,75 +71,25 @@
                 <h4>État de la poubelle :</h4>
                 <input type="hidden" name="choice" id="choice" value="">
 
-                <button type="button" onclick="setChoice('vide', this)" class="btn btn-outline-dark m-1 choice-btn">Vide</button>
-                <button type="button" onclick="setChoice('plein', this)" class="btn btn-outline-dark m-1 choice-btn">Pleine</button>
-                <button type="button" onclick="setChoice('IA', this)" class="btn btn-outline-dark m-1 choice-btn">Laisser l'IA choisir</button>
+                <button type="button" onclick="setChoice('IA', this)" class="btn btn-outline-dark m-1 choice-btn">
+                    Laisser l'IA choisir
+                </button>
 
+                {% if session.role == 'Admin' %}
+                    <button type="button" onclick="setChoice('vide', this)" class="btn btn-outline-dark m-1 choice-btn">Vide</button>
+                    <button type="button" onclick="setChoice('plein', this)" class="btn btn-outline-dark m-1 choice-btn">Pleine</button>
+                {% else %}
+                    <p class="text-muted mt-2"><em>Seuls les administrateurs peuvent annoter manuellement.</em></p>
+                {% endif %}
 
-                
                 <div class="mt-4">
                     <button type="submit" class="btn btn-success">Valider et envoyer</button>
                 </div>
-                <div class="text-center mt-3 d-none" id="rules-toggle-container">
-                    <button type="button" class="btn btn-secondary" onclick="toggleRulesSection()">
-                        ⚙️ Gérer les règles de la classification
-                    </button>
-                </div>
-
             </section>
         </div>
     </section>
 </form>
-<!-- Section : Gestion des règles -->
 
-<section id="rules-section" class="upload-section bg-white mt-5 p-4 rounded shadow d-none">
-    <form id="reset-form" class="mb-3">
-        <button type="button" onclick="resetRules()" class="btn btn-danger btn-sm">
-            🔄 Réinitialiser les seuils par défaut
-        </button>
-    </form>
-    <h3>Gestion des règles de classification</h3>
-    <p>Modifiez les seuils utilisés pour classer l'image automatiquement.</p>
-
-    <table class="table table-bordered table-sm">
-        <thead class="table-light">
-            <tr>
-                <th>Nom</th>
-                <th>Description</th>
-                <th>Opérateur</th>
-                <th>Seuil</th>
-                <th>Poids</th>
-                <th>Catégorie</th>
-                <th>Save</th>
-            </tr>
-        </thead>
-        <tbody id="rules-tbody">
-        {% for rule in rules %}
-            <tr>
-            <form class="rule-form" method="POST">
-                <td>
-                {{ rule.rule_name }}
-                <input type="hidden" name="rule_name" value="{{ rule.rule_name }}">
-                </td>
-                <td>{{ rule.description }}</td>
-                <td>{{ rule.threshold_operator }}</td>
-                <td>
-                <input type="number" step="0.01" name="threshold_value"
-                        value="{{ rule.threshold_value }}" required>
-                </td>
-                <td>{{ rule.weight }}</td>
-                <td>{{ rule.category }}</td>
-                <td>
-                <button class="btn btn-sm btn-primary">💾</button>
-                </td>
-            </form>
-            </tr>
-        {% endfor %}
-        </tbody>
-
-
-    </table>
-</section>
 <script>
 function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
@@ -162,7 +127,6 @@ function handleFile(file) {
             imagePreviewSection.classList.remove('d-none');
             imageInfoSection.classList.remove('d-none');
             scrollToSection('image-preview');
-            document.getElementById('rules-toggle-container').classList.remove('d-none');
         };
         reader.readAsDataURL(file);
 
@@ -178,14 +142,6 @@ function clearPreview() {
     imagePreviewSection.classList.add('d-none');
     imageInfoSection.classList.add('d-none');
     fileInput.value = "";
-
-    // Cache le bouton et la section règles
-    document.getElementById('rules-toggle-container').classList.add('d-none');
-    document.getElementById('rules-section').classList.add('d-none');
-
-    // Remet aussi le texte du bouton au cas où il était ouvert
-    const btn = document.querySelector('#rules-toggle-container button');
-    if (btn) btn.textContent = "⚙️ Gérer les règles de la classification";
 }
 
 document.querySelectorAll('button[type="submit"]').forEach(btn => {
@@ -222,6 +178,10 @@ document.querySelector('form').addEventListener('submit', function(e) {
     }
 });
 
+window.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('date').setAttribute('max', today);
+});
 
 document.getElementById('date').addEventListener('change', function() {
     const selectedDate = this.value;
@@ -236,104 +196,6 @@ document.getElementById('date').addEventListener('change', function() {
     } else {
         timeInput.removeAttribute('max');
     }
-});
-
-
-function toggleRulesSection() {
-    const section = document.getElementById('rules-section');
-    const btn = document.querySelector('button[onclick="toggleRulesSection()"]');
-    
-    section.classList.toggle('d-none');
-    
-    if (!section.classList.contains('d-none')) {
-        btn.textContent = "Fermer la gestion des règles";
-    } else {
-        btn.textContent = "⚙️ Gérer les règles de la classification";
-    }
-}
-
-// ------------------- Sauvegarde des règles 
-// ------------------- Gestion de la réinitialisation -------------------
-// ------------------- Rechargement du tableau -------------------
-
-async function reloadRulesTable() {
-  const tbody  = document.getElementById('rules-tbody');
-  const rules  = await (await fetch('/upload/get_rules_json')).json();
-    tbody.innerHTML = rules.map(r => `
-    <tr>
-        <form class="rule-form" method="POST">
-        <td>${r.rule_name}
-            <input type="hidden" name="rule_name" value="${r.rule_name}">
-        </td>
-        <td>${r.description}</td>
-        <td>${r.threshold_operator}</td>
-        <td><input type="number" step="0.01" name="threshold_value"
-                    value="${r.threshold_value}" required></td>
-        <td>${r.weight}</td>
-        <td>${r.category}</td>
-        <td><button class="btn btn-sm btn-primary">💾</button></td>
-        </form>
-    </tr>
-    `).join('');
-
-
-
-}
-
-
-async function resetRules() {
-  const btn = document.querySelector('#reset-form button');
-  btn.disabled = true;
-  btn.textContent = "Réinitialisation…";
-
-  try {
-    const res = await fetch('/upload/reset_rules', { method: 'POST' });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-    await reloadRulesTable();        // ⭠ on recharge juste le tableau
-    setupRuleForms();
-    alert("✅ Seuils remis par défaut");
-  } catch (err) {
-    alert(`❌ ${err.message}`);
-  } finally {
-    btn.disabled = false;
-    btn.textContent = "🔄 Réinitialiser les seuils par défaut";
-  }
-}
-
-
-
-function setupRuleForms() {
-  document.getElementById('rules-tbody').addEventListener('submit', async (e) => {
-    if (!e.target.matches('.rule-form')) return;
-    e.preventDefault();
-
-    const form = e.target;
-    const btn  = e.submitter || form.querySelector('button, input[type="submit"]');
-    if (btn) { btn.disabled = true; btn.textContent = "⏳"; }
-
-    try {
-      const r = await fetch('/upload/update_rule', {
-        method: 'POST',
-        body: new FormData(form)
-      });
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      alert("✅ Règle mise à jour");
-    } catch (err) {
-      alert(`❌ ${err.message}`);
-    } finally {
-      if (btn) { btn.disabled = false; btn.textContent = "💾"; }
-    }
-  });
-}
-
-
-
-
-window.addEventListener('DOMContentLoaded', function() {
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('date').setAttribute('max', today);
-    setupRuleForms();
 });
 </script>
 
@@ -366,13 +228,6 @@ window.addEventListener('DOMContentLoaded', function() {
 .d-none {
     display: none;
 }
-.upload-section h3 {
-    margin-bottom: 20px;
-}
-.upload-section table input {
-    width: 80px;
-}
-
 </style>
 
 {% endblock %}

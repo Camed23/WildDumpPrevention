@@ -1,45 +1,12 @@
-"""
-Rules Engine - Moteur de règles pour la classification des poubelles
-
-LOGIQUE GÉNÉRALE :
-- Séparer la responsabilité : ce module calcule uniquement des SCORES, pas de classification
-- Utiliser un système de règles pondérées pour capturer différents aspects visuels
-- Permettre facilement l'ajout/suppression de règles sans casser le système
-- Retourner un score normalisé entre -1 (vide) et +1 (plein) pour simplifier la classification
-
-ARCHITECTURE :
-1. Rule : Classe pour une règle individuelle (condition + poids)
-2. RulesEngine : Moteur qui évalue toutes les règles et calcule un score global
-3. Scoring bipolaire : règles positives (plein) vs négatives (vide)
-"""
+# backend/services/rules_engine.py
 
 class Rule:
-    """
-    Une règle individuelle pour évaluer un aspect spécifique d'une image
-    
-    LOGIQUE :
-    - Chaque règle teste une condition sur les features d'image (ex: contraste > seuil)
-    - Le poids détermine l'importance de cette règle dans la décision finale
-    - Les poids positifs indiquent "plein", les poids négatifs indiquent "vide"
-    """
-    def __init__(self, name, condition_fn, weight=1.0):
-        """
-        Args:
-            name (str): Nom descriptif de la règle pour debug
-            condition_fn (function): Fonction lambda qui teste les features
-            weight (float): Poids de la règle (positif=plein, négatif=vide)
-        """
+    def __init__(self, name, condition_fn):
         self.name = name
         self.condition = condition_fn
-        self.weight = weight
 
     def applies(self, features):
-        """
-        Vérifie si la règle s'applique aux features
-        
-        Returns:
-            bool: True si la condition est remplie
-        """
+        # Renvoie True si la règle correspond à dirty
         return self.condition(features)
 
     def score(self, features):

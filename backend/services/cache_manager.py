@@ -4,6 +4,9 @@ import os
 import json
 from backend.config import IMAGE_TABLE, CACHE_PATH, supabase
 
+IMAGE_TABLE = IMAGE_TABLE    
+CACHE_PATH  = CACHE_PATH
+supabase = supabase
 
 def initialize_cache(output_path=CACHE_PATH, filter_type="all"):
     """

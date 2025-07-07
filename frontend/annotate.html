@@ -11,14 +11,21 @@
                 <h4>Récapitulatif :</h4>
                 <ul class="list-unstyled">
                     <li><strong> Lieu :</strong> {{ image_info.location or 'Non renseigné' }}</li>
-                    <li><strong> Date prise par l'utilisateur :</strong> {{ image_info.date_user or 'Non renseignée' }}</li>
-                    <li><strong> Heure :</strong> {{ image_info.time or 'Non renseignée' }}</li>
+                    <li><strong>Date indiquée par l'utilisateur :</strong> {{ image_info.date_user or 'Non renseignée' }}</li>
+                    <li><strong>Heure indiquée :</strong> {{ image_info.time or 'Non renseignée' }}</li>
                     <li><strong> Remarques :</strong> {{ image_info.notes or 'Aucune' }}</li>
-                    <li><strong> État choisi :</strong> {{ image_info.choice or 'Non précisé' }}</li>
-                    {% if image_info.choice == 'IA' %}
+                    {% if image_info.choice == 'manuel' %}
+                    <li><strong> État choisi :</strong> {{ image_info.prediction }}</li>
+                    {% endif %}
+                    {% if image_info.choice == 'auto' %}
                     <li><strong> Prédiction IA :</strong> {{ image_info.prediction }}</li>
                     {% endif %}
-                    <li><strong> Date réelle de téléversement :</strong> {{ image_info.upload_date or 'Non enregistrée' }}</li>
+                    <li><strong>Date réelle de téléversement :</strong>
+                        {{ image_info.upload_date | date_fr }}
+                    </li>
+                    <li><strong>Heure réelle de téléversement :</strong>
+                        {{ image_info.upload_date | heure_fr }}
+                    </li>
                 </ul>
 
                 <h4>Caractéristiques de l'image :</h4>
@@ -29,8 +36,8 @@
                     <li><strong>Moyenne Vert :</strong> {{ image_info.avg_g }}</li>
                     <li><strong>Moyenne Bleu :</strong> {{ image_info.avg_b }}</li>
                     <li><strong>Contraste :</strong> {{ image_info.contrast }}</li>
+                    <li><strong>Bords détectés :</strong> {{ 'Oui' if image_info.edges_detected else 'Non' }}</li>
                 </ul>
-
 
                 <h5>Merci pour votre participation 🙏</h5>
                 <p>Vous contribuez à améliorer la détection automatique des dépôts sauvages.</p>
@@ -40,13 +47,12 @@
 
             <div class="col-md-6 text-center">
                 {% if image_info.image_url %}
-                     <img src="{{ image_info.image_url }}" alt="Aperçu de l'image téléversée" class="img-fluid rounded shadow">
+                    <img src="{{ image_info.image_url }}" alt="Aperçu de l'image téléversée" class="img-fluid rounded shadow">
                 {% else %}
                     <div class="alert alert-warning mt-3">
-                    Aucun aperçu d'image disponible. Veuillez réessayer l'upload si nécessaire.
+                        Aucun aperçu d'image disponible. Veuillez réessayer l'upload si nécessaire.
                     </div>
                 {% endif %}
-
             </div>
         </div>
     </div>

@@ -1,23 +1,25 @@
--- ==========================
--- TYPES ENUM
--- ==========================
-CREATE TYPE user_role AS ENUM ('Admin', 'Citoyen', 'Agent');
-
-CREATE TYPE annotation_label_v AS ENUM ('plein', 'vide', 'inconnu');
-
-CREATE TYPE annotation_source AS ENUM ('manuel', 'auto');
-
--- ==========================
--- EXTENSION
--- ==========================
--- Nécessaire pour crypter les mots de passe
+-- 1. Activer l'extension de chiffrement (utile pour les mots de passe)
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
--- ==========================
--- TABLES
--- ==========================
+-- 2. TYPES ENUM ------------------------------------------------------------
+
+-- Type de rôles utilisateur
+DROP TYPE IF EXISTS user_role CASCADE;
+CREATE TYPE user_role AS ENUM ('Admin', 'Citoyen', 'Agent');
+
+-- Type d'annotation (plein, vide, inconnu)
+DROP TYPE IF EXISTS annotation_label_v CASCADE;
+CREATE TYPE annotation_label_v AS ENUM ('plein', 'vide');
+ALTER TYPE annotation_label_v ADD VALUE IF NOT EXISTS 'inconnu';
+
+-- Source de l'annotation
+DROP TYPE IF EXISTS annotation_source CASCADE;
+CREATE TYPE annotation_source AS ENUM ('manuel', 'auto');
+
+-- 3. TABLES ----------------------------------------------------------------
 
 -- Table des utilisateurs
+DROP TABLE IF EXISTS "User" CASCADE;
 CREATE TABLE "User" (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
@@ -27,6 +29,7 @@ CREATE TABLE "User" (
 );
 
 -- Table des images
+DROP TABLE IF EXISTS Image CASCADE;
 CREATE TABLE Image (
     image_id SERIAL PRIMARY KEY,
     file_path VARCHAR(255) NOT NULL,
@@ -41,10 +44,12 @@ CREATE TABLE Image (
     avg_blue FLOAT,
     contrast FLOAT,
     edges_detected BOOLEAN,
-    localisation TEXT
+    localisation TEXT,
+    date_i TIMESTAMP
 );
 
 -- Table des annotations
+DROP TABLE IF EXISTS Annotation CASCADE;
 CREATE TABLE Annotation (
     annotation_id SERIAL PRIMARY KEY,
     label annotation_label_v NOT NULL,
@@ -53,11 +58,9 @@ CREATE TABLE Annotation (
     image_id INT REFERENCES Image(image_id) ON DELETE CASCADE
 );
 
--- ==========================
--- FONCTIONS STOCKÉES
--- ==========================
+-- 4. FONCTIONS -------------------------------------------------------------
 
--- Création d'un utilisateur
+-- Création d’un utilisateur
 CREATE OR REPLACE FUNCTION creation_user(
     p_username VARCHAR,
     p_email VARCHAR,
@@ -75,7 +78,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Modification d'un utilisateur
+-- Modification d’un utilisateur
 CREATE OR REPLACE FUNCTION modif_user(
     p_user_id INT,
     p_username VARCHAR,
@@ -93,14 +96,14 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Suppression d'un utilisateur
+-- Suppression d’un utilisateur
 CREATE OR REPLACE FUNCTION supp_user(p_user_id INT) RETURNS VOID AS $$
 BEGIN
     DELETE FROM "User" WHERE user_id = p_user_id;
 END;
 $$ LANGUAGE plpgsql;
 
--- Création d'une image
+-- Création d’une image
 CREATE OR REPLACE FUNCTION creation_image(
     p_user_id INT,
     p_file_path VARCHAR,
@@ -126,7 +129,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Modification d'une image
+-- Modification d’une image
 CREATE OR REPLACE FUNCTION modif_image(
     p_image_id INT,
     p_user_id INT,
@@ -160,14 +163,14 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Suppression d'une image
+-- Suppression d’une image
 CREATE OR REPLACE FUNCTION supp_image(p_image_id INT) RETURNS VOID AS $$
 BEGIN
     DELETE FROM Image WHERE image_id = p_image_id;
 END;
 $$ LANGUAGE plpgsql;
 
--- Création d'une annotation
+-- Création d’une annotation
 CREATE OR REPLACE FUNCTION creation_annotation(
     p_image_id INT,
     p_label annotation_label_v,
@@ -179,7 +182,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Modification d'une annotation
+-- Modification d’une annotation
 CREATE OR REPLACE FUNCTION modif_annotation(
     p_annotation_id INT,
     p_image_id INT,
@@ -195,9 +198,74 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Suppression d'une annotation
+-- Suppression d’une annotation
 CREATE OR REPLACE FUNCTION supp_annotation(p_annotation_id INT) RETURNS VOID AS $$
 BEGIN
     DELETE FROM Annotation WHERE annotation_id = p_annotation_id;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Nombre de poubelles pleines par ville
+CREATE OR REPLACE FUNCTION nb_poubelles_pleines(par_ville TEXT)
+RETURNS INTEGER AS $$
+DECLARE
+    nb_pleines INTEGER;
+BEGIN
+    SELECT COUNT(*)
+    INTO nb_pleines
+    FROM Image i
+    JOIN Annotation a ON a.image_id = i.image_id
+    WHERE i.localisation = par_ville
+      AND a.label = 'plein';
+
+    RETURN nb_pleines;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Nombre de poubelles vides par ville
+CREATE OR REPLACE FUNCTION nb_poubelles_vides(par_ville TEXT)
+RETURNS INTEGER AS $$
+DECLARE
+    nb_vides INTEGER;
+BEGIN
+    SELECT COUNT(*)
+    INTO nb_vides
+    FROM Image i
+    JOIN Annotation a ON a.image_id = i.image_id
+    WHERE i.localisation = par_ville
+      AND a.label = 'vide';
+
+    RETURN nb_vides;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Nombre de poubelles non annotées par ville
+CREATE OR REPLACE FUNCTION nb_poubelles_non_annotées(par_ville TEXT)
+RETURNS INTEGER AS $$
+DECLARE
+    nb_non_annotées INTEGER;
+BEGIN
+    SELECT COUNT(*)
+    INTO nb_non_annotées
+    FROM Image i
+    LEFT JOIN Annotation a ON a.image_id = i.image_id
+    WHERE i.localisation = par_ville
+      AND a.annotation_id IS NULL;
+
+    RETURN nb_non_annotées;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION verify_password(p_email VARCHAR, p_password VARCHAR)
+RETURNS BOOLEAN AS $$
+DECLARE
+    result BOOLEAN;
+BEGIN
+    SELECT crypt(p_password, password) = password
+    INTO result
+    FROM "User"
+    WHERE email = p_email;
+
+    RETURN result;
 END;
 $$ LANGUAGE plpgsql;
