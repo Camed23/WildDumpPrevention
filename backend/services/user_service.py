@@ -12,3 +12,9 @@ def get_or_create_user(username="ecologiste", email="jsuisecolo@example.com", pa
     }).execute()
     result = supabase.table("User").select("*").eq("username", username).execute()
     return result.data[0]['user_id']
+
+def get_user_id_by_email(email):
+    result = supabase.table("User").select("user_id").eq("email", email).execute()
+    if result.data:
+        return result.data[0]['user_id']
+    return None

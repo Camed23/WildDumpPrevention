@@ -39,7 +39,22 @@
 
                 <div class="mb-3">
                     <label for="location">Lieu (adresse approximative)</label>
-                    <input type="text" name="location" id="location" class="form-control">
+                    <input list="city-list" name="location" id="location" class="form-control" required>
+                    <datalist id="city-list">
+                        <option value="Paris">
+                        <option value="Lyon">
+                        <option value="Marseille">
+                        <option value="Toulouse">
+                        <option value="Nice">
+                        <option value="Lille">
+                        <option value="Nantes">
+                        <option value="Strasbourg">
+                        <option value="Bordeaux">
+                        <option value="Montpellier">
+                        <option value="Rennes">
+                        <option value="Reims">
+                        <option value="Le Havre">
+                    </datalist>
                 </div>
                 <div class="mb-3">
                     <label for="date">Date de la photo</label>
@@ -57,10 +72,17 @@
                 <h4>État de la poubelle :</h4>
                 <input type="hidden" name="choice" id="choice" value="">
 
-                <button type="button" onclick="setChoice('Vide', this)" class="btn btn-outline-dark m-1 choice-btn">Vide</button>
-                <button type="button" onclick="setChoice('Pleine', this)" class="btn btn-outline-dark m-1 choice-btn">Pleine</button>
-                <button type="button" onclick="setChoice('IA', this)" class="btn btn-outline-dark m-1 choice-btn">Laisser l'IA choisir</button>
-                
+                <button type="button" onclick="setChoice('IA', this)" class="btn btn-outline-dark m-1 choice-btn">
+                    Laisser l'IA choisir
+                </button>
+
+                {% if session.role == 'Admin' %}
+                    <button type="button" onclick="setChoice('vide', this)" class="btn btn-outline-dark m-1 choice-btn">Vide</button>
+                    <button type="button" onclick="setChoice('plein', this)" class="btn btn-outline-dark m-1 choice-btn">Pleine</button>
+                {% else %}
+                    <p class="text-muted mt-2"><em>Seuls les administrateurs peuvent annoter manuellement.</em></p>
+                {% endif %}
+
                 <div class="mt-4">
                     <button type="submit" class="btn btn-success">Valider et envoyer</button>
                 </div>

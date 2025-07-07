@@ -10,15 +10,18 @@
 
 <section class="evaluation-content py-5">
     <div class="container">
-        <h2>Objectifs</h2>
-        <p>
-            Cette démarche vise à :
-            <ul>
-                <li>Identifier les risques techniques et d’usage de la plateforme.</li>
-                <li>Réduire l’impact environnemental via une approche Green IT.</li>
-                <li>Sensibiliser les utilisateurs à la problématique des déchets sauvages.</li>
-            </ul>
-        </p>
+
+        <h2>Pourquoi une démarche Green IT ?</h2>
+        <p>Notre projet TrashAnalyser intègre une approche responsable visant à limiter l'impact environnemental de la plateforme. En tant que futurs ingénieurs, nous avons appliqué les principes d'éco-conception numérique à chaque étape du développement.</p>
+
+        <h2 class="mt-5">Actions mises en place :</h2>
+        <ul class="mt-3">
+            <li>Compression et redimensionnement des images uploadées pour limiter la taille des fichiers.</li>
+            <li>Limitation du stockage en base de données aux informations strictement nécessaires.</li>
+            <li>Optimisation des algorithmes : calcul des caractéristiques d'images sans traitements lourds.</li>
+            <li>Design front-end léger : utilisation de Bootstrap CDN, réduction des fichiers CSS/JS.</li>
+            <li>Hébergement local lors du développement, déploiement prévu sur serveur mutualisé faible impact.</li>
+        </ul>
 
         <h3 class="mt-4">Documents disponibles</h3>
         <ul>
@@ -29,26 +32,6 @@
                 📊 <a href="{{ url_for('greenit.download_document', filename='tableau_impact.xlsx') }}">Tableau de synthèse de l’impact du projet (Excel)</a>
             </li>
         </ul>
-
-        <h3 class="mt-5">Thèmes abordés</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <h5>🧠 Logiciel</h5>
-                <ul>
-                    <li>Design & architecture technique</li>
-                    <li>Code & algorithmie efficiente</li>
-                    <li>Stockage, transport et hébergement optimisé</li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <h5>💻 Équipement utilisateur</h5>
-                <ul>
-                    <li>Compatibilité multi-supports (PC, smartphone, tablette)</li>
-                    <li>Limitation des ressources gourmandes</li>
-                    <li>Conception accessible et inclusive</li>
-                </ul>
-            </div>
-        </div>
 
         <div class="text-center mt-5">
             <a href="{{ url_for('dashboard.dashboard') }}" class="btn btn-secondary">Retour au tableau de bord</a>
