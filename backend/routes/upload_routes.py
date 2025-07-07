@@ -1,15 +1,23 @@
 import os
-from flask import Blueprint, render_template, request, redirect, flash, url_for, current_app, send_from_directory, session
+from flask import Blueprint, render_template, request, redirect, flash, url_for, current_app, send_from_directory, session, jsonify
 from backend.services.image_service import insert_image_metadata, insert_annotation, get_image_id_by_filename
 from backend.services.feature_extractor import calculate_image_properties
 from backend.services.user_service import  get_user_id_by_email
 from backend.utils.helpers import allowed_file, generate_unique_filename
+from backend.services.rule_service import get_all_rules, update_rule_threshold, reset_all_thresholds
 
 upload_bp = Blueprint('upload', __name__)
 
 @upload_bp.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
+        # Gestion de la mise à jour d'une règle 
+        if "rule_name" in request.form and "threshold_value" in request.form:
+            rule_name = request.form.get("rule_name")
+            new_value = float(request.form.get("threshold_value"))
+            update_rule_threshold(rule_name, new_value)
+            flash(f"Seuil mis à jour pour la règle '{rule_name}'", "success")
+            return redirect(request.url)
         file = request.files.get('file')
         if not file or file.filename == '':
             flash('Aucun fichier sélectionné.', 'error')
@@ -87,9 +95,53 @@ def upload_file():
             insert_annotation(image_id=image_id, label=label, source=source)
 
         return redirect(url_for("annotate.show_annotation", filename=filename))
-
-    return render_template("upload.html")
+    rules = get_all_rules()  # Ajouté pour le rendu HTML
+    return render_template("upload.html",rules=rules)
 
 @upload_bp.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory(current_app.config['UPLOAD_FOLDER'], filename)
+
+
+
+@upload_bp.route('/get_rules_json')
+def get_rules_json():
+    try:
+        data = get_all_rules()           # ← liste de dicts
+        return jsonify(data)             # ← JSON = liste
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(error=str(e)), 500
+
+
+@upload_bp.route('/reset_rules', methods=['POST'])
+def reset_rules():
+    try:
+        reset_all_thresholds()
+        #  ❯❯ Rien d’autre : juste « Pas de contenu »
+        return ("", 204)
+    except Exception as e:
+        current_app.logger.error(f"Error in reset_rules: {e}")
+        return jsonify(status="error", message=str(e)), 500
+
+
+@upload_bp.route('/update_rule', methods=['POST'])
+def update_rule():
+    try:
+        rule_name = request.form.get('rule_name')
+        threshold_value = float(request.form.get('threshold_value'))
+        
+        # Mettre à jour la règle
+        update_rule_threshold(rule_name, threshold_value)
+        
+        return jsonify({
+            "status": "success",
+            "message": f"Règle {rule_name} mise à jour"
+        })
+    except Exception as e:
+        current_app.logger.error(f"Error in update_rule: {str(e)}")
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        }), 500
+
