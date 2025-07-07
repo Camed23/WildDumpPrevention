@@ -13,7 +13,8 @@ def dashboard():
     
     try:
         print("Tentative de récupération des données depuis Supabase...")
-        response = supabase.table("Image").select("*").execute()  # Vérifiez le nom de la table
+        # On récupère les annotations et la taille de l'image liée
+        response = supabase.table("annotation").select("label, image_id, image(size)").execute()
 
         if response.error:
             print(f"Erreur Supabase: {response.error}")
@@ -31,7 +32,7 @@ def dashboard():
 
         data = response.data
         if not data:
-            flash("Aucune image trouvée.")
+            flash("Aucune annotation trouvée.")
             return render_template("dashboard.html",
                                    error="Aucune donnée disponible.",
                                    total_images=0,
@@ -44,6 +45,9 @@ def dashboard():
                                    images=[])
 
         df = pd.DataFrame(data)
+        # Extraire la taille depuis le champ imbriqué 'image'
+        if 'image' in df.columns:
+            df['size'] = df['image'].apply(lambda x: x['size'] if isinstance(x, dict) and 'size' in x else None)
 
         # Vérifiez que les colonnes attendues existent
         if 'label' not in df.columns or 'size' not in df.columns:
@@ -60,8 +64,8 @@ def dashboard():
                                    images=[])
 
         total_images = len(df)
-        full_count = df['label'].value_counts().get('plein', 0)  # Assurez-vous que la valeur est correcte
-        empty_count = df['label'].value_counts().get('vide', 0)   # Assurez-vous que la valeur est correcte
+        full_count = df['label'].value_counts().get('plein', 0)
+        empty_count = df['label'].value_counts().get('vide', 0)
         full_percentage = round((full_count / total_images) * 100, 2) if total_images > 0 else 0
         empty_percentage = round((empty_count / total_images) * 100, 2) if total_images > 0 else 0
         file_sizes = df['size'].dropna().tolist() if 'size' in df.columns else []
