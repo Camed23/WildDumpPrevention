@@ -3,6 +3,10 @@ from backend.config import supabase
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
+import numpy as np
+import os
+import matplotlib
+matplotlib.use('Agg')
 
 
 
@@ -81,6 +85,11 @@ def dashboard():
         full_count = int(full_count)
         empty_count = int(empty_count)
         file_sizes = [float(x) for x in file_sizes]
+        # Calcul de la taille moyenne des fichiers (en Ko)
+        if file_sizes:
+            moyenne_taille = round(np.mean(file_sizes) / 1024, 2)
+        else:
+            moyenne_taille = 0.0
 
         # Générer un graphique matplotlib
         import os
@@ -90,8 +99,10 @@ def dashboard():
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         plot_filename = f'plots/distribution_{timestamp}.png'
         filepath = os.path.join('static', plot_filename)
+        radar_filename = f'plots/radar_{timestamp}.png'
+        radar_filepath = os.path.join('static', radar_filename)
 
-        # Crée le graphique APRES plt. figure
+        # Crée le graphique APRES plt.figure
         plt.figure(figsize=(10, 6))
         df['label'].value_counts().plot(kind='bar', color=['red', 'green'])
         plt.title("Répartition des annotations")
@@ -101,6 +112,22 @@ def dashboard():
         plt.tight_layout()
         plt.savefig(filepath)
         plt.close()
+
+        try:
+            # Crée le graphique à barres
+            plt.figure(figsize=(10, 6))
+            df['label'].value_counts().plot(kind='bar', color=['red', 'green'])
+            plt.title("Répartition des annotations")
+            plt.xlabel("État")
+            plt.ylabel("Nombre d'images")
+            plt.xticks(rotation=0)
+            plt.tight_layout()
+            plt.savefig(filepath)
+            plt.close()
+        except Exception as plot_err:
+            print(f"Erreur lors de la génération des graphiques : {plot_err}")
+            flash("Erreur lors de la génération des graphiques.")
+
 
         city_stats = get_city_stats()
         return render_template("dashboard.html",
@@ -112,6 +139,8 @@ def dashboard():
                                file_sizes=file_sizes,
                                plot_filename=plot_filename,
                                images=data,
+                               moyenne_taille=moyenne_taille,
+                                radar_filename=radar_filename,
                                 city_stats=city_stats)
 
     except Exception as e:
@@ -145,19 +174,16 @@ def get_city_stats():
             vides_resp = supabase.rpc("nb_poubelles_vides", {"par_ville": ville}).execute()
             non_annot_resp = supabase.rpc("nb_poubelles_non_annotées", {"par_ville": ville}).execute()
 
-            print(f"DEBUG {ville} pleines_resp.data:", pleines_resp.data)
-            print(f"DEBUG {ville} vides_resp.data:", vides_resp.data)
-            print(f"DEBUG {ville} non_annot_resp.data:", non_annot_resp.data)
 
             pleines = pleines_resp.data if pleines_resp.data is not None else 0
             vides = vides_resp.data if vides_resp.data is not None else 0
-            non_annotees = non_annot_resp.data if non_annot_resp.data is not None else 0
+            non_annotées = non_annot_resp.data if non_annot_resp.data is not None else 0
 
             stats.append({
                 "ville": ville,
                 "pleines": pleines,
                 "vides": vides,
-                "non_annotées": non_annotees
+                "non_annotées": non_annotées
             })
 
         except Exception as e:
