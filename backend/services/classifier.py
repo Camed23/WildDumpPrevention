@@ -22,8 +22,8 @@ from backend.services.rules_engine import RulesEngine
 from collections import Counter
 
 # Configuration
-CACHE_PATH = "cache/images_metadata_labeled.json"
-#CACHE_PATH = config.CACHE_PATH  # Utiliser la configuration une fois le projet terminé
+#CACHE_PATH = "cache/images_metadata_labeled.json"
+CACHE_PATH = config.CACHE_PATH  # Utiliser la configuration une fois le projet terminé
 
 
 class BinClassifier:

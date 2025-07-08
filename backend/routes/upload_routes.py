@@ -5,6 +5,8 @@ from backend.services.feature_extractor import calculate_image_properties
 from backend.services.user_service import  get_user_id_by_email
 from backend.utils.helpers import allowed_file, generate_unique_filename
 from backend.services.rule_service import get_all_rules, update_rule_threshold, reset_all_thresholds
+from backend.services.classifier import BinClassifier
+from backend.services.rules_engine import RulesEngine
 
 upload_bp = Blueprint('upload', __name__)
 
@@ -80,9 +82,25 @@ def upload_file():
         source = 'manuel'
 
         if choice == "IA":
-            prediction = "plein" if avg_r < 100 and size > 150 else "vide"
+            rules_engine = RulesEngine()
+            classifier = BinClassifier(rules_engine=rules_engine)
+
+            features = {
+                "avg_red": avg_r,
+                "avg_green": avg_g,
+                "avg_blue": avg_b,
+                "size": size,
+                "width": width,
+                "height": height,
+                "contrast": contrast,
+                "edges_detected": edges_detected
+            }
+
+            result = classifier.classify(features)
+            prediction = result['prediction']
             label = prediction
             source = 'auto'
+
         elif choice and choice.lower() in ["vide", "plein"]:
             if session.get("role") == "Admin":
                 label = choice.lower()
@@ -119,7 +137,7 @@ def reset_rules():
     try:
         reset_all_thresholds()
         #  ❯❯ Rien d’autre : juste « Pas de contenu »
-        return ("", 204)
+        return "", 204
     except Exception as e:
         current_app.logger.error(f"Error in reset_rules: {e}")
         return jsonify(status="error", message=str(e)), 500
