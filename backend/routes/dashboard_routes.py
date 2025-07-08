@@ -91,7 +91,7 @@ def dashboard():
         plot_filename = f'plots/distribution_{timestamp}.png'
         filepath = os.path.join('static', plot_filename)
 
-        # Crée le graphique APRES plt.figure
+        # Crée le graphique APRES plt. figure
         plt.figure(figsize=(10, 6))
         df['label'].value_counts().plot(kind='bar', color=['red', 'green'])
         plt.title("Répartition des annotations")
@@ -151,13 +151,13 @@ def get_city_stats():
 
             pleines = pleines_resp.data if pleines_resp.data is not None else 0
             vides = vides_resp.data if vides_resp.data is not None else 0
-            non_annotées = non_annot_resp.data if non_annot_resp.data is not None else 0
+            non_annotees = non_annot_resp.data if non_annot_resp.data is not None else 0
 
             stats.append({
                 "ville": ville,
                 "pleines": pleines,
                 "vides": vides,
-                "non_annotées": non_annotées
+                "non_annotées": non_annotees
             })
 
         except Exception as e:
