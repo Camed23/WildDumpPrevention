@@ -1,0 +1,26 @@
+id,rule_name,description,threshold_operator,threshold_value,weight,category
+1,area_ratio_high,Zone occupée élevée,>,0.6,3,full
+2,hue_std_high,Variabilité des couleurs élevée,>,60,2,full
+3,contrast_iqr_high,Contraste élevé,>,85,2,full
+4,edge_density_low,Peu de contours nets,<,0.07,1,full
+5,mean_brightness_low,Image sombre,<,115,1.5,full
+10,area_ratio_low,Zone occupée faible,<,0.5,-2.5,empty
+11,hue_std_low,Faible variabilité des couleurs,<,55,-1.5,empty
+12,contrast_iqr_low,Contraste faible,<,75,-1.5,empty
+13,edge_density_high,Beaucoup de contours nets,>,0.09,-1,empty
+14,mean_brightness_high,Image claire,>,125,-1,empty
+6,texture_entropy_high,Forte entropie visuelle,>,6.5,2.5,full
+15,texture_entropy_low,Faible entropie,<,5,-2,empty
+7,color_complexity_high,Complexité des couleurs élevée,>,0.15,2,full
+16,color_complexity_low,Peu de couleurs,<,0.08,-1.5,empty
+8,brightness_variance_high,Grande variance de luminosité,>,800,1.5,full
+17,brightness_variance_low,Faible variance de luminosité,<,400,-1.5,empty
+18,spatial_frequency_low,Peu de textures,<,8,-1,empty
+9,fill_ratio_advanced_high,Zone remplie avancée,>,0.45,3.5,full
+21,shape_compactness_low,Forme peu compacte,<,0.35,1.5,empty
+22,shape_compactness_high,Forme très compacte,>,0.75,1,full
+19,fill_ratio_advanced_low,Zone peu remplie,<,0.25,-3,empty
+23,edge_orientation_entropy_low,Peu de diversité dans les contours,<,2,1.8,empty
+24,edge_orientation_entropy_high,Diversité élevée des directions de contours,>,3.5,1.2,full
+25,center_mass_near_bottom,Centre de masse visuel vers le bas,>,0.65,1,full
+26,center_mass_near_center,Centre de masse proche du centre,<,0.05,1.3,empty

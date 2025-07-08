@@ -139,3 +139,7 @@ python start.py
 - Faire un pull request avec une bonne description !
 
 
+### Connection
+Pour avoir accès à toutes les fonctionnalités Admin, vous devez vous connecter avec le compte :
+- email : "admin@example.com"
+- Mot de passe : "1234"

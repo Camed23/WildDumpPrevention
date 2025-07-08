@@ -1,0 +1,7 @@
+user_id,username,email,password,role
+1,test,test@mail,azerty,Citoyen
+2,alice,alice@example.com,motdepasse,Citoyen
+4,Dataimport,Dataimport@email.com,$2a$06$KVZGyHUUK5l.X4uSDje7x.iI1cpUt.fkyBfCspQUPPZnFtWwKVj86,Admin
+5,farid,farid@example.com,$2a$06$OM2nRV8DJETRiakHmN3zmOKYyuGmIZRz.A6mWFgpiO3IJbbPKFkIS,Admin
+6,ecologiste,jsuisecolo@example.com,$2a$06$9YgrUPlTfNkZ92t1TJ5CCOKjZ18yDntL9IZVE0pn6Kjsjj4pVJ/Km,Admin
+7,admin,admin@example.com,$2a$06$2Ult10o5.p3hi9F.8i6jR.0GsRWZQGVgEVmTnjlSSwdrtAD6B/7me,Admin
