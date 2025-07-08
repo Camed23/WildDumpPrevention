@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS wdp;
+CREATE DATABASE wdp;
+
 -- 1. Activer l'extension de chiffrement (utile pour les mots de passe)
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
@@ -269,3 +272,126 @@ BEGIN
     RETURN result;
 END;
 $$ LANGUAGE plpgsql;
+
+
+-- Gestion des règles de classification des images
+
+CREATE TABLE classification_rules (
+    id SERIAL PRIMARY KEY,
+    rule_name TEXT UNIQUE NOT NULL,
+    description TEXT NOT NULL,
+    threshold_operator TEXT CHECK (threshold_operator IN ('<', '>', '<=', '>=', '=', '!=')) NOT NULL,
+    threshold_value DOUBLE PRECISION NOT NULL,
+    weight DOUBLE PRECISION NOT NULL,
+    category TEXT CHECK (category IN ('full', 'empty')) NOT NULL
+);
+
+-- fonction 
+CREATE OR REPLACE FUNCTION add_classification_rule(
+    p_rule_name TEXT,
+    p_description TEXT,
+    p_threshold_operator TEXT,
+    p_threshold_value DOUBLE PRECISION,
+    p_weight DOUBLE PRECISION,
+    p_category TEXT
+) RETURNS VOID AS $$
+BEGIN
+    INSERT INTO classification_rules (
+        rule_name, description, threshold_operator,
+        threshold_value, weight, category
+    ) VALUES (
+        p_rule_name, p_description, p_threshold_operator,
+        p_threshold_value, p_weight, p_category
+    );
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION update_classification_rule(
+    p_rule_name TEXT,
+    p_description TEXT,
+    p_threshold_operator TEXT,
+    p_threshold_value DOUBLE PRECISION,
+    p_weight DOUBLE PRECISION,
+    p_category TEXT
+) RETURNS VOID AS $$
+BEGIN
+    UPDATE classification_rules
+    SET
+        description = p_description,
+        threshold_operator = p_threshold_operator,
+        threshold_value = p_threshold_value,
+        weight = p_weight,
+        category = p_category
+    WHERE rule_name = p_rule_name;
+
+    IF NOT FOUND THEN
+        RAISE EXCEPTION 'Rule "%" does not exist.', p_rule_name;
+    END IF;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION delete_classification_rule(
+    p_rule_name TEXT
+) RETURNS VOID AS $$
+BEGIN
+    DELETE FROM classification_rules WHERE rule_name = p_rule_name;
+
+    IF NOT FOUND THEN
+        RAISE EXCEPTION 'Rule "%" does not exist.', p_rule_name;
+    END IF;
+END;
+$$ LANGUAGE plpgsql;
+
+
+-- Création de nos règles
+
+INSERT INTO classification_rules 
+(rule_name, description, threshold_operator, threshold_value, weight, category) VALUES
+-- Règles pour poubelle pleine
+('area_ratio_high', 'Zone occupée élevée', '>', 0.60, 3.0, 'full'),
+('hue_std_high', 'Variabilité des couleurs élevée', '>', 60, 2.0, 'full'),
+('contrast_iqr_high', 'Contraste élevé', '>', 85, 2.0, 'full'),
+('edge_density_low', 'Peu de contours nets', '<', 0.07, 1.0, 'full'),
+('mean_brightness_low', 'Image sombre', '<', 115, 1.5, 'full'),
+('texture_entropy_high', 'Forte entropie visuelle', '>', 6.5, 2.5, 'full'),
+('color_complexity_high', 'Complexité des couleurs élevée', '>', 0.15, 2.0, 'full'),
+('brightness_variance_high', 'Grande variance de luminosité', '>', 800, 1.5, 'full'),
+('fill_ratio_advanced_high', 'Zone remplie avancée', '>', 0.45, 3.5, 'full'),
+
+-- Règles pour poubelle vide
+('area_ratio_low', 'Zone occupée faible', '<', 0.50, -2.5, 'empty'),
+('hue_std_low', 'Faible variabilité des couleurs', '<', 55, -1.5, 'empty'),
+('contrast_iqr_low', 'Contraste faible', '<', 75, -1.5, 'empty'),
+('edge_density_high', 'Beaucoup de contours nets', '>', 0.09, -1.0, 'empty'),
+('mean_brightness_high', 'Image claire', '>', 125, -1.0, 'empty'),
+('texture_entropy_low', 'Faible entropie', '<', 5.0, -2.0, 'empty'),
+('color_complexity_low', 'Peu de couleurs', '<', 0.08, -1.5, 'empty'),
+('brightness_variance_low', 'Faible variance de luminosité', '<', 400, -1.5, 'empty'),
+('spatial_frequency_low', 'Peu de textures', '<', 8, -1.0, 'empty'),
+('fill_ratio_advanced_low', 'Zone peu remplie', '<', 0.25, -3.0, 'empty');
+
+-- Ajout d'autre règle
+INSERT INTO classification_rules 
+(rule_name, description, threshold_operator, threshold_value, weight, category) VALUES
+('shape_compactness_low', 'Forme peu compacte', '<', 0.35, 1.5, 'empty');
+
+INSERT INTO classification_rules 
+(rule_name, description, threshold_operator, threshold_value, weight, category) VALUES
+('shape_compactness_high', 'Forme très compacte', '>', 0.75, 1.0, 'full');
+
+INSERT INTO classification_rules 
+(rule_name, description, threshold_operator, threshold_value, weight, category) VALUES
+('edge_orientation_entropy_low', 'Peu de diversité dans les contours', '<', 2.0, 1.8, 'empty');
+
+INSERT INTO classification_rules 
+(rule_name, description, threshold_operator, threshold_value, weight, category) VALUES
+('edge_orientation_entropy_high', 'Diversité élevée des directions de contours', '>', 3.5, 1.2, 'full');
+
+INSERT INTO classification_rules 
+(rule_name, description, threshold_operator, threshold_value, weight, category) VALUES
+('center_mass_near_bottom', 'Centre de masse visuel vers le bas', '>', 0.65, 1.0, 'full');
+
+INSERT INTO classification_rules 
+(rule_name, description, threshold_operator, threshold_value, weight, category) VALUES
+('center_mass_near_center', 'Centre de masse proche du centre', '<', 0.05, 1.3, 'empty');
