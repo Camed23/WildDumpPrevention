@@ -9,4 +9,4 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
 IMAGE_TABLE= "image"
-CACHE_PATH= "cache\images_metadata.json"
+CACHE_PATH= "cache/images_metadata.json"

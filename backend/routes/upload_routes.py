@@ -1,7 +1,7 @@
 import os
 from flask import Blueprint, render_template, request, redirect, flash, url_for, current_app, send_from_directory, session, jsonify
 from backend.services.image_service import insert_image_metadata, insert_annotation, get_image_id_by_filename
-from backend.services.feature_extractor import calculate_image_properties
+from backend.services.feature_extractor import calculate_image_properties, ImageFeatures
 from backend.services.user_service import  get_user_id_by_email
 from backend.utils.helpers import allowed_file, generate_unique_filename
 from backend.services.rule_service import get_all_rules, update_rule_threshold, reset_all_thresholds
@@ -82,24 +82,47 @@ def upload_file():
         source = 'manuel'
 
         if choice == "IA":
-            rules_engine = RulesEngine()
-            classifier = BinClassifier(rules_engine=rules_engine)
-
-            features = {
-                "avg_red": avg_r,
-                "avg_green": avg_g,
-                "avg_blue": avg_b,
-                "size": size,
-                "width": width,
-                "height": height,
-                "contrast": contrast,
-                "edges_detected": edges_detected
-            }
-
-            result = classifier.classify(features)
-            prediction = result['prediction']
-            label = prediction
-            source = 'auto'
+            # ✅ UTILISATION COMPLÈTE DU MOTEUR DE RÈGLES AVANCÉ
+            try:
+                # Créer le moteur de règles et le classifier
+                rules_engine = RulesEngine()
+                classifier = BinClassifier(rules_engine=rules_engine)
+                
+                # Extraire toutes les features avancées avec ImageFeatures
+                base_features = {
+                    'avg_red': avg_r,
+                    'avg_green': avg_g,
+                    'avg_blue': avg_b,
+                    'size': size,
+                    'width': width,
+                    'height': height,
+                    'contrast': contrast,
+                    'edges_detected': edges_detected
+                }
+                
+                # Utiliser ImageFeatures pour extraire les features avancées
+                image_features = ImageFeatures(base_features)
+                advanced_features = image_features.extract_all_features()
+                
+                # Classification avec le moteur de règles sophistiqué
+                result = classifier.classify(advanced_features)
+                prediction = result['prediction']
+                confidence = result['confidence']
+                
+                label = prediction
+                source = 'auto'  # L'enum n'accepte que 'manuel' ou 'auto'
+                
+                # Log pour debugging
+                print(f"🤖 Classification IA: {prediction} (confiance: {confidence:.2f})")
+                print(f"⚙️ Règles actives: {len(result['details']['active_rules'])}")
+                print(f"📊 Score: {result['score']:.3f}")
+                
+            except Exception as e:
+                # Fallback simple en cas d'erreur
+                print(f"❌ Erreur classification IA: {e}")
+                prediction = "plein" if avg_r < 100 and size > 150 else "vide"
+                label = prediction
+                source = 'auto'  # Utiliser 'auto' au lieu de 'auto (fallback)'
 
         elif choice and choice.lower() in ["vide", "plein"]:
             if session.get("role") == "Admin":
@@ -161,5 +184,151 @@ def update_rule():
         return jsonify({
             "status": "error",
             "message": str(e)
+        }), 500
+
+@upload_bp.route('/classify_image', methods=['POST'])
+def classify_image():
+    """
+    Route API pour classifier une image uploadée via AJAX
+    Permet au frontend de tester la classification avant soumission
+    """
+    try:
+        if 'file' not in request.files:
+            return jsonify({
+                "status": "error",
+                "message": "Aucun fichier fourni"
+            }), 400
+            
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({
+                "status": "error", 
+                "message": "Aucun fichier sélectionné"
+            }), 400
+            
+        if not allowed_file(file.filename):
+            return jsonify({
+                "status": "error",
+                "message": "Type de fichier non autorisé"
+            }), 400
+        
+        # Sauvegarder temporairement le fichier
+        upload_folder = current_app.config['UPLOAD_FOLDER']
+        ext = file.filename.rsplit('.', 1)[1].lower()
+        temp_filename = f"temp_classify.{ext}"
+        filepath = os.path.join(upload_folder, temp_filename)
+        file.save(str(filepath))
+        
+        try:
+            # Extraire les features de l'image
+            size, width, height, avg_r, avg_g, avg_b, contrast, edges_detected = calculate_image_properties(filepath)
+            
+            # Utiliser le moteur de règles pour classifier
+            rules_engine = RulesEngine()
+            classifier = BinClassifier(rules_engine=rules_engine)
+            
+            # Extraire toutes les features avancées
+            base_features = {
+                'avg_red': avg_r,
+                'avg_green': avg_g,
+                'avg_blue': avg_b,
+                'size': size,
+                'width': width,
+                'height': height,
+                'contrast': contrast,
+                'edges_detected': edges_detected
+            }
+            
+            image_features = ImageFeatures(base_features)
+            advanced_features = image_features.extract_all_features()
+            
+            # Classification
+            result = classifier.classify(advanced_features)
+            
+            return jsonify({
+                "status": "success",
+                "prediction": result['prediction'],
+                "confidence": round(result['confidence'], 3),
+                "score": round(result['score'], 3),
+                "active_rules": result['details']['active_rules'],
+                "rules_count": len(result['details']['active_rules']),
+                "advanced_rules": result.get('advanced_rules', []),
+                "features_extracted": len(advanced_features),
+                "message": f"Classification réussie: {result['prediction']} (confiance: {result['confidence']:.1%})"
+            })
+            
+        finally:
+            # Supprimer le fichier temporaire
+            if os.path.exists(filepath):
+                os.remove(filepath)
+        
+    except Exception as e:
+        current_app.logger.error(f"Error in classify_image: {str(e)}")
+        return jsonify({
+            "status": "error",
+            "message": f"Erreur lors de la classification: {str(e)}"
+        }), 500
+
+
+@upload_bp.route('/test_classifier', methods=['POST'])
+def test_classifier():
+    """
+    Route API pour tester le moteur de règles avec des paramètres personnalisés
+    """
+    try:
+        # Récupérer les features de test depuis la requête JSON
+        data = request.get_json() or {}
+        
+        # Features par défaut pour le test
+        test_features = {
+            'avg_red': data.get('avg_red', 120),
+            'avg_green': data.get('avg_green', 100), 
+            'avg_blue': data.get('avg_blue', 80),
+            'size': data.get('size', 200),
+            'width': data.get('width', 800),
+            'height': data.get('height', 600),
+            'contrast': data.get('contrast', 0.5),
+            'edges_detected': data.get('edges_detected', 150)
+        }
+        
+        # Utiliser le moteur de règles
+        rules_engine = RulesEngine()
+        classifier = BinClassifier(rules_engine=rules_engine)
+        
+        # Extraire toutes les features avancées
+        image_features = ImageFeatures(test_features)
+        advanced_features = image_features.extract_all_features()
+        
+        # Classification
+        result = classifier.classify(advanced_features)
+        
+        # Informations sur le moteur de règles
+        thresholds = rules_engine.get_thresholds()
+        
+        return jsonify({
+            "status": "success",
+            "classification": {
+                "prediction": result['prediction'],
+                "confidence": round(result['confidence'], 3),
+                "score": round(result['score'], 3)
+            },
+            "rules_engine": {
+                "total_thresholds": len(thresholds),
+                "active_rules": result['details']['active_rules'],
+                "rules_count": len(result['details']['active_rules'])
+            },
+            "features": {
+                "input_features": len(test_features),
+                "extracted_features": len(advanced_features),
+                "advanced_rules_used": len(result.get('advanced_rules', []))
+            },
+            "message": "Test du moteur de règles réussi"
+        })
+        
+    except Exception as e:
+        current_app.logger.error(f"Error in test_classifier: {str(e)}")
+        return jsonify({
+            "status": "error",
+            "message": f"Erreur lors du test: {str(e)}"
         }), 500
 
