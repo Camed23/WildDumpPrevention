@@ -49,7 +49,7 @@ annotate.html
 
             <div class="col-md-6 text-center">
                 {% if image_info.image_url %}
-                    <img src="{{ image_info.image_url }}" alt="Aperçu de l'image téléversée" class="img-fluid rounded shadow">
+                    <img src="{{ image_info.image_url }}" loading="lazy" alt="Aperçu de l'image téléversée" class="img-fluid rounded shadow">
                 {% else %}
                     <div class="alert alert-warning mt-3">
                         Aucun aperçu d'image disponible. Veuillez réessayer l'upload si nécessaire.

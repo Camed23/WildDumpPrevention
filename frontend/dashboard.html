@@ -46,7 +46,7 @@
 
         <h3 class="mb-3">Graphique statique (matplotlib)</h3>
         {% if plot_filename %}
-            <img src="{{ url_for('static', filename=plot_filename) }}" alt="Répartition des annotations" class="img-fluid mb-5">
+            <img src="{{ url_for('static', filename=plot_filename) }}" loading="lazy" alt="Répartition des annotations" class="img-fluid mb-5">
         {% else %}
             <p class="text-muted">Aucun graphique disponible.</p>
         {% endif %}

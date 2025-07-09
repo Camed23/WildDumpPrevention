@@ -49,9 +49,9 @@ def dashboard():
                                    images=[])
 
         # DEBUG : Afficher les données brutes et le DataFrame
-        print('DATA RECUE:', data)
+        #print('DATA RECUE:', data)
         df = pd.DataFrame(data)
-        print('DATAFRAME:', df.head())
+        #print('DATAFRAME:', df.head())
 
         # Extraire la taille depuis le champ imbriqué 'image'
         if 'image' in df.columns:
