@@ -97,7 +97,8 @@ def upload_file():
                     'width': width,
                     'height': height,
                     'contrast': contrast,
-                    'edges_detected': edges_detected
+                    'edges_detected': edges_detected,
+                    'file_path': filepath  # AJOUT CRITIQUE: le chemin vers l'image
                 }
                 
                 # Utiliser ImageFeatures pour extraire les features avancées
@@ -236,7 +237,8 @@ def classify_image():
                 'width': width,
                 'height': height,
                 'contrast': contrast,
-                'edges_detected': edges_detected
+                'edges_detected': edges_detected,
+                'file_path': filepath  # AJOUT CRITIQUE: le chemin vers l'image
             }
             
             image_features = ImageFeatures(base_features)
@@ -288,7 +290,8 @@ def test_classifier():
             'width': data.get('width', 800),
             'height': data.get('height', 600),
             'contrast': data.get('contrast', 0.5),
-            'edges_detected': data.get('edges_detected', 150)
+            'edges_detected': data.get('edges_detected', 150),
+            'file_path': ''  # Chemin vide pour les tests
         }
         
         # Utiliser le moteur de règles
