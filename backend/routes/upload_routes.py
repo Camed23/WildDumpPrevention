@@ -134,7 +134,14 @@ def upload_file():
                 return redirect(request.url)
 
         if label and image_id:
-            insert_annotation(image_id=image_id, label=label, source=source)
+            print(f"🔍 DEBUG: Insertion annotation - image_id={image_id}, label='{label}', source='{source}'")
+            try:
+                result = insert_annotation(image_id=image_id, label=label, source=source)
+                print(f"✅ DEBUG: Annotation insérée avec succès - result: {result}")
+            except Exception as e:
+                print(f"❌ DEBUG: Erreur lors de l'insertion annotation: {e}")
+        else:
+            print(f"❌ DEBUG: Annotation NON insérée - label='{label}', image_id={image_id}")
 
         return redirect(url_for("annotate.show_annotation", filename=filename))
     rules = get_all_rules()  # Ajouté pour le rendu HTML

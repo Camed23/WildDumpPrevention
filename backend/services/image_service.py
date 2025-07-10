@@ -30,7 +30,7 @@ def insert_annotation(image_id, label, source='manuel'):
     }).execute()
 
 def get_image_id_by_filename(filename):
-    result = supabase.table("image").select("image_id").eq("name_image", filename).execute()
+    result = supabase.table("image").select("image_id").eq("name_image", filename).order("upload_date", desc=True).limit(1).execute()
     if result.data and len(result.data) > 0:
         return result.data[0]['image_id']
     return None
